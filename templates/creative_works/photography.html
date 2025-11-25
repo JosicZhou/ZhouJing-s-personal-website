@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_text('dropdown_photography') }} - Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="creative-detail-page" style="padding-top: 120px;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">{{ get_text('nav_home') }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('creative_works') }}">{{ get_text('nav_creative_works') }}</a></li>
+                <li class="breadcrumb-item active">{{ get_text('dropdown_photography') }}</li>
+            </ol>
+        </nav>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="coming-soon-content">
+                    <i class="fas fa-camera fa-4x text-info mb-4"></i>
+                    <h1 class="display-4 fw-bold text-primary mb-3">{{ get_text('dropdown_photography') }}</h1>
+                    <h2 class="mb-3">Gallery Coming Soon</h2>
+                    <p class="lead mb-4">Discover my photography work spanning portraits, landscapes, events, and creative conceptual photography.</p>
+                    
+                    <div class="preview-content mt-5 text-start">
+                        <h4 class="fw-bold mb-3">Photography Specialties:</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-info">👥 Portrait Photography</h5>
+                                    <p>Professional headshots and creative portraits</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-info">🌅 Landscape & Nature</h5>
+                                    <p>Capturing natural beauty and scenic views</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-info">🎉 Event Documentation</h5>
+                                    <p>Corporate events and special occasions</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-info">🎨 Creative Concepts</h5>
+                                    <p>Artistic and conceptual photography projects</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="equipment-highlight mt-5">
+                        <h5 class="fw-bold mb-3">Equipment & Software</h5>
+                        <div class="tech-tags">
+                            <span class="badge bg-dark me-2 mb-2">Canon EOS R</span>
+                            <span class="badge bg-info me-2 mb-2">Adobe Lightroom</span>
+                            <span class="badge bg-primary me-2 mb-2">Photoshop</span>
+                            <span class="badge bg-success me-2 mb-2">Capture One</span>
+                            <span class="badge bg-warning me-2 mb-2">Studio Lighting</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <a href="{{ url_for('creative_works') }}" class="btn btn-primary btn-lg me-3">Back to Creative Works</a>
+                        <a href="{{ url_for('graphic_design') }}" class="btn btn-outline-primary btn-lg">View Graphic Design</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

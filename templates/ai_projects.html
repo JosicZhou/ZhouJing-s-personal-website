@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_text('nav_ai_projects') }} - Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="ai-projects-page" style="padding-top: 100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-5 fw-bold mb-3">{{ get_text('nav_ai_projects') }}</h1>
+                <p class="lead">Explore my journey in AI product development and innovation</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="coming-soon-content">
+                    <i class="fas fa-tools fa-4x text-primary mb-4"></i>
+                    <h2 class="mb-3">Coming Soon</h2>
+                    <p class="mb-4">This section is currently under development. Detailed case studies for AI projects including AI Music Generator, AI Coloring Book, AI Tattoo Designer, and Web Image Scraper will be available soon.</p>
+                    
+                    <div class="preview-cards mt-5">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">AI Music Generator</h5>
+                                        <p class="card-text">Product management and prompt engineering for AI music creation platform.</p>
+                                        <span class="badge bg-primary">Coming Soon</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">AI Coloring Book</h5>
+                                        <p class="card-text">User-centric design for AI-powered creative applications.</p>
+                                        <span class="badge bg-primary">Coming Soon</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">AI Tattoo Designer</h5>
+                                        <p class="card-text">Full product development from concept to launch.</p>
+                                        <span class="badge bg-primary">Coming Soon</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Web Image Scraper</h5>
+                                        <p class="card-text">Image data collection and visual content analysis automation tools.</p>
+                                        <span class="badge bg-primary">Coming Soon</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <a href="{{ url_for('home') }}" class="btn btn-primary me-3">Back to Home</a>
+                        <a href="{{ url_for('resume') }}" class="btn btn-outline-primary">View Resume</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_text('resume_title') }} - Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="resume-page" style="padding-top: 100px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Header -->
+                <header class="resume-header mb-5">
+                    <h1 class="display-5 fw-bold mb-2">{{ get_text('hero_title') }}</h1>
+                    <h2 class="h5 text-muted mb-3">{{ get_text('resume_current_role') }}</h2>
+                    
+                    <div class="contact-links">
+                        <a href="mailto:josic.zhou@example.com" class="btn btn-outline-primary btn-sm me-2 mb-2">
+                            <i class="fas fa-envelope me-1"></i> Email
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm me-2 mb-2">
+                            <i class="fas fa-file-pdf me-1"></i> CV (PDF)
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm me-2 mb-2">
+                            <i class="fab fa-github me-1"></i> GitHub
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm me-2 mb-2">
+                            <i class="fab fa-linkedin me-1"></i> LinkedIn
+                        </a>
+                    </div>
+                </header>
+
+                <!-- About Me -->
+                <section class="resume-section mb-5">
+                    <h3 class="section-title mb-3">{{ get_text('resume_about_title') }}</h3>
+                    <p class="lead">{{ get_text('resume_about_text') }}</p>
+                </section>
+
+                <!-- Experience -->
+                <section class="resume-section mb-5">
+                    <h3 class="section-title mb-4">{{ get_text('resume_experience_title') }}</h3>
+                    
+                    <div class="experience-item mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h4 class="h5 mb-1 fw-semibold">AI Product Intern</h4>
+                                <p class="text-primary mb-0">AI Music Generator Platform</p>
+                            </div>
+                            <span class="badge bg-light text-dark">2024</span>
+                        </div>
+                        <ul class="experience-details">
+                            <li>Led market research and competitive analysis for AI music generation products, identifying key user pain points and product opportunities</li>
+                            <li>Designed and optimized user experience flows for text-to-music generation, resulting in improved user engagement metrics</li>
+                            <li>Developed and refined prompt engineering strategies to enhance music quality and diversity output by 30%</li>
+                            <li>Implemented SEO strategies that increased organic search traffic by 40% within 3 months</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h4 class="h5 mb-1 fw-semibold">AI Product Intern</h4>
+                                <p class="text-primary mb-0">AI Coloring Book Application</p>
+                            </div>
+                            <span class="badge bg-light text-dark">2024</span>
+                        </div>
+                        <ul class="experience-details">
+                            <li>Conducted user research and usability testing to understand creative workflow preferences of target users</li>
+                            <li>Designed intuitive UI/UX for AI-powered coloring book generation with focus on accessibility and user engagement</li>
+                            <li>Collaborated with development team to integrate AI image generation APIs and optimize performance</li>
+                            <li>Developed product metrics framework and analyzed user behavior data to drive feature prioritization</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h4 class="h5 mb-1 fw-semibold">Product Development Intern</h4>
+                                <p class="text-primary mb-0">AI Tattoo Designer Platform</p>
+                            </div>
+                            <span class="badge bg-light text-dark">2023</span>
+                        </div>
+                        <ul class="experience-details">
+                            <li>Spearheaded user journey mapping and persona development for AI tattoo design platform</li>
+                            <li>Coordinated cross-functional team to deliver MVP from concept to launch in 4 months</li>
+                            <li>Implemented A/B testing framework to optimize conversion rates and user satisfaction</li>
+                            <li>Managed product roadmap and feature prioritization based on user feedback and business objectives</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="resume-section mb-5">
+                    <h3 class="section-title mb-4">{{ get_text('resume_education_title') }}</h3>
+                    
+                    <div class="education-item mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h4 class="h5 mb-1 fw-semibold">Master of Science in Generative AI</h4>
+                                <p class="text-primary mb-0">The Hong Kong Polytechnic University</p>
+                                <p class="text-muted small mb-0">World Top 100 University</p>
+                            </div>
+                            <span class="badge bg-light text-dark">2024-2025</span>
+                        </div>
+                        <p class="mb-0">Specialized in Generative AI technologies, machine learning, and AI product development.</p>
+                    </div>
+
+                    <div class="education-item mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h4 class="h5 mb-1 fw-semibold">Exchange Scholar Program</h4>
+                                <p class="text-primary mb-0">National University of Singapore</p>
+                                <p class="text-muted small mb-0">Achievement Scholar</p>
+                            </div>
+                            <span class="badge bg-light text-dark">2023</span>
+                        </div>
+                        <p class="mb-0">Focused on AI applications and product management methodologies in international context.</p>
+                    </div>
+
+                    <div class="education-item mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h4 class="h5 mb-1 fw-semibold">Bachelor's Degree in Media Communication</h4>
+                                <p class="text-primary mb-0">[University Name]</p>
+                            </div>
+                            <span class="badge bg-light text-dark">2020-2024</span>
+                        </div>
+                        <p class="mb-0">Foundation in media production, digital communication, and user experience design.</p>
+                    </div>
+                </section>
+
+                <!-- Honors & Awards -->
+                <section class="resume-section mb-5">
+                    <h3 class="section-title mb-4">{{ get_text('resume_honors_title') }}</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="award-item mb-3">
+                                <h5 class="h6 fw-semibold mb-1">National Scholarship</h5>
+                                <p class="text-muted small mb-1">Ministry of Education, China</p>
+                                <p class="mb-0">Awarded to top 1% of students nationwide for academic excellence</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="award-item mb-3">
+                                <h5 class="h6 fw-semibold mb-1">Exchange Achievement Scholar</h5>
+                                <p class="text-muted small mb-1">National University of Singapore</p>
+                                <p class="mb-0">Merit-based scholarship for outstanding academic performance</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="award-item mb-3">
+                                <h5 class="h6 fw-semibold mb-1">Dean's List</h5>
+                                <p class="text-muted small mb-1">Multiple Semesters</p>
+                                <p class="mb-0">Consistent high academic achievement</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="award-item mb-3">
+                                <h5 class="h6 fw-semibold mb-1">Innovation Award</h5>
+                                <p class="text-muted small mb-1">University Creative Competition</p>
+                                <p class="mb-0">Recognition for innovative media production projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Publications & Projects -->
+                <section class="resume-section mb-5">
+                    <h3 class="section-title mb-4">{{ get_text('resume_projects_title') }}</h3>
+                    
+                    <div class="project-links">
+                        <p class="mb-3">For detailed case studies and project portfolios, please visit:</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="{{ url_for('ai_projects') }}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-robot me-1"></i> AI Projects Portfolio
+                            </a>
+                            <a href="{{ url_for('creative_works') }}" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-palette me-1"></i> Creative Works Portfolio
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="featured-publications mt-4">
+                        <h5 class="h6 fw-semibold mb-3">Selected Projects</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <strong>AI Music Generator Platform:</strong> End-to-end product development from user research to launch
+                            </li>
+                            <li class="mb-2">
+                                <strong>AI Coloring Book Application:</strong> User-centric design and AI integration for creative tools
+                            </li>
+                            <li class="mb-2">
+                                <strong>Python Web Scraping Tools:</strong> Data collection and analysis automation for product insights
+                            </li>
+                            <li class="mb-2">
+                                <strong>Interactive Media Projects:</strong> Award-winning digital storytelling and user experience design
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Core Competencies -->
+                <section class="resume-section mb-5">
+                    <h3 class="section-title mb-4">Core Competencies</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <h5 class="h6 fw-semibold text-primary mb-2">Product Management</h5>
+                            <ul class="competency-list">
+                                <li>User Research & Analysis</li>
+                                <li>Product Strategy & Roadmapping</li>
+                                <li>A/B Testing & Metrics</li>
+                                <li>Agile/Scrum Methodologies</li>
+                                <li>Cross-functional Leadership</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <h5 class="h6 fw-semibold text-success mb-2">AI & Technology</h5>
+                            <ul class="competency-list">
+                                <li>Prompt Engineering</li>
+                                <li>Machine Learning Concepts</li>
+                                <li>Python Programming</li>
+                                <li>API Integration</li>
+                                <li>Data Analysis & Visualization</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <h5 class="h6 fw-semibold text-warning mb-2">Design & Media</h5>
+                            <ul class="competency-list">
+                                <li>UI/UX Design</li>
+                                <li>Video Production</li>
+                                <li>Digital Photography</li>
+                                <li>Content Strategy</li>
+                                <li>SEO Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

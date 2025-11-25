@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_text('dropdown_ai_music') }} - Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="project-detail-page" style="padding-top: 120px;">
+    <div class="container">
+        <!-- Project Header -->
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('home') }}">{{ get_text('nav_home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('ai_projects') }}">{{ get_text('nav_ai_projects') }}</a></li>
+                        <li class="breadcrumb-item active">{{ get_text('dropdown_ai_music') }}</li>
+                    </ol>
+                </nav>
+                
+                <div class="project-header mb-5">
+                    <h1 class="display-4 fw-bold text-primary mb-3">{{ get_text('dropdown_ai_music') }}</h1>
+                    <div class="project-meta d-flex flex-wrap gap-3 mb-4">
+                        <span class="badge bg-primary fs-6">Product Management</span>
+                        <span class="badge bg-success fs-6">Prompt Engineering</span>
+                        <span class="badge bg-warning fs-6">SEO</span>
+                        <span class="badge bg-info fs-6">User Research</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary me-3">
+                            <i class="fas fa-external-link-alt me-2"></i>Visit Live Product
+                        </a>
+                        <a href="#" class="btn btn-outline-primary">
+                            <i class="fas fa-code me-2"></i>View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Overview -->
+        <div class="row mb-5">
+            <div class="col-lg-8">
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">Project Overview</h2>
+                    <p class="lead">An innovative AI-powered music creation platform that transforms text descriptions into original musical compositions, making music creation accessible to everyone regardless of musical background.</p>
+                    <p>This project demonstrates my ability to bridge technical AI capabilities with user-centric product design, focusing on creating an intuitive experience for both novice and experienced musicians.</p>
+                </section>
+
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">My Role & Responsibilities</h2>
+                    <div class="role-card p-4 bg-light rounded">
+                        <h4 class="text-primary mb-3">AI Product Intern</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Led market research and competitive analysis</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Designed user experience flows for text-to-music generation</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Developed prompt engineering strategies</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Implemented SEO optimization strategies</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Collaborated with technical team on API integration</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">Key Contributions</h2>
+                    
+                    <div class="contribution-item mb-4">
+                        <h5 class="fw-bold text-primary">Market Research & User Analysis</h5>
+                        <p>Conducted comprehensive competitive analysis of existing AI music tools and identified key user pain points through surveys and interviews with 50+ potential users.</p>
+                        <ul>
+                            <li>Identified 3 major user segments: content creators, hobbyist musicians, and professional producers</li>
+                            <li>Discovered 70% of users wanted more control over musical style and mood</li>
+                            <li>Found that prompt clarity was the biggest barrier to adoption</li>
+                        </ul>
+                    </div>
+
+                    <div class="contribution-item mb-4">
+                        <h5 class="fw-bold text-primary">Prompt Engineering Excellence</h5>
+                        <p>Designed and optimized prompt templates that improved music generation quality and user satisfaction by 30%.</p>
+                        <ul>
+                            <li>Created structured prompt framework with genre, mood, and instrumentation parameters</li>
+                            <li>Developed prompt validation system to prevent generation errors</li>
+                            <li>Built prompt suggestion engine based on user behavior analysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="contribution-item mb-4">
+                        <h5 class="fw-bold text-primary">SEO Strategy Implementation</h5>
+                        <p>Executed comprehensive SEO strategy that increased organic search traffic by 40% within 3 months.</p>
+                        <ul>
+                            <li>Optimized landing pages for high-volume keywords like "AI music generator"</li>
+                            <li>Created content marketing strategy around music creation tutorials</li>
+                            <li>Implemented technical SEO improvements for faster page load times</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">Results & Impact</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-card text-center p-4 bg-primary text-white rounded">
+                                <h3 class="display-6 fw-bold">30%</h3>
+                                <p class="mb-0">Improvement in Music Quality</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-card text-center p-4 bg-success text-white rounded">
+                                <h3 class="display-6 fw-bold">40%</h3>
+                                <p class="mb-0">Increase in Organic Traffic</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-card text-center p-4 bg-warning text-white rounded">
+                                <h3 class="display-6 fw-bold">500+</h3>
+                                <p class="mb-0">Daily Active Users</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-card text-center p-4 bg-info text-white rounded">
+                                <h3 class="display-6 fw-bold">4.2/5</h3>
+                                <p class="mb-0">User Satisfaction Score</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">Lessons Learned</h2>
+                    <div class="lessons-card p-4 border rounded">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <strong>User feedback is critical:</strong> Regular user testing sessions helped identify usability issues that weren't apparent during development.
+                            </li>
+                            <li class="mb-3">
+                                <strong>Prompt engineering as a product feature:</strong> The quality of AI output heavily depends on how well we guide users to write effective prompts.
+                            </li>
+                            <li class="mb-3">
+                                <strong>SEO requires ongoing optimization:</strong> Content strategy and technical improvements must work together for sustainable organic growth.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="project-sidebar">
+                    <div class="sidebar-card p-4 mb-4 bg-light rounded">
+                        <h5 class="fw-bold mb-3">Project Details</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong>Duration:</strong> 4 months</li>
+                            <li class="mb-2"><strong>Team Size:</strong> 5 members</li>
+                            <li class="mb-2"><strong>My Role:</strong> AI Product Intern</li>
+                            <li class="mb-2"><strong>Technologies:</strong> OpenAI API, React, Node.js</li>
+                            <li class="mb-2"><strong>Status:</strong> Live in Production</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card p-4 mb-4 bg-light rounded">
+                        <h5 class="fw-bold mb-3">Technologies Used</h5>
+                        <div class="tech-tags">
+                            <span class="badge bg-secondary me-1 mb-1">OpenAI API</span>
+                            <span class="badge bg-secondary me-1 mb-1">React</span>
+                            <span class="badge bg-secondary me-1 mb-1">Node.js</span>
+                            <span class="badge bg-secondary me-1 mb-1">MongoDB</span>
+                            <span class="badge bg-secondary me-1 mb-1">AWS</span>
+                            <span class="badge bg-secondary me-1 mb-1">Google Analytics</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card p-4 bg-light rounded">
+                        <h5 class="fw-bold mb-3">Other Projects</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a href="{{ url_for('ai_coloring_book') }}" class="text-decoration-none">
+                                    {{ get_text('dropdown_ai_coloring') }} →
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="{{ url_for('ai_tattoo_designer') }}" class="text-decoration-none">
+                                    {{ get_text('dropdown_ai_tattoo') }} →
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="{{ url_for('web_image_scraper') }}" class="text-decoration-none">
+                                    {{ get_text('dropdown_python_scraper') }} →
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="row">
+            <div class="col-12">
+                <div class="cta-section text-center p-5 bg-primary text-white rounded">
+                    <h3 class="mb-3">Interested in My Product Management Approach?</h3>
+                    <p class="mb-4">Let's discuss how I can help bring your AI product vision to life.</p>
+                    <div>
+                        <a href="{{ url_for('resume') }}" class="btn btn-light btn-lg me-3">View My Resume</a>
+                        <a href="mailto:josic.zhou@example.com" class="btn btn-outline-light btn-lg">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_text('dropdown_python_scraper') }} - Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="project-detail-page" style="padding-top: 120px;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">{{ get_text('nav_home') }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('ai_projects') }}">{{ get_text('nav_ai_projects') }}</a></li>
+                <li class="breadcrumb-item active">{{ get_text('dropdown_python_scraper') }}</li>
+            </ol>
+        </nav>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="coming-soon-content">
+                    <i class="fas fa-code fa-4x text-success mb-4"></i>
+                    <h1 class="display-4 fw-bold text-primary mb-3">{{ get_text('dropdown_python_scraper') }}</h1>
+                    <h2 class="mb-3">Technical Case Study Coming Soon</h2>
+                    <p class="lead mb-4">Explore how I built efficient image data collection systems to support visual content strategy and competitive analysis.</p>
+                    
+                    <div class="preview-content mt-5 text-start">
+                        <h4 class="fw-bold mb-3">Technical Highlights:</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">🐍 Advanced Python image scraping techniques</li>
+                                    <li class="mb-2">🖼️ Image data pipeline automation</li>
+                                    <li class="mb-2">🔍 Visual content intelligence gathering</li>
+                                    <li class="mb-2">📈 Visual market trend analysis tools</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">⚡ Image processing optimization</li>
+                                    <li class="mb-2">🛡️ Anti-detection strategies</li>
+                                    <li class="mb-2">🖼️ Image data cleaning and validation</li>
+                                    <li class="mb-2">🔄 Scheduled image collection</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-stack mt-5">
+                        <h5 class="fw-bold mb-3">Technologies Used</h5>
+                        <div class="tech-tags">
+                            <span class="badge bg-success me-2 mb-2">Python</span>
+                            <span class="badge bg-primary me-2 mb-2">BeautifulSoup</span>
+                            <span class="badge bg-warning me-2 mb-2">Selenium</span>
+                            <span class="badge bg-info me-2 mb-2">Scrapy</span>
+                            <span class="badge bg-secondary me-2 mb-2">Pandas</span>
+                            <span class="badge bg-dark me-2 mb-2">MongoDB</span>
+                            <span class="badge bg-danger me-2 mb-2">Redis</span>
+                            <span class="badge bg-success me-2 mb-2">Docker</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-meta mt-5">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="metric-card text-center p-4 bg-success text-white rounded">
+                                    <h4 class="display-6 fw-bold">50K+</h4>
+                                    <p class="mb-0">Images/Day</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="metric-card text-center p-4 bg-primary text-white rounded">
+                                    <h4 class="display-6 fw-bold">15+</h4>
+                                    <p class="mb-0">Image Sources</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="metric-card text-center p-4 bg-warning text-white rounded">
+                                    <h4 class="display-6 fw-bold">95%</h4>
+                                    <p class="mb-0">Accuracy Rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <a href="{{ url_for('ai_projects') }}" class="btn btn-primary btn-lg me-3">Back to All Projects</a>
+                        <a href="https://github.com" class="btn btn-outline-success btn-lg">
+                            <i class="fab fa-github me-2"></i>View Code Samples
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

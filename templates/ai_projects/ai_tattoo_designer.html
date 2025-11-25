@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_text('dropdown_ai_tattoo') }} - Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="project-detail-page" style="padding-top: 120px;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">{{ get_text('nav_home') }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('ai_projects') }}">{{ get_text('nav_ai_projects') }}</a></li>
+                <li class="breadcrumb-item active">{{ get_text('dropdown_ai_tattoo') }}</li>
+            </ol>
+        </nav>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="coming-soon-content">
+                    <i class="fas fa-paint-brush fa-4x text-primary mb-4"></i>
+                    <h1 class="display-4 fw-bold text-primary mb-3">{{ get_text('dropdown_ai_tattoo') }}</h1>
+                    <h2 class="mb-3">Detailed Case Study Coming Soon</h2>
+                    <p class="lead mb-4">This comprehensive case study will showcase my full product lifecycle management experience, from initial concept to successful launch of an AI-powered tattoo design platform.</p>
+                    
+                    <div class="preview-content mt-5 text-start">
+                        <h4 class="fw-bold mb-3">What You'll Learn:</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">🎯 Product strategy development</li>
+                                    <li class="mb-2">👥 User persona creation and validation</li>
+                                    <li class="mb-2">📊 A/B testing framework implementation</li>
+                                    <li class="mb-2">🚀 Go-to-market strategy execution</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">🔄 Agile development coordination</li>
+                                    <li class="mb-2">📈 Growth metrics and KPI tracking</li>
+                                    <li class="mb-2">🎨 Creative AI prompt engineering</li>
+                                    <li class="mb-2">💼 Cross-functional team leadership</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-meta mt-5">
+                        <h5 class="fw-bold mb-3">Project Highlights</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="metric-card text-center p-4 bg-primary text-white rounded">
+                                    <h4 class="display-6 fw-bold">0→1</h4>
+                                    <p class="mb-0">Product Built</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="metric-card text-center p-4 bg-success text-white rounded">
+                                    <h4 class="display-6 fw-bold">4mo</h4>
+                                    <p class="mb-0">Concept to Launch</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="metric-card text-center p-4 bg-warning text-white rounded">
+                                    <h4 class="display-6 fw-bold">1K+</h4>
+                                    <p class="mb-0">Beta Users</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <a href="{{ url_for('ai_projects') }}" class="btn btn-primary btn-lg me-3">View All Projects</a>
+                        <a href="{{ url_for('ai_music_generator') }}" class="btn btn-outline-primary btn-lg">See Music Generator Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

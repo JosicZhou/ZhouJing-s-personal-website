@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_text('nav_creative_works') }} - Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="creative-works-page" style="padding-top: 100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-5 fw-bold mb-3">{{ get_text('nav_creative_works') }}</h1>
+                <p class="lead">A showcase of my media and design expertise</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="coming-soon-content">
+                    <i class="fas fa-palette fa-4x text-warning mb-4"></i>
+                    <h2 class="mb-3">Portfolio Under Construction</h2>
+                    <p class="mb-4">This creative portfolio showcasing my work in film, photography, graphic design, and digital interactive media will be available soon.</p>
+                    
+                    <div class="preview-categories mt-5">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-film fa-2x text-danger mb-3"></i>
+                                        <h5 class="card-title">Film & Video</h5>
+                                        <p class="card-text">Short films, documentaries, and video productions</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-camera fa-2x text-info mb-3"></i>
+                                        <h5 class="card-title">Photography</h5>
+                                        <p class="card-text">Portrait, landscape, and artistic photography</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-paint-brush fa-2x text-success mb-3"></i>
+                                        <h5 class="card-title">Graphic Design</h5>
+                                        <p class="card-text">Posters, branding, and visual identity work</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-laptop-code fa-2x text-primary mb-3"></i>
+                                        <h5 class="card-title">Digital Interactive</h5>
+                                        <p class="card-text">AIGC images, SVG designs, and H5 pages</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <a href="{{ url_for('home') }}" class="btn btn-primary me-3">Back to Home</a>
+                        <a href="{{ url_for('about') }}" class="btn btn-outline-primary">Learn About Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_text('dropdown_graphic') }} - Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="creative-detail-page" style="padding-top: 120px;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">{{ get_text('nav_home') }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('creative_works') }}">{{ get_text('nav_creative_works') }}</a></li>
+                <li class="breadcrumb-item active">{{ get_text('dropdown_graphic') }}</li>
+            </ol>
+        </nav>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="coming-soon-content">
+                    <i class="fas fa-paint-brush fa-4x text-success mb-4"></i>
+                    <h1 class="display-4 fw-bold text-primary mb-3">{{ get_text('dropdown_graphic') }}</h1>
+                    <h2 class="mb-3">Design Portfolio Coming Soon</h2>
+                    <p class="lead mb-4">Discover my graphic design work including award-winning posters, brand identity designs, and visual communication projects.</p>
+                    
+                    <div class="preview-content mt-5 text-start">
+                        <h4 class="fw-bold mb-3">Design Specialties:</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-success">🏆 Award-Winning Posters</h5>
+                                    <p>Provincial 1st Prize in Advertising Contest</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-success">🎨 Brand Identity</h5>
+                                    <p>Logo design and brand visual systems</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-success">📰 Editorial Design</h5>
+                                    <p>Magazine layouts and publication design</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-success">📱 Digital Graphics</h5>
+                                    <p>Social media and web graphics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="design-highlight mt-5">
+                        <h5 class="fw-bold mb-3">Design Tools</h5>
+                        <div class="tech-tags">
+                            <span class="badge bg-primary me-2 mb-2">Adobe Illustrator</span>
+                            <span class="badge bg-danger me-2 mb-2">Adobe InDesign</span>
+                            <span class="badge bg-info me-2 mb-2">Photoshop</span>
+                            <span class="badge bg-warning me-2 mb-2">Figma</span>
+                            <span class="badge bg-success me-2 mb-2">Sketch</span>
+                            <span class="badge bg-secondary me-2 mb-2">Procreate</span>
+                        </div>
+                    </div>
+                    
+                    <div class="achievements-highlight mt-5">
+                        <h5 class="fw-bold mb-3">Notable Recognition</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="achievement-card p-3 bg-warning bg-opacity-10 rounded">
+                                    <h6 class="fw-bold text-warning">🥇 Provincial 1st Prize</h6>
+                                    <p class="mb-0">Advertising Design Contest</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="achievement-card p-3 bg-success bg-opacity-10 rounded">
+                                    <h6 class="fw-bold text-success">🎖️ Design Excellence</h6>
+                                    <p class="mb-0">University Creative Competition</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <a href="{{ url_for('creative_works') }}" class="btn btn-primary btn-lg me-3">Back to Creative Works</a>
+                        <a href="{{ url_for('film_video') }}" class="btn btn-outline-primary btn-lg">View Film & Video</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

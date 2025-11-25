@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+
+{% block title %}NanoBanana AI - Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="project-detail-page" style="padding-top: 120px;">
+    <div class="container">
+        <!-- Project Header -->
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('home') }}">{{ get_text('nav_home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('ai_projects') }}">{{ get_text('nav_ai_projects') }}</a></li>
+                        <li class="breadcrumb-item active">NanoBanana AI</li>
+                    </ol>
+                </nav>
+                
+                <div class="project-header mb-5">
+                    <h1 class="display-4 fw-bold text-primary mb-3">NanoBanana AI</h1>
+                    <p class="lead text-muted mb-4">AI图像生成器 - 在3人创业团队中主要负责功能调研、开发实现、prompt工程和SEO优化</p>
+                    <div class="project-meta d-flex flex-wrap gap-3 mb-4">
+                        <span class="badge bg-primary fs-6">功能调研</span>
+                        <span class="badge bg-success fs-6">开发实现</span>
+                        <span class="badge bg-warning fs-6">Prompt工程</span>
+                        <span class="badge bg-info fs-6">SEO优化</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://nanobanana.art/" target="_blank" class="btn btn-primary me-3">
+                            <i class="fas fa-external-link-alt me-2"></i>访问产品
+                        </a>
+                        <a href="{{ url_for('ai_projects') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-left me-2"></i>返回项目列表
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Overview -->
+        <div class="row mb-5">
+            <div class="col-lg-8">
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">项目概述</h2>
+                    <p class="lead">NanoBanana AI是一个创新的AI图像生成平台，通过先进的人工智能技术让用户能够轻松创作出高质量的艺术作品和设计素材，democratize艺术创作的门槛。</p>
+                    <p>作为3人创业团队的核心成员，我负责产品的技术实现、功能规划和市场推广，从零开始构建这个颇具竞争力的AI艺术平台。</p>
+                </section>
+
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">团队协作与我的角色</h2>
+                    <div class="team-structure p-4 bg-light rounded mb-4">
+                        <h4 class="text-primary mb-3">3人创业团队结构</h4>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="team-member p-3 border rounded">
+                                    <h6 class="fw-bold">产品经理/CEO</h6>
+                                    <p class="small mb-0">负责商业策略、用户运营、融资</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="team-member p-3 border rounded bg-primary text-white">
+                                    <h6 class="fw-bold">技术负责人（我）</h6>
+                                    <p class="small mb-0">功能调研、开发实现、prompt工程、SEO</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="team-member p-3 border rounded">
+                                    <h6 class="fw-bold">UI/UX设计师</h6>
+                                    <p class="small mb-0">界面设计、用户体验、品牌视觉</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="role-card p-4 bg-light rounded">
+                        <h4 class="text-primary mb-3">我的核心职责</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>AI图像生成技术调研与选型</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>前后端功能开发与API集成</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>prompt工程策略设计与优化</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>SEO策略制定与执行</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>性能优化与系统架构设计</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">核心技术贡献</h2>
+                    
+                    <div class="contribution-item mb-4">
+                        <h5 class="fw-bold text-primary">AI技术调研与集成</h5>
+                        <p>深入研究并对比了多种AI图像生成技术，为产品选择了最适合的技术方案。</p>
+                        <ul>
+                            <li>对比分析Stable Diffusion、DALL-E、Midjourney等主流模型</li>
+                            <li>基于成本、质量、速度建立技术选型评估体系</li>
+                            <li>设计混合模型架构，兼顾质量与效率</li>
+                            <li>实现智能模型路由，根据需求自动选择最优模型</li>
+                        </ul>
+                    </div>
+
+                    <div class="contribution-item mb-4">
+                        <h5 class="fw-bold text-primary">功能开发与实现</h5>
+                        <p>负责核心功能的设计和开发，打造用户友好的AI艺术创作体验。</p>
+                        <ul>
+                            <li>开发智能风格迁移系统，支持多种艺术风格</li>
+                            <li>实现高清图像放大功能，满足商用需求</li>
+                            <li>创建批量生成队列系统，提高生产效率</li>
+                            <li>设计图像编辑工具集，支持后期调整</li>
+                        </ul>
+                    </div>
+
+                    <div class="contribution-item mb-4">
+                        <h5 class="fw-bold text-primary">Prompt工程创新</h5>
+                        <p>开发了先进的prompt生成和优化系统，显著提升AI生成质量。</p>
+                        <ul>
+                            <li>建立艺术风格和技法的结构化词库</li>
+                            <li>开发自然语言到专业prompt的转换系统</li>
+                            <li>创建prompt质量评估和自动优化机制</li>
+                            <li>实现上下文相关的智能prompt建议</li>
+                        </ul>
+                    </div>
+
+                    <div class="contribution-item mb-4">
+                        <h5 class="fw-bold text-primary">SEO与增长策略</h5>
+                        <p>制定并执行全面的SEO策略，为产品带来可观的自然流量增长。</p>
+                        <ul>
+                            <li>优化"AI艺术生成"、"AI画图"等核心关键词</li>
+                            <li>创建AI艺术教程和创作指南内容矩阵</li>
+                            <li>建立艺术家合作伙伴网络，扩大品牌影响力</li>
+                            <li>实施技术SEO优化，提升网站性能指标</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">创业项目成果</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-card text-center p-4 bg-primary text-white rounded">
+                                <h3 class="display-6 fw-bold">5K+</h3>
+                                <p class="mb-0">注册用户</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-card text-center p-4 bg-success text-white rounded">
+                                <h3 class="display-6 fw-bold">80%</h3>
+                                <p class="mb-0">生成成功率</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-card text-center p-4 bg-warning text-white rounded">
+                                <h3 class="display-6 fw-bold">15K+</h3>
+                                <p class="mb-0">日图像生成量</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-card text-center p-4 bg-info text-white rounded">
+                                <h3 class="display-6 fw-bold">65%</h3>
+                                <p class="mb-0">搜索流量增长</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">创业挑战与解决方案</h2>
+                    <div class="challenges-card p-4 border rounded">
+                        <div class="challenge-item mb-4">
+                            <h6 class="fw-bold text-warning">挑战：有限的资源和预算</h6>
+                            <p class="mb-0">作为创业团队，需要在有限预算内实现功能完整的产品</p>
+                            <p class="text-success"><strong>解决方案：</strong> 采用开源技术栈，优化云服务使用，实现成本可控的架构设计</p>
+                        </div>
+                        <div class="challenge-item mb-4">
+                            <h6 class="fw-bold text-warning">挑战：技术选型的权衡</h6>
+                            <p class="mb-0">需要在图像质量、生成速度、成本控制之间找到平衡</p>
+                            <p class="text-success"><strong>解决方案：</strong> 建立多维评估体系，采用灵活的技术架构支持动态调整</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h6 class="fw-bold text-warning">挑战：市场竞争激烈</h6>
+                            <p class="mb-0">AI图像生成是热门赛道，需要找到差异化定位</p>
+                            <p class="text-success"><strong>解决方案：</strong> 专注于特定用户群体的深度需求，通过专业化获得竞争优势</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section mb-5">
+                    <h2 class="h3 fw-bold mb-4">创业经验总结</h2>
+                    <div class="lessons-card p-4 border rounded">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <strong>技术与商业的平衡：</strong> 创业项目中技术不是目的，而是实现商业价值的手段，需要时刻关注产品的商业可行性。
+                            </li>
+                            <li class="mb-3">
+                                <strong>小团队的高效协作：</strong> 在3人团队中，明确的分工和高效的沟通是项目成功的关键，每个人都需要承担多重角色。
+                            </li>
+                            <li class="mb-3">
+                                <strong>MVP思维的重要性：</strong> 快速验证核心功能，基于用户反馈迭代产品，比追求功能完美更有价值。
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="project-sidebar">
+                    <div class="sidebar-card p-4 mb-4 bg-light rounded">
+                        <h5 class="fw-bold mb-3">项目详情</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong>项目周期：</strong> 8个月（持续中）</li>
+                            <li class="mb-2"><strong>团队规模：</strong> 3人创业团队</li>
+                            <li class="mb-2"><strong>我的角色：</strong> 技术负责人</li>
+                            <li class="mb-2"><strong>技术栈：</strong> Stable Diffusion, React, FastAPI</li>
+                            <li class="mb-2"><strong>项目状态：</strong> 正在运营</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card p-4 mb-4 bg-light rounded">
+                        <h5 class="fw-bold mb-3">核心技术</h5>
+                        <div class="tech-tags">
+                            <span class="badge bg-secondary me-1 mb-1">Stable Diffusion</span>
+                            <span class="badge bg-secondary me-1 mb-1">React</span>
+                            <span class="badge bg-secondary me-1 mb-1">FastAPI</span>
+                            <span class="badge bg-secondary me-1 mb-1">Redis</span>
+                            <span class="badge bg-secondary me-1 mb-1">PostgreSQL</span>
+                            <span class="badge bg-secondary me-1 mb-1">AWS</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card p-4 bg-light rounded">
+                        <h5 class="fw-bold mb-3">其他项目</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a href="{{ url_for('musiccreator_ai') }}" class="text-decoration-none">
+                                    MusicCreator AI →
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="{{ url_for('inker_ai') }}" class="text-decoration-none">
+                                    Inker.AI →
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="{{ url_for('web_picture_scraper') }}" class="text-decoration-none">
+                                    Web Picture Scraper →
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="row">
+            <div class="col-12">
+                <div class="cta-section text-center p-5 bg-primary text-white rounded">
+                    <h3 class="mb-3">对我的创业和技术能力感兴趣？</h3>
+                    <p class="mb-4">让我们讨论如何在创业环境中快速构建有竞争力的AI产品。</p>
+                    <div>
+                        <a href="{{ url_for('resume') }}" class="btn btn-light btn-lg me-3">查看我的简历</a>
+                        <a href="{{ url_for('about') }}" class="btn btn-outline-light btn-lg">了解更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

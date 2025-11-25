@@ -1,0 +1,880 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- AI Hero Section - Modern Chat Interface -->
+<section class="ai-hero-section" style="padding-top: 100px;">
+    <div class="container hero-container">
+        <!-- Hero Introduction -->
+        <div class="hero-intro">
+            <!-- Hero Tag -->
+            <div class="hero-tag">
+                <span class="tag-highlight">AI Product Manager</span>
+            </div>
+            
+            <!-- Main Title -->
+            <h1 class="hero-title">{{ get_text('hero_title') }}</h1>
+            
+            <!-- Description -->
+            <p class="hero-description">{{ get_text('hero_description') }}</p>
+            
+            <!-- Scrolling Tags Component -->
+            <div class="scrolling-tags-container">
+                <!-- First Row - Scroll Left -->
+                <div class="scrolling-tags-row scroll-left">
+                    <div class="tags-track">
+                        {% for tag in get_text('hero_tags_row1') %}
+                        <button class="tag-button">{{ tag }}</button>
+                        {% endfor %}
+                        <!-- Duplicate for seamless loop -->
+                        {% for tag in get_text('hero_tags_row1') %}
+                        <button class="tag-button">{{ tag }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Second Row - Scroll Right -->
+                <div class="scrolling-tags-row scroll-right">
+                    <div class="tags-track">
+                        {% for tag in get_text('hero_tags_row2') %}
+                        <button class="tag-button">{{ tag }}</button>
+                        {% endfor %}
+                        <!-- Duplicate for seamless loop -->
+                        {% for tag in get_text('hero_tags_row2') %}
+                        <button class="tag-button">{{ tag }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero Actions -->
+        <div class="hero-actions">
+            <a href="{{ url_for('ai_projects') }}" class="btn btn-primary btn-lg">
+                <i class="fas fa-rocket me-2"></i>{{ get_text('btn_view_projects') }}
+            </a>
+            <a href="{{ url_for('resume') }}" class="btn btn-outline-primary btn-lg">
+                <i class="fas fa-file-alt me-2"></i>{{ get_text('btn_view_resume') }}
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- AI Assistant Section -->
+<section class="ai-assistant-section section-modern animate-fade-up">
+    <div class="container">
+        <h2 class="section-title">{{ get_text('ai_section_title') }}</h2>
+        <p class="section-subtitle">{{ get_text('ai_section_subtitle') }}</p>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8 animate-scale-up animate-delay-200">
+                <!-- AI Chat Interface -->
+                <div class="ai-chat-container">
+                    <!-- Chat Header -->
+                    <div class="chat-header">
+                        <div class="chat-header-content">
+                            <div class="chat-header-info">
+                                <div class="chat-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div>
+                                    <h3 class="chat-title">{{ get_text('ai_chat_title') }}</h3>
+                                    <div class="chat-status">
+                                        <span class="status-dot"></span>
+                                        <span>{{ get_text('ai_status_online') if get_text('ai_status_online') else 'Online & Ready to Help' }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mode and Model Selection -->
+                        <div class="chat-controls">
+                            <div class="mode-selector">
+                                <label class="mode-label">{{ get_text('chat_mode_label') }}</label>
+                                <select id="chatMode" class="form-select form-select-sm">
+                                    <option value="personal">{{ get_text('chat_mode_personal') }}</option>
+                                    <option value="general">{{ get_text('chat_mode_general') }}</option>
+                                </select>
+                            </div>
+                            <div class="model-selector">
+                                <label class="model-label">{{ get_text('chat_model_label') }}</label>
+                                <select id="aiModel" class="form-select form-select-sm">
+                                    <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                                    <option value="gpt-4">GPT-4</option>
+                                    <option value="gemini-pro">Gemini Pro</option>
+                                </select>
+                            </div>
+                            <button id="resetChat" class="reset-button" title="重置对话">
+                                <i class="fas fa-refresh"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Messages -->
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Messages will be added dynamically -->
+                    </div>
+                    
+                    <!-- Chat Input -->
+                    <div class="chat-input-container">
+                        <div class="conversation-counter" id="conversationCounter">
+                            对话轮次: <span id="currentCount">0</span> / <span id="maxCount">5</span>
+                        </div>
+                        <div class="chat-input-wrapper">
+                            <input type="text" class="chat-input" id="chatInput" 
+                                   placeholder="{{ get_text('ai_chat_placeholder') }}">
+                            <button class="chat-send-button" id="sendMessage">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Key Achievements Section -->
+<section class="highlights-section section-modern animate-slide-left">
+    <div class="container">
+        <h2 class="section-title">{{ get_text('highlights_title') }}</h2>
+        <p class="section-subtitle">{{ get_text('highlights_subtitle') }}</p>
+        
+        <div class="row g-4 mt-4">
+            <div class="col-md-6 col-lg-3 animate-scale-up animate-delay-100">
+                <div class="highlight-card text-center p-4 h-100">
+                    <div class="highlight-icon mb-3">
+                        <i class="fas fa-university fa-3x"></i>
+                    </div>
+                    <h5 class="mb-3 fw-bold">{{ get_text('highlight_education') }}</h5>
+                    <p class="text-muted mb-0">{{ get_text('highlight_education_desc') }}</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 animate-scale-up animate-delay-200">
+                <div class="highlight-card text-center p-4 h-100">
+                    <div class="highlight-icon mb-3">
+                        <i class="fas fa-robot fa-3x"></i>
+                    </div>
+                    <h5 class="mb-3 fw-bold">{{ get_text('highlight_ai_skills') }}</h5>
+                    <p class="text-muted mb-0">{{ get_text('highlight_ai_skills_desc') }}</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 animate-scale-up animate-delay-300">
+                <div class="highlight-card text-center p-4 h-100">
+                    <div class="highlight-icon mb-3">
+                        <i class="fas fa-trophy fa-3x"></i>
+                    </div>
+                    <h5 class="mb-3 fw-bold">{{ get_text('highlight_scholarship') }}</h5>
+                    <p class="text-muted mb-0">{{ get_text('highlight_scholarship_desc') }}</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 animate-scale-up animate-delay-400">
+                <div class="highlight-card text-center p-4 h-100">
+                    <div class="highlight-icon mb-3">
+                        <i class="fas fa-medal fa-3x"></i>
+                    </div>
+                    <h5 class="mb-3 fw-bold">{{ get_text('highlight_competitions') }}</h5>
+                    <p class="text-muted mb-0">{{ get_text('highlight_competitions_desc') }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- View Resume Button -->
+        <div class="text-center mt-5">
+            <a href="{{ url_for('resume') }}" class="btn btn-primary btn-lg">
+                <i class="fas fa-file-alt me-2"></i>{{ get_text('btn_view_resume') }}
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Featured Projects Section -->
+<section class="featured-projects section-modern animate-slide-right">
+    <div class="container">
+        <h2 class="section-title">{{ get_text('featured_projects_title') }}</h2>
+        <p class="section-subtitle">{{ get_text('featured_projects_subtitle') }}</p>
+        
+        <!-- Scrollable Projects Container -->
+        <div class="projects-container mt-5">
+            <div class="projects-scroll-wrapper" id="projectsScrollWrapper">
+                <div class="projects-track" id="projectsTrack">
+                      <!-- Project 1: MusicCreator AI -->
+                      <div class="project-card-scroll">
+                          <div class="project-image">
+                              <img src="{{ url_for('static', filename='images/logos/musiccreator-ai-logo.png') }}" 
+                                   class="project-logo" alt="MusicCreator AI Logo">
+                          </div>
+                          <div class="project-content">
+                              <h5 class="project-title" onclick="window.open('https://www.musiccreator.ai/', '_blank')">MusicCreator AI</h5>
+                              <p class="project-description">AI音乐生成器平台，通过产品调研、新增功能开发、prompt工程和SEO优化，打造直观的音乐创作体验。</p>
+                              <div class="project-tags">
+                                  <span class="badge bg-primary">产品调研</span>
+                                  <span class="badge bg-success">功能开发</span>
+                                  <span class="badge bg-warning">Prompt工程</span>
+                                  <span class="badge bg-info">SEO优化</span>
+                              </div>
+                              <button class="project-detail-btn" onclick="window.location.href='{{ url_for('musiccreator_ai') }}'">
+                                  <i class="fas fa-arrow-right"></i>
+                              </button>
+                          </div>
+                      </div>
+
+                    <!-- Project 2: Coloringbook AI -->
+                    <div class="project-card-scroll">
+                        <div class="project-image">
+                            <img src="{{ url_for('static', filename='images/logos/coloringbook-ai-logo.png') }}" 
+                                 class="project-logo" alt="Coloringbook AI Logo">
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title" onclick="window.open('https://www.coloringbook.ai/', '_blank')">Coloringbook AI</h5>
+                            <p class="project-description">AI填色页生成器，专注于用户体验设计，通过新增功能、prompt工程、SEO和bug修复，为所有年龄段用户提供创意表达平台。</p>
+                            <div class="project-tags">
+                                <span class="badge bg-primary">新增功能</span>
+                                <span class="badge bg-success">Prompt工程</span>
+                                <span class="badge bg-warning">SEO优化</span>
+                                <span class="badge bg-danger">Bug修复</span>
+                            </div>
+                            <button class="project-detail-btn" onclick="window.location.href='{{ url_for('coloringbook_ai') }}'">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Inker.AI -->
+                    <div class="project-card-scroll">
+                        <div class="project-image">
+                            <img src="{{ url_for('static', filename='images/logos/inker-ai-logo.svg') }}" 
+                                 class="project-logo" alt="Inker.AI Logo">
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title" onclick="window.open('https://www.inker.ai/', '_blank')">Inker.AI</h5>
+                            <p class="project-description">AI纹身设计生成器，负责新增功能开发、prompt工程优化和SEO策略，帮助用户创造个性化纹身设计。</p>
+                            <div class="project-tags">
+                                <span class="badge bg-primary">新增功能</span>
+                                <span class="badge bg-success">Prompt工程</span>
+                                <span class="badge bg-warning">SEO优化</span>
+                            </div>
+                            <button class="project-detail-btn" onclick="window.location.href='{{ url_for('inker_ai') }}'">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Web Picture Scraper -->
+                    <div class="project-card-scroll">
+                        <div class="project-image">
+                            <img src="{{ url_for('static', filename='images/logos/web-scraper-logo.svg') }}" 
+                                 class="project-logo" alt="Web Picture Scraper Logo">
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title" onclick="window.open('https://image-scraper-webapp.onrender.com/', '_blank')">Web Picture Scraper</h5>
+                            <p class="project-description">网页图片抓取工具，独立完成前端、后端、部署全栈开发，解决工作中图片收集效率低的痛点问题。</p>
+                            <div class="project-tags">
+                                <span class="badge bg-danger">前端开发</span>
+                                <span class="badge bg-success">后端开发</span>
+                                <span class="badge bg-info">全栈部署</span>
+                                <span class="badge bg-warning">效率工具</span>
+                            </div>
+                            <button class="project-detail-btn" onclick="window.location.href='{{ url_for('web_picture_scraper') }}'">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: NanoBanana AI -->
+                    <div class="project-card-scroll">
+                        <div class="project-image">
+                            <img src="{{ url_for('static', filename='images/logos/nanobanana-ai-logo.png') }}" 
+                                 class="project-logo" alt="NanoBanana AI Logo">
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title" onclick="window.open('https://nanobanana.art/', '_blank')">NanoBanana AI</h5>
+                            <p class="project-description">AI图像生成器，在3人创业团队中主要负责功能调研、开发实现、prompt工程和SEO优化。</p>
+                            <div class="project-tags">
+                                <span class="badge bg-primary">功能调研</span>
+                                <span class="badge bg-success">开发实现</span>
+                                <span class="badge bg-warning">Prompt工程</span>
+                                <span class="badge bg-info">SEO优化</span>
+                            </div>
+                            <button class="project-detail-btn" onclick="window.location.href='{{ url_for('nanobanana_ai') }}'">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Progress Bar -->
+            <div class="projects-progress-bar">
+                <div class="progress-track" id="progressTrack">
+                    <div class="progress-thumb" id="progressThumb"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View More Button -->
+        <div class="text-center mt-5">
+            <a href="{{ url_for('ai_projects') }}" class="btn btn-primary btn-lg">
+                <i class="fas fa-rocket me-2"></i>查看更多AI项目
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Skills & Toolbox Section -->
+<section class="skills-section section-modern animate-rotate-in">
+    <div class="container">
+        <h2 class="section-title">{{ get_text('skills_title') }}</h2>
+        <p class="section-subtitle">A comprehensive skill set spanning product management, AI technology, and creative design - the perfect combination for building user-centered AI products.</p>
+        
+        <div class="row mt-5">
+            <div class="col-lg-4 mb-5 animate-slide-left animate-delay-100">
+                <div class="skill-category">
+                    <div class="skill-header mb-4">
+                        <div class="skill-icon mb-3">
+                            <i class="fas fa-chart-line fa-2x text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold">Product Management</h4>
+                        <p class="text-muted">Strategic thinking meets execution excellence</p>
+                    </div>
+                    <div class="skills-tags">
+                        <span class="badge bg-primary me-2 mb-2">User Research</span>
+                        <span class="badge bg-primary me-2 mb-2">Product Strategy</span>
+                        <span class="badge bg-primary me-2 mb-2">A/B Testing</span>
+                        <span class="badge bg-primary me-2 mb-2">Data Analysis</span>
+                        <span class="badge bg-primary me-2 mb-2">Agile/Scrum</span>
+                        <span class="badge bg-primary me-2 mb-2">Roadmap Planning</span>
+                        <span class="badge bg-primary me-2 mb-2">User Stories</span>
+                        <span class="badge bg-primary me-2 mb-2">KPI Tracking</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5 animate-scale-up animate-delay-200">
+                <div class="skill-category">
+                    <div class="skill-header mb-4">
+                        <div class="skill-icon mb-3">
+                            <i class="fas fa-brain fa-2x text-success"></i>
+                        </div>
+                        <h4 class="fw-bold">AI & Technology</h4>
+                        <p class="text-muted">Cutting-edge AI expertise with hands-on experience</p>
+                    </div>
+                    <div class="skills-tags">
+                        <span class="badge bg-success me-2 mb-2">Prompt Engineering</span>
+                        <span class="badge bg-success me-2 mb-2">Python</span>
+                        <span class="badge bg-success me-2 mb-2">Machine Learning</span>
+                        <span class="badge bg-success me-2 mb-2">API Integration</span>
+                        <span class="badge bg-success me-2 mb-2">LLM Applications</span>
+                        <span class="badge bg-success me-2 mb-2">Web Scraping</span>
+                        <span class="badge bg-success me-2 mb-2">Data Pipeline</span>
+                        <span class="badge bg-success me-2 mb-2">Model Optimization</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5 animate-slide-right animate-delay-300">
+                <div class="skill-category">
+                    <div class="skill-header mb-4">
+                        <div class="skill-icon mb-3">
+                            <i class="fas fa-palette fa-2x text-warning"></i>
+                        </div>
+                        <h4 class="fw-bold">Media & Design</h4>
+                        <p class="text-muted">Creative foundation that enhances user empathy</p>
+                    </div>
+                    <div class="skills-tags">
+                        <span class="badge bg-warning me-2 mb-2">Video Production</span>
+                        <span class="badge bg-warning me-2 mb-2">Photography</span>
+                        <span class="badge bg-warning me-2 mb-2">Graphic Design</span>
+                        <span class="badge bg-warning me-2 mb-2">UI/UX Design</span>
+                        <span class="badge bg-warning me-2 mb-2">Content Creation</span>
+                        <span class="badge bg-warning me-2 mb-2">SEO</span>
+                        <span class="badge bg-warning me-2 mb-2">Brand Design</span>
+                        <span class="badge bg-warning me-2 mb-2">Visual Storytelling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Real AI Chat System with APICore.ai
+document.addEventListener('DOMContentLoaded', function() {
+    initAIChat();
+    initScrollAnimations();
+    initProjectsScroll();
+    loadAvailableModels();
+});
+
+let isWaitingForResponse = false;
+
+function initAIChat() {
+    const sendBtn = document.getElementById('sendMessage');
+    const input = document.getElementById('chatInput');
+    const chatContainer = document.getElementById('chatMessages');
+    const resetBtn = document.getElementById('resetChat');
+    const modeSelect = document.getElementById('chatMode');
+    
+    if (!sendBtn || !input || !chatContainer) return;
+    
+    // Event listeners
+    sendBtn.addEventListener('click', () => sendMessage());
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+    
+    resetBtn.addEventListener('click', () => resetConversation());
+    modeSelect.addEventListener('change', () => onModeChange());
+    
+    // Initialize conversation counter
+    updateConversationCounter(0, 5);
+    
+    // Show initial mode-specific message
+    setTimeout(() => {
+        showInitialMessage();
+    }, 1000);
+}
+
+function showInitialMessage() {
+    const mode = document.getElementById('chatMode').value;
+    let message = '';
+    
+    if (mode === 'personal') {
+        message = "👋 你好！我是周晶，很高兴认识你！你可以问我关于我的项目经历、技能背景、学习心得或者职业规划等任何问题。";
+    } else {
+        message = "👋 你好！我是通用AI助手，你可以向我提任何问题。";
+    }
+    
+    addMessage(message, 'assistant');
+}
+
+async function sendMessage() {
+    if (isWaitingForResponse) return;
+    
+    const input = document.getElementById('chatInput');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    const mode = document.getElementById('chatMode').value;
+    const model = document.getElementById('aiModel').value;
+    
+    // Add user message
+    addMessage(message, 'user');
+    input.value = '';
+    
+    // Disable input during processing
+    isWaitingForResponse = true;
+    input.disabled = true;
+    document.getElementById('sendMessage').disabled = true;
+    
+    // Show typing indicator
+    showTypingIndicator();
+    
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: message,
+                mode: mode,
+                model: model
+            })
+        });
+        
+        const data = await response.json();
+        
+        hideTypingIndicator();
+        
+        if (response.ok) {
+            addMessage(data.response, 'assistant');
+            updateConversationCounter(data.conversation_count, data.max_conversations);
+            
+            // Check if max conversations reached
+            if (data.conversation_count >= data.max_conversations) {
+                showMaxConversationsMessage();
+            }
+        } else {
+            addMessage(`❌ 错误: ${data.error}`, 'assistant');
+            if (data.max_reached) {
+                showMaxConversationsMessage();
+            }
+        }
+    } catch (error) {
+        hideTypingIndicator();
+        addMessage('❌ 网络错误，请检查连接后重试。', 'assistant');
+        console.error('Chat error:', error);
+    } finally {
+        // Re-enable input
+        isWaitingForResponse = false;
+        input.disabled = false;
+        document.getElementById('sendMessage').disabled = false;
+        input.focus();
+    }
+}
+
+function addMessage(text, sender) {
+    const chatContainer = document.getElementById('chatMessages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${sender}`;
+    
+    // Determine avatar based on sender and mode
+    const mode = document.getElementById('chatMode').value;
+    let avatar;
+    
+    if (sender === 'user') {
+        avatar = '<i class="fas fa-user"></i>';
+    } else {
+        // AI assistant avatar - use personal photo in personal mode, robot icon in general mode
+        if (mode === 'personal') {
+            avatar = `<img src="/static/images/avatars/user-avatar.jpg" alt="Zhou Jing" onerror="this.onerror=null; this.src='/static/images/avatars/user-avatar.png'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='flex';};">
+                     <i class="fas fa-robot" style="display:none;"></i>`;
+        } else {
+            avatar = '<i class="fas fa-robot"></i>';
+        }
+    }
+    
+    messageDiv.innerHTML = `
+        <div class="message-avatar ${sender}">
+            ${avatar}
+        </div>
+        <div class="message-content ${sender}">
+            ${text}
+        </div>
+    `;
+    
+    chatContainer.appendChild(messageDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+function showTypingIndicator() {
+    const chatContainer = document.getElementById('chatMessages');
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'chat-message assistant typing-message';
+    typingDiv.id = 'typingIndicator';
+    
+    typingDiv.innerHTML = `
+        <div class="message-avatar assistant">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content assistant">
+            <div class="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+    `;
+    
+    chatContainer.appendChild(typingDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+function hideTypingIndicator() {
+    const typingIndicator = document.getElementById('typingIndicator');
+    if (typingIndicator) {
+        typingIndicator.remove();
+    }
+}
+
+function updateConversationCounter(current, max) {
+    document.getElementById('currentCount').textContent = current;
+    document.getElementById('maxCount').textContent = max;
+    
+    const counter = document.getElementById('conversationCounter');
+    if (current >= max) {
+        counter.style.color = '#dc3545';
+        counter.style.fontWeight = 'bold';
+    } else if (current >= max - 1) {
+        counter.style.color = '#fd7e14';
+        counter.style.fontWeight = 'bold';
+    } else {
+        counter.style.color = '#6c757d';
+        counter.style.fontWeight = 'normal';
+    }
+}
+
+function showMaxConversationsMessage() {
+    const input = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendMessage');
+    
+    input.disabled = true;
+    sendBtn.disabled = true;
+    input.placeholder = '对话已达上限，请点击重置对话按钮开始新对话';
+    
+    addMessage('⚠️ 对话轮次已达上限，请点击"重置对话"按钮开始新的对话。', 'assistant');
+}
+
+async function resetConversation() {
+    const mode = document.getElementById('chatMode').value;
+    
+    try {
+        const response = await fetch(`/api/chat/reset/${mode}`);
+        const data = await response.json();
+        
+        if (response.ok) {
+            // Clear chat messages and show initial message
+            const chatContainer = document.getElementById('chatMessages');
+            chatContainer.innerHTML = '';
+            
+            // Reset UI
+            updateConversationCounter(0, 5);
+            const input = document.getElementById('chatInput');
+            const sendBtn = document.getElementById('sendMessage');
+            input.disabled = false;
+            sendBtn.disabled = false;
+            input.placeholder = "{{ get_text('ai_chat_placeholder') }}";
+            
+            // Show initial message based on mode
+            setTimeout(() => {
+                showInitialMessage();
+            }, 500);
+            
+        } else {
+            console.error('Reset failed:', data.error);
+        }
+    } catch (error) {
+        console.error('Reset error:', error);
+    }
+}
+
+function onModeChange() {
+    // Reset conversation when mode changes
+    resetConversation();
+}
+
+async function loadAvailableModels() {
+    try {
+        const response = await fetch('/api/chat/models');
+        const data = await response.json();
+        
+        if (response.ok && data.models) {
+            const modelSelect = document.getElementById('aiModel');
+            modelSelect.innerHTML = '';
+            
+            data.models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model.id;
+                option.textContent = `${model.name} (${model.provider})`;
+                modelSelect.appendChild(option);
+            });
+        }
+    } catch (error) {
+        console.error('Failed to load models:', error);
+    }
+}
+
+// Scroll Animation System
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-fade-up, .animate-slide-left, .animate-slide-right, .animate-scale-up, .animate-rotate-in');
+    
+    // Create intersection observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-visible');
+                // Don't unobserve to allow repeat animations
+            } else {
+                // Remove animation class when element is out of view for repeat effect
+                entry.target.classList.remove('animate-visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Observe all animated elements
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Projects Auto Scroll System (Suno.com style)
+function initProjectsScroll() {
+    const track = document.getElementById('projectsTrack');
+    const wrapper = document.getElementById('projectsScrollWrapper');
+    const progressTrack = document.getElementById('progressTrack');
+    const progressThumb = document.getElementById('progressThumb');
+    
+    if (!track || !wrapper || !progressTrack || !progressThumb) return;
+    
+    const cards = track.querySelectorAll('.project-card-scroll');
+    let isAutoScrolling = true;
+    let isDragging = false;
+    let currentPosition = 0;
+    let animationId;
+    
+    // 计算总宽度
+    function calculateDimensions() {
+        const cardWidth = 350;
+        const gap = 32;
+        const totalWidth = cards.length * (cardWidth + gap);
+        const containerWidth = wrapper.offsetWidth;
+        return { totalWidth, containerWidth, cardWidth, gap };
+    }
+    
+    // 自动滚动动画
+    function autoScroll() {
+        if (!isAutoScrolling || isDragging) return;
+        
+        const { totalWidth, containerWidth } = calculateDimensions();
+        const maxScroll = totalWidth - containerWidth;
+        
+        // 确保有足够的内容可以滚动
+        if (maxScroll <= 0) {
+            // 如果内容不够滚动，就不执行滚动
+            animationId = requestAnimationFrame(autoScroll);
+            return;
+        }
+        
+        // 缓慢移动
+        currentPosition += 0.8; // 稍微加快滚动速度
+        
+        // 如果到达末尾，平滑重置到开始
+        if (currentPosition >= maxScroll) {
+            currentPosition = 0; // 直接重置到开始位置
+        }
+        
+        track.style.transform = `translateX(-${currentPosition}px)`;
+        updateProgressBar();
+        
+        animationId = requestAnimationFrame(autoScroll);
+    }
+    
+    // 更新进度条
+    function updateProgressBar() {
+        const { totalWidth, containerWidth } = calculateDimensions();
+        const maxScroll = totalWidth - containerWidth;
+        
+        if (maxScroll <= 0) {
+            progressThumb.style.transform = `translateX(0px)`;
+            return;
+        }
+        
+        const progress = Math.max(0, Math.min(currentPosition / maxScroll, 1));
+        const thumbWidth = 40; // thumb的宽度
+        const trackWidth = progressTrack.offsetWidth;
+        const thumbPosition = progress * (trackWidth - thumbWidth);
+        
+        progressThumb.style.transform = `translateX(${thumbPosition}px)`;
+    }
+    
+    // 手动拖拽控制
+    let startX = 0;
+    let startPosition = 0;
+    
+    function handleMouseDown(e) {
+        isDragging = true;
+        isAutoScrolling = false;
+        startX = e.clientX || e.touches[0].clientX;
+        startPosition = currentPosition;
+        track.style.cursor = 'grabbing';
+        if (animationId) cancelAnimationFrame(animationId);
+    }
+    
+    function handleMouseMove(e) {
+        if (!isDragging) return;
+        
+        const clientX = e.clientX || e.touches[0].clientX;
+        const deltaX = startX - clientX;
+        const { totalWidth, containerWidth } = calculateDimensions();
+        const maxScroll = totalWidth - containerWidth;
+        
+        if (maxScroll <= 0) return;
+        
+        currentPosition = Math.max(0, Math.min(startPosition + deltaX, maxScroll));
+        track.style.transform = `translateX(-${currentPosition}px)`;
+        updateProgressBar();
+    }
+    
+    function handleMouseUp() {
+        if (!isDragging) return;
+        
+        isDragging = false;
+        track.style.cursor = 'grab';
+        
+        // 延迟重启自动滚动
+        setTimeout(() => {
+            isAutoScrolling = true;
+            autoScroll();
+        }, 2000);
+    }
+    
+    // 进度条拖拽
+    function handleProgressDrag(e) {
+        const rect = progressTrack.getBoundingClientRect();
+        const clickX = (e.clientX || e.touches[0].clientX) - rect.left;
+        const progress = Math.max(0, Math.min(clickX / rect.width, 1));
+        
+        const { totalWidth, containerWidth } = calculateDimensions();
+        const maxScroll = totalWidth - containerWidth;
+        
+        if (maxScroll <= 0) return;
+        
+        currentPosition = progress * maxScroll;
+        track.style.transform = `translateX(-${currentPosition}px)`;
+        updateProgressBar();
+        
+        isAutoScrolling = false;
+        if (animationId) cancelAnimationFrame(animationId);
+        
+        setTimeout(() => {
+            isAutoScrolling = true;
+            autoScroll();
+        }, 2000);
+    }
+    
+    // 事件监听器
+    track.addEventListener('mousedown', handleMouseDown);
+    track.addEventListener('touchstart', handleMouseDown);
+    
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('touchmove', handleMouseMove);
+    
+    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('touchend', handleMouseUp);
+    
+    progressTrack.addEventListener('mousedown', handleProgressDrag);
+    progressTrack.addEventListener('touchstart', handleProgressDrag);
+    
+    // 鼠标悬停暂停
+    wrapper.addEventListener('mouseenter', () => {
+        isAutoScrolling = false;
+        if (animationId) cancelAnimationFrame(animationId);
+    });
+    
+    wrapper.addEventListener('mouseleave', () => {
+        isAutoScrolling = true;
+        autoScroll();
+    });
+    
+    // 窗口大小改变
+    window.addEventListener('resize', () => {
+        updateProgressBar();
+    });
+    
+    // 页面可见性检查 - 当页面不可见时暂停滚动
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            isAutoScrolling = false;
+            if (animationId) cancelAnimationFrame(animationId);
+        } else {
+            isAutoScrolling = true;
+            autoScroll();
+        }
+    });
+    
+    // 初始化 - 延迟启动确保DOM完全加载
+    setTimeout(() => {
+        updateProgressBar(); // 先更新进度条
+        autoScroll(); // 然后开始滚动
+    }, 100);
+}
+</script>
+{% endblock %}

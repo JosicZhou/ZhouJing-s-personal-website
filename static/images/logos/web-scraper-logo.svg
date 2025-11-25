@@ -1,0 +1,15 @@
+<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="60" fill="#0ea5e9" rx="8"/>
+  <text x="60" y="30" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Web Picture</text>
+  <text x="60" y="45" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Scraper</text>
+  <rect x="15" y="15" width="15" height="10" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="90" y="35" width="15" height="10" fill="none" stroke="white" stroke-width="2"/>
+  <path d="M30 20 L90 40" stroke="white" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="35" cy="25" r="2" fill="#60a5fa"/>
+  <circle cx="85" cy="35" r="2" fill="#60a5fa"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="white"/>
+    </marker>
+  </defs>
+</svg>

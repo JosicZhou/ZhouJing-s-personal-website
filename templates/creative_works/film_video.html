@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_text('dropdown_film_video') }} - Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="creative-detail-page" style="padding-top: 120px;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">{{ get_text('nav_home') }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('creative_works') }}">{{ get_text('nav_creative_works') }}</a></li>
+                <li class="breadcrumb-item active">{{ get_text('dropdown_film_video') }}</li>
+            </ol>
+        </nav>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="coming-soon-content">
+                    <i class="fas fa-video fa-4x text-danger mb-4"></i>
+                    <h1 class="display-4 fw-bold text-primary mb-3">{{ get_text('dropdown_film_video') }}</h1>
+                    <h2 class="mb-3">Portfolio Coming Soon</h2>
+                    <p class="lead mb-4">Explore my film and video production work, including award-winning micro films, documentaries, and creative storytelling projects.</p>
+                    
+                    <div class="preview-content mt-5 text-start">
+                        <h4 class="fw-bold mb-3">Featured Works Include:</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-danger">🏆 Award-Winning Micro Films</h5>
+                                    <p>National 2nd Prize in Micro Film Contest</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-danger">📺 Financial Journalism</h5>
+                                    <p>Documentary-style financial news reports</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-danger">🎬 Creative Direction</h5>
+                                    <p>From concept to post-production</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="work-preview p-4 border rounded mb-3">
+                                    <h5 class="fw-bold text-danger">📱 Social Media Content</h5>
+                                    <p>Engaging video content for digital platforms</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-highlight mt-5">
+                        <h5 class="fw-bold mb-3">Production Skills</h5>
+                        <div class="tech-tags">
+                            <span class="badge bg-danger me-2 mb-2">Final Cut Pro</span>
+                            <span class="badge bg-warning me-2 mb-2">Adobe Premiere</span>
+                            <span class="badge bg-primary me-2 mb-2">After Effects</span>
+                            <span class="badge bg-success me-2 mb-2">DaVinci Resolve</span>
+                            <span class="badge bg-info me-2 mb-2">Motion Graphics</span>
+                            <span class="badge bg-secondary me-2 mb-2">Color Grading</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <a href="{{ url_for('creative_works') }}" class="btn btn-primary btn-lg me-3">View All Creative Works</a>
+                        <a href="{{ url_for('photography') }}" class="btn btn-outline-primary btn-lg">See Photography Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
