@@ -5,68 +5,258 @@
 {% block content %}
 <div class="ai-projects-page" style="padding-top: 100px;">
     <div class="container">
+        <!-- 页面标题 -->
         <div class="row">
             <div class="col-12 text-center mb-5">
-                <h1 class="display-5 fw-bold mb-3">{{ get_text('nav_ai_projects') }}</h1>
-                <p class="lead">Explore my journey in AI product development and innovation</p>
+                <h1 class="display-4 fw-bold mb-3">AI产品项目经验</h1>
+                <p class="lead text-muted">从功能调研到SEO优化，深度参与AI产品全链路运营</p>
             </div>
         </div>
         
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <div class="coming-soon-content">
-                    <i class="fas fa-tools fa-4x text-primary mb-4"></i>
-                    <h2 class="mb-3">Coming Soon</h2>
-                    <p class="mb-4">This section is currently under development. Detailed case studies for AI projects including AI Music Generator, AI Coloring Book, AI Tattoo Designer, and Web Image Scraper will be available soon.</p>
-                    
-                    <div class="preview-cards mt-5">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">AI Music Generator</h5>
-                                        <p class="card-text">Product management and prompt engineering for AI music creation platform.</p>
-                                        <span class="badge bg-primary">Coming Soon</span>
-                                    </div>
+        <!-- 项目列表 -->
+        <div class="row g-4">
+            <!-- NanoBanana.art -->
+            <div class="col-lg-12">
+                <div class="card shadow-sm border-0 h-100 hover-lift">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="fw-bold text-primary mb-2">
+                                    <a href="{{ url_for('nanobanana_ai') }}" class="text-decoration-none">NanoBanana.art</a>
+                                </h3>
+                                <p class="text-muted mb-0">AI图像生成与编辑平台</p>
+                            </div>
+                            <span class="badge bg-success px-3 py-2">运营中</span>
+                        </div>
+                        <p class="mb-3">与创业团队合作，负责功能调研、专题页策划、SEO/GEO优化等全链路产品运营工作。</p>
+                        <div class="row text-center mb-3">
+                            <div class="col-md-3 col-6 mb-2">
+                                <div class="border rounded p-2">
+                                    <h5 class="fw-bold text-primary mb-0">67K</h5>
+                                    <small class="text-muted">总流量</small>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">AI Coloring Book</h5>
-                                        <p class="card-text">User-centric design for AI-powered creative applications.</p>
-                                        <span class="badge bg-primary">Coming Soon</span>
-                                    </div>
+                            <div class="col-md-3 col-6 mb-2">
+                                <div class="border rounded p-2">
+                                    <h5 class="fw-bold text-primary mb-0">3K+</h5>
+                                    <small class="text-muted">日均流量</small>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">AI Tattoo Designer</h5>
-                                        <p class="card-text">Full product development from concept to launch.</p>
-                                        <span class="badge bg-primary">Coming Soon</span>
-                                    </div>
+                            <div class="col-md-3 col-6 mb-2">
+                                <div class="border rounded p-2">
+                                    <h5 class="fw-bold text-primary mb-0">#1</h5>
+                                    <small class="text-muted">Bing排名</small>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Web Image Scraper</h5>
-                                        <p class="card-text">Image data collection and visual content analysis automation tools.</p>
-                                        <span class="badge bg-primary">Coming Soon</span>
-                                    </div>
+                            <div class="col-md-3 col-6 mb-2">
+                                <div class="border rounded p-2">
+                                    <h5 class="fw-bold text-primary mb-0">4单</h5>
+                                    <small class="text-muted">3天转化</small>
                                 </div>
                             </div>
                         </div>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark">功能调研</span>
+                            <span class="badge bg-light text-dark">专题页策划</span>
+                            <span class="badge bg-light text-dark">SEO优化</span>
+                            <span class="badge bg-light text-dark">GEO优化</span>
+                            <span class="badge bg-light text-dark">Prompt工程</span>
+                        </div>
+                        <a href="{{ url_for('nanobanana_ai') }}" class="btn btn-primary">查看详情 <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
-                    
-                    <div class="mt-5">
-                        <a href="{{ url_for('home') }}" class="btn btn-primary me-3">Back to Home</a>
-                        <a href="{{ url_for('resume') }}" class="btn btn-outline-primary">View Resume</a>
+                </div>
+            </div>
+
+            <!-- MusicCreator AI -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100 hover-lift">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="fw-bold text-primary mb-2">
+                                    <a href="{{ url_for('musiccreator_ai') }}" class="text-decoration-none">MusicCreator AI</a>
+                                </h4>
+                                <p class="text-muted mb-0">AI音乐生成平台</p>
+                            </div>
+                            <span class="badge bg-secondary px-3 py-2">实习项目</span>
+                        </div>
+                        <p class="mb-3">负责产品调研、Prompt工程及SEO优化，推动产品功能迭代与流量增长。</p>
+                        <div class="row text-center mb-3">
+                            <div class="col-6">
+                                <div class="border rounded p-2">
+                                    <h6 class="fw-bold text-primary mb-0">138K</h6>
+                                    <small class="text-muted">月访问量</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border rounded p-2">
+                                    <h6 class="fw-bold text-primary mb-0">#1</h6>
+                                    <small class="text-muted">Bing MIDI Editor</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark">产品调研</span>
+                            <span class="badge bg-light text-dark">Prompt工程</span>
+                            <span class="badge bg-light text-dark">SEO优化</span>
+                        </div>
+                        <a href="{{ url_for('musiccreator_ai') }}" class="btn btn-outline-primary">查看详情 <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coloringbook AI -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100 hover-lift">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="fw-bold text-primary mb-2">
+                                    <a href="{{ url_for('coloringbook_ai') }}" class="text-decoration-none">Coloringbook AI</a>
+                                </h4>
+                                <p class="text-muted mb-0">AI填色页生成平台</p>
+                            </div>
+                            <span class="badge bg-secondary px-3 py-2">实习项目</span>
+                        </div>
+                        <p class="mb-3">负责功能调研、Prompt工程及SEO优化，核心功能页Google搜索排名第一。</p>
+                        <div class="row text-center mb-3">
+                            <div class="col-6">
+                                <div class="border rounded p-2">
+                                    <h6 class="fw-bold text-primary mb-0">566K</h6>
+                                    <small class="text-muted">日流量</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border rounded p-2">
+                                    <h6 class="fw-bold text-primary mb-0">#1</h6>
+                                    <small class="text-muted">Google排名</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark">功能调研</span>
+                            <span class="badge bg-light text-dark">Prompt工程</span>
+                            <span class="badge bg-light text-dark">SEO优化</span>
+                        </div>
+                        <a href="{{ url_for('coloringbook_ai') }}" class="btn btn-outline-primary">查看详情 <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inker.AI -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100 hover-lift">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="fw-bold text-primary mb-2">
+                                    <a href="{{ url_for('inker_ai') }}" class="text-decoration-none">Inker.AI</a>
+                                </h4>
+                                <p class="text-muted mb-0">AI纹身设计生成平台</p>
+                            </div>
+                            <span class="badge bg-secondary px-3 py-2">实习项目</span>
+                        </div>
+                        <p class="mb-3">负责功能调研、Prompt工程及SEO优化，探索细分市场的AI应用场景。</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark">功能调研</span>
+                            <span class="badge bg-light text-dark">Prompt工程</span>
+                            <span class="badge bg-light text-dark">SEO优化</span>
+                        </div>
+                        <a href="{{ url_for('inker_ai') }}" class="btn btn-outline-primary">查看详情 <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Picture Scraper -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100 hover-lift">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="fw-bold text-primary mb-2">
+                                    <a href="{{ url_for('web_picture_scraper') }}" class="text-decoration-none">Web Picture Scraper</a>
+                                </h4>
+                                <p class="text-muted mb-0">图片批量下载工具</p>
+                            </div>
+                            <span class="badge bg-info text-white px-3 py-2">自研工具</span>
+                        </div>
+                        <p class="mb-3">实习期间自主开发的工作流优化工具，实现图片批量下载自动化。</p>
+                        <div class="row text-center mb-3">
+                            <div class="col-6">
+                                <div class="border rounded p-2">
+                                    <h6 class="fw-bold text-primary mb-0">30分钟</h6>
+                                    <small class="text-muted">日节省工时</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border rounded p-2">
+                                    <h6 class="fw-bold text-primary mb-0">5+</h6>
+                                    <small class="text-muted">内部用户</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark">全栈开发</span>
+                            <span class="badge bg-light text-dark">流程优化</span>
+                            <span class="badge bg-light text-dark">工具开发</span>
+                        </div>
+                        <a href="{{ url_for('web_picture_scraper') }}" class="btn btn-outline-primary">查看详情 <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心技能总结 -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card bg-light border-0">
+                    <div class="card-body p-4 text-center">
+                        <h4 class="fw-bold mb-4">核心能力</h4>
+                        <div class="row">
+                            <div class="col-md-3 col-6 mb-3">
+                                <i class="fas fa-search fa-2x text-primary mb-2"></i>
+                                <p class="fw-bold mb-1">功能调研</p>
+                                <small class="text-muted">市场需求分析</small>
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <i class="fas fa-lightbulb fa-2x text-primary mb-2"></i>
+                                <p class="fw-bold mb-1">Prompt工程</p>
+                                <small class="text-muted">AI输出优化</small>
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <i class="fas fa-chart-line fa-2x text-primary mb-2"></i>
+                                <p class="fw-bold mb-1">SEO/GEO优化</p>
+                                <small class="text-muted">流量增长策略</small>
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <i class="fas fa-code fa-2x text-primary mb-2"></i>
+                                <p class="fw-bold mb-1">全栈开发</p>
+                                <small class="text-muted">工具自主开发</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.card a.text-decoration-none {
+    color: inherit;
+}
+
+.card a.text-decoration-none:hover {
+    color: var(--bs-primary);
+}
+</style>
 {% endblock %}

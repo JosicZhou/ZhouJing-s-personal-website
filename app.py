@@ -181,9 +181,6 @@ def ai_projects():
 def creative_works():
     return render_template('creative_works.html')
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
 
 # AI Projects sub-pages
 @app.route('/ai-projects/musiccreator-ai')
@@ -242,11 +239,6 @@ def get_available_pages():
             'name': '创意作品页面',
             'url': '/creative-works',
             'description': '媒体制作、影视、摄影和设计作品展示'
-        },
-        {
-            'name': '关于我页面',
-            'url': '/about',
-            'description': '更多个人背景故事和成长经历'
         }
     ]
     return jsonify({'pages': pages})

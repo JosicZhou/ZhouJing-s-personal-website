@@ -43,11 +43,11 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ url_for('ai_projects') }}">{{ get_text('dropdown_all_projects') }}</a></li>
                             <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ url_for('nanobanana_ai') }}">{{ get_text('dropdown_nanobanana_ai') }}</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('musiccreator_ai') }}">{{ get_text('dropdown_musiccreator_ai') }}</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('web_picture_scraper') }}">{{ get_text('dropdown_web_picture_scraper') }}</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('coloringbook_ai') }}">{{ get_text('dropdown_coloringbook_ai') }}</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('inker_ai') }}">{{ get_text('dropdown_inker_ai') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('web_picture_scraper') }}">{{ get_text('dropdown_web_picture_scraper') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('nanobanana_ai') }}">{{ get_text('dropdown_nanobanana_ai') }}</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -62,9 +62,6 @@
                             <li><a class="dropdown-item" href="{{ url_for('photography') }}">{{ get_text('dropdown_photography') }}</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('graphic_design') }}">{{ get_text('dropdown_graphic') }}</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('about') }}">{{ get_text('nav_about') }}</a>
                     </li>
                 </ul>
                 
@@ -90,21 +87,21 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-5 mt-5">
+    <footer class="text-light py-5 mt-5" style="background-color: #2E5239;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>{{ get_text('footer_contact') }}</h5>
-                    <p class="mb-2">
+                    <h5 class="mb-3" style="font-weight: bold;">{{ get_text('footer_contact') }}</h5>
+                    <p class="mb-3 d-flex align-items-center">
                         <i class="fas fa-envelope me-2"></i>
-                        <a href="mailto:josic.zhou@example.com" class="text-light text-decoration-none">josic.zhou@example.com</a>
+                        <a href="mailto:josic20020903@outlook.com" class="text-light text-decoration-none">josic20020903@outlook.com</a>
                     </p>
                     <div class="social-links">
-                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/jing-zhou-1a1446281/" class="text-light me-3" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                        <a href="https://github.com/JosicZhou" class="text-light me-3" target="_blank"><i class="fab fa-github fa-2x"></i></a>
                     </div>
                 </div>
-                <div class="col-md-6 text-md-end">
+                <div class="col-md-6 text-md-end d-flex align-items-end justify-content-md-end mt-3 mt-md-0">
                     <p class="mb-0">{{ get_text('footer_copyright') }}</p>
                 </div>
             </div>
