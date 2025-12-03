@@ -18,18 +18,18 @@
                 
                 <div class="project-header mb-5">
                     <h1 class="display-4 fw-bold text-primary mb-3">MusicCreator AI</h1>
-                    <p class="lead text-muted mb-4">AI音乐生成平台 - 负责产品调研、Prompt工程及SEO优化（实习项目）</p>
+                    <p class="lead text-muted mb-4">{{ get_text('musiccreator_subtitle') }} - {{ get_text('badge_product_research') }}、{{ get_text('prompt_engineering') }}及{{ get_text('badge_seo') }}（{{ get_text('status_internship') }}）</p>
                     <div class="project-meta d-flex flex-wrap gap-3 mb-4">
-                        <span class="badge bg-primary fs-6">产品调研</span>
-                        <span class="badge bg-success fs-6">SEO优化</span>
-                        <span class="badge bg-warning fs-6">Prompt工程</span>
+                        <span class="badge bg-primary fs-6">{{ get_text('badge_product_research') }}</span>
+                        <span class="badge bg-success fs-6">{{ get_text('badge_seo') }}</span>
+                        <span class="badge bg-warning fs-6">{{ get_text('prompt_engineering') }}</span>
                     </div>
                     <div class="project-links">
                         <a href="https://www.musiccreator.ai/" target="_blank" class="btn btn-primary me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>访问产品
+                            <i class="fas fa-external-link-alt me-2"></i>{{ get_text('visit_product') }}
                         </a>
                         <a href="{{ url_for('ai_projects') }}" class="btn btn-outline-primary">
-                            <i class="fas fa-arrow-left me-2"></i>返回项目列表
+                            <i class="fas fa-arrow-left me-2"></i>{{ get_text('back_to_projects') }}
                         </a>
                     </div>
                 </div>
@@ -40,13 +40,13 @@
         <div class="row mb-5">
             <div class="col-lg-8">
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">项目概述</h2>
-                    <p class="lead">MusicCreator AI 是我在实习期间参与的一个AI音乐创作平台项目。我主要负责针对不同音乐风格和功能模块的竞品调研、Prompt工程优化，以及多个核心功能页面的SEO内容建设。</p>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('project_overview') }}</h2>
+                    <p class="lead">{{ get_text('musiccreator_overview') }}</p>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">负责内容与功能页展示</h2>
-                    <p>我负责了以下功能页面的内容策划与优化：</p>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('responsible_content') }}</h2>
+                    <p>{{ get_text('responsible_pages') }}</p>
                     
                     <div class="list-group">
                         <a href="https://www.musiccreator.ai/midi-editor" target="_blank" class="list-group-item list-group-item-action p-4">
@@ -54,14 +54,14 @@
                                 <h5 class="mb-1 fw-bold text-primary">MIDI Editor</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">在线MIDI编辑器。<strong>成果：该页面Bing搜索排名第一，"midi"关键词带来1k月流量。</strong></p>
+                            <p class="mb-1">{{ get_text('midi_editor_desc') }}<strong>{{ get_text('midi_editor_result') }}</strong></p>
                         </a>
                         <a href="https://www.musiccreator.ai/audio-to-midi-converter" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">Audio to MIDI</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">音频转MIDI工具。<strong>成果：我撰写的"audio to midi"关键词带来940的精准月流量。</strong></p>
+                            <p class="mb-1">{{ get_text('audio_to_midi_desc') }}<strong>{{ get_text('audio_to_midi_result') }}</strong></p>
                         </a>
                         
                         <a href="https://www.musiccreator.ai/ai-mastering" target="_blank" class="list-group-item list-group-item-action p-4">
@@ -69,73 +69,73 @@
                                 <h5 class="mb-1 fw-bold text-primary">AI Mastering</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">AI母带处理</p>
+                            <p class="mb-1">{{ get_text('ai_mastering_desc') }}</p>
                         </a>
                         <a href="https://www.musiccreator.ai/ai-text-to-music" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">Text to Music AI</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">文本转音乐</p>
+                            <p class="mb-1">{{ get_text('text_to_music_desc') }}</p>
                         </a>
                         <a href="https://www.musiccreator.ai/ai-singing-voice-generator" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">AI Singing Voice Generator</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">AI歌声生成</p>
+                            <p class="mb-1">{{ get_text('ai_singing_desc') }}</p>
                         </a>
                         <a href="https://www.musiccreator.ai/ai-rap-generator" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">AI Rap Generator</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">AI说唱生成</p>
+                            <p class="mb-1">{{ get_text('ai_rap_desc') }}</p>
                         </a>
                         <a href="https://www.musiccreator.ai/photo-to-music" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">Photo To Music</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">图片转音乐</p>
+                            <p class="mb-1">{{ get_text('photo_to_music_desc') }}</p>
                         </a>
                         <a href="https://www.musiccreator.ai/lofi-converter" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">Lofi converter</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">Lofi音乐转换器</p>
+                            <p class="mb-1">{{ get_text('lofi_converter_desc') }}</p>
                         </a>
                         <a href="https://www.musiccreator.ai/happy-birthday-song-generator" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">Happy Birthday Song Generator</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">生日歌生成器</p>
+                            <p class="mb-1">{{ get_text('birthday_song_desc') }}</p>
                         </a>
                         <a href="https://www.musiccreator.ai/dubstep-maker" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">Dubstep Maker</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">Dubstep制作器</p>
+                            <p class="mb-1">{{ get_text('dubstep_maker_desc') }}</p>
                         </a>
                     </div>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">核心成果</h2>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('core_achievements') }}</h2>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="metric-card text-center p-4 bg-primary text-white rounded h-100">
                                 <h3 class="display-6 fw-bold">138.04K</h3>
-                                <p class="mb-0">月访问量</p>
+                                <p class="mb-0">{{ get_text('monthly_visits') }}</p>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="metric-card text-center p-4 bg-success text-white rounded h-100">
                                 <h3 class="display-6 fw-bold">#1</h3>
-                                <p class="mb-0">Bing搜索排名 (MIDI Editor)</p>
+                                <p class="mb-0">{{ get_text('bing_ranking') }} (MIDI Editor)</p>
                             </div>
                         </div>
                     </div>
@@ -146,16 +146,16 @@
             <div class="col-lg-4">
                 <div class="project-sidebar">
                     <div class="sidebar-card p-4 mb-4 bg-light rounded">
-                        <h5 class="fw-bold mb-3">项目详情</h5>
+                        <h5 class="fw-bold mb-3">{{ get_text('project_details') }}</h5>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><strong>团队角色：</strong> 实习生</li>
-                            <li class="mb-2"><strong>主要职责：</strong> 产品调研、Prompt工程、SEO</li>
-                            <li class="mb-2"><strong>运营状态：</strong> 停止运营</li>
+                            <li class="mb-2"><strong>{{ get_text('team_role') }}：</strong> {{ get_text('internship_role') }}</li>
+                            <li class="mb-2"><strong>{{ get_text('main_responsibilities') }}：</strong> {{ get_text('badge_product_research') }}、{{ get_text('prompt_engineering') }}、{{ get_text('badge_seo') }}</li>
+                            <li class="mb-2"><strong>{{ get_text('operating_status') }}：</strong> {{ get_text('stopped_operations') }}</li>
                         </ul>
                     </div>
 
                     <div class="sidebar-card p-4 bg-light rounded">
-                        <h5 class="fw-bold mb-3">其他项目</h5>
+                        <h5 class="fw-bold mb-3">{{ get_text('other_projects') }}</h5>
                         <ul class="list-unstyled">
                             <li class="mb-2">
                                 <a href="{{ url_for('nanobanana_ai') }}" class="text-decoration-none">

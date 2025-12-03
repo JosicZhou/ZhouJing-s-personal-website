@@ -18,7 +18,7 @@
                 
                 <div class="project-header mb-5">
                     <h1 class="display-4 fw-bold text-primary mb-3">Web Picture Scraper</h1>
-                    <p class="lead text-muted mb-4">实习期间自主开发的网页图片批量抓取工具，解决团队图片素材收集效率低的痛点，实现工作流自动化。</p>
+                    <p class="lead text-muted mb-4">{{ get_text('webscraper_page_subtitle') }}</p>
                     <div class="project-meta d-flex flex-wrap gap-3 mb-4">
                         <span class="badge bg-danger fs-6">前端开发</span>
                         <span class="badge bg-success fs-6">后端开发</span>
@@ -27,10 +27,10 @@
                     </div>
                     <div class="project-links">
                         <a href="https://image-scraper-webapp.onrender.com/" target="_blank" class="btn btn-primary me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>访问产品
+                            <i class="fas fa-external-link-alt me-2"></i>{{ get_text('visit_product') }}
                         </a>
                         <a href="{{ url_for('ai_projects') }}" class="btn btn-outline-primary">
-                            <i class="fas fa-arrow-left me-2"></i>返回项目列表
+                            <i class="fas fa-arrow-left me-2"></i>{{ get_text('back_to_projects') }}
                         </a>
                     </div>
                 </div>
@@ -41,140 +41,134 @@
         <div class="row mb-5">
             <div class="col-lg-8">
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">项目概述</h2>
-                    <p class="lead">Web Picture Scraper是我在实习期间为优化团队工作流程而独立开发的一款自用小工具。</p>
-                    <p>针对日常工作中需要频繁寻找和下载特定主题图片素材的痛点，传统的一次次右键保存方式效率极低。因此，我开发了这个网页图片爬虫工具，只需输入链接即可批量下载图片，不仅解决了自己的效率问题，也分享给同事使用，平均每天能为团队成员节省约30分钟的重复性工作时间。</p>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('project_overview') }}</h2>
+                    <p class="lead">{{ get_text('webscraper_overview_p1') }}</p>
+                    <p>{{ get_text('webscraper_overview_p2') }}</p>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">项目背景与动机</h2>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('project_background') }}</h2>
                     <div class="background-card p-4 bg-light rounded">
-                        <h4 class="text-primary mb-3">解决工作痛点</h4>
-                        <p>在日常工作中，经常需要从各种网站收集图片素材用于设计和分析，传统的手动右键保存方式效率极低，特别是面对包含大量图片的网页时。</p>
+                        <h4 class="text-primary mb-3">{{ get_text('webscraper_bg_title') }}</h4>
+                        <p>{{ get_text('webscraper_bg_p') }}</p>
                         <ul class="mt-3">
-                            <li>手动保存图片耗时费力，效率低下</li>
-                            <li>容易遗漏网页中的隐藏图片</li>
-                            <li>无法批量处理多个网页</li>
-                            <li>缺乏图片分类和管理功能</li>
+                            <li>{{ get_text('webscraper_bg_li1') }}</li>
+                            <li>{{ get_text('webscraper_bg_li2') }}</li>
+                            <li>{{ get_text('webscraper_bg_li3') }}</li>
+                            <li>{{ get_text('webscraper_bg_li4') }}</li>
                         </ul>
                     </div>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">我的全栈开发职责</h2>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('fullstack_responsibilities') }}</h2>
                     <div class="role-card p-4 bg-light rounded">
-                        <h4 class="text-primary mb-3">独立全栈开发者</h4>
+                        <h4 class="text-primary mb-3">{{ get_text('webscraper_role_title') }}</h4>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>需求分析和产品设计</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>前端界面开发和用户体验设计</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>后端API开发和爬虫逻辑实现</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>数据库设计和数据管理</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>云端部署和运维监控</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{{ get_text('webscraper_role_li1') }}</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{{ get_text('webscraper_role_li2') }}</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{{ get_text('webscraper_role_li3') }}</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{{ get_text('webscraper_role_li4') }}</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{{ get_text('webscraper_role_li5') }}</li>
                         </ul>
                     </div>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">技术实现亮点</h2>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('tech_highlights') }}</h2>
                     
                     <div class="contribution-item mb-4">
-                        <h5 class="fw-bold text-primary">前端界面与用户体验</h5>
-                        <p>设计了简洁直观的用户界面，确保用户能够快速上手使用。</p>
+                        <h5 class="fw-bold text-primary">{{ get_text('webscraper_tech_frontend') }}</h5>
+                        <p>{{ get_text('webscraper_tech_frontend_p') }}</p>
                         <ul>
-                            <li>响应式设计，支持桌面和移动端访问</li>
-                            <li>实时进度显示，用户可以看到抓取进度</li>
-                            <li>图片预览功能，支持批量选择和下载</li>
-                            <li>错误处理机制，友好的错误提示信息</li>
+                            <li>{{ get_text('webscraper_tech_frontend_li1') }}</li>
+                            <li>{{ get_text('webscraper_tech_frontend_li2') }}</li>
+                            <li>{{ get_text('webscraper_tech_frontend_li3') }}</li>
+                            <li>{{ get_text('webscraper_tech_frontend_li4') }}</li>
                         </ul>
                     </div>
 
                     <div class="contribution-item mb-4">
-                        <h5 class="fw-bold text-primary">后端爬虫技术</h5>
-                        <p>开发了高效稳定的网页爬虫系统，能够智能识别和抓取各类图片。</p>
+                        <h5 class="fw-bold text-primary">{{ get_text('webscraper_tech_backend') }}</h5>
+                        <p>{{ get_text('webscraper_tech_backend_p') }}</p>
                         <ul>
-                            <li>支持多种图片格式：JPG、PNG、GIF、WebP等</li>
-                            <li>智能去重算法，避免下载重复图片</li>
-                            <li>反爬虫机制处理，确保抓取稳定性</li>
-                            <li>异步处理架构，提升抓取效率</li>
+                            <li>{{ get_text('webscraper_tech_backend_li1') }}</li>
+                            <li>{{ get_text('webscraper_tech_backend_li2') }}</li>
+                            <li>{{ get_text('webscraper_tech_backend_li3') }}</li>
+                            <li>{{ get_text('webscraper_tech_backend_li4') }}</li>
                         </ul>
                     </div>
 
                     <div class="contribution-item mb-4">
-                        <h5 class="fw-bold text-primary">性能优化与部署</h5>
-                        <p>针对性能和用户体验进行了全面优化，确保工具的实用性和稳定性。</p>
+                        <h5 class="fw-bold text-primary">{{ get_text('webscraper_tech_deploy') }}</h5>
+                        <p>{{ get_text('webscraper_tech_deploy_p') }}</p>
                         <ul>
-                            <li>图片压缩和格式转换，减少下载体积</li>
-                            <li>CDN加速，提升全球访问速度</li>
-                            <li>容错机制，处理网络异常和超时</li>
-                            <li>监控告警，实时掌握系统运行状态</li>
+                            <li>{{ get_text('webscraper_tech_deploy_li1') }}</li>
+                            <li>{{ get_text('webscraper_tech_deploy_li2') }}</li>
+                            <li>{{ get_text('webscraper_tech_deploy_li3') }}</li>
+                            <li>{{ get_text('webscraper_tech_deploy_li4') }}</li>
                         </ul>
                     </div>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">项目成果</h2>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('project_results') }}</h2>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="metric-card text-center p-4 bg-primary text-white rounded">
-                                <h3 class="display-6 fw-bold">30分钟</h3>
-                                <p class="mb-0">每日节省工时</p>
+                                <h3 class="display-6 fw-bold">30{{ get_text('minutes') }}</h3>
+                                <p class="mb-0">{{ get_text('time_saved_daily') }}</p>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="metric-card text-center p-4 bg-success text-white rounded">
                                 <h3 class="display-6 fw-bold">5+</h3>
-                                <p class="mb-0">团队内部用户</p>
+                                <p class="mb-0">{{ get_text('internal_users') }}</p>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="metric-card text-center p-4 bg-warning text-white rounded">
                                 <h3 class="display-6 fw-bold">100%</h3>
-                                <p class="mb-0">自动化下载</p>
+                                <p class="mb-0">{{ get_text('automation_download') }}</p>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="metric-card text-center p-4 bg-info text-white rounded">
                                 <h3 class="display-6 fw-bold">0</h3>
-                                <p class="mb-0">重复劳动</p>
+                                <p class="mb-0">{{ get_text('no_repetitive_work') }}</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">技术挑战与解决方案</h2>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('tech_challenges') }}</h2>
                     <div class="challenges-card p-4 border rounded">
                         <div class="challenge-item mb-4">
-                            <h6 class="fw-bold text-warning">挑战：反爬虫机制</h6>
-                            <p class="mb-0">许多网站有反爬虫保护，需要模拟真实用户行为</p>
-                            <p class="text-success"><strong>解决方案：</strong> 实现了User-Agent轮换、请求延迟和代理池机制</p>
+                            <h6 class="fw-bold text-warning">{{ get_text('webscraper_challenge_title') }}</h6>
+                            <p class="mb-0">{{ get_text('webscraper_challenge_p') }}</p>
+                            <p class="text-success"><strong>{{ get_text('webscraper_solution') }}</strong> {{ get_text('webscraper_solution_1') }}</p>
                         </div>
                         <div class="challenge-item mb-4">
-                            <h6 class="fw-bold text-warning">挑战：图片格式兼容性</h6>
-                            <p class="mb-0">不同网站使用各种图片格式和编码方式</p>
-                            <p class="text-success"><strong>解决方案：</strong> 开发了通用的图片检测和转换算法</p>
+                            <h6 class="fw-bold text-warning">{{ get_text('webscraper_challenge2_title') }}</h6>
+                            <p class="mb-0">{{ get_text('webscraper_challenge2_p') }}</p>
+                            <p class="text-success"><strong>{{ get_text('webscraper_solution') }}</strong> {{ get_text('webscraper_solution_2') }}</p>
                         </div>
                         <div class="challenge-item">
-                            <h6 class="fw-bold text-warning">挑战：云端部署成本</h6>
-                            <p class="mb-0">需要在有限预算内实现稳定的云端服务</p>
-                            <p class="text-success"><strong>解决方案：</strong> 选择了性价比高的Render平台，优化了资源使用</p>
+                            <h6 class="fw-bold text-warning">{{ get_text('webscraper_challenge3_title') }}</h6>
+                            <p class="mb-0">{{ get_text('webscraper_challenge3_p') }}</p>
+                            <p class="text-success"><strong>{{ get_text('webscraper_solution') }}</strong> {{ get_text('webscraper_solution_3') }}</p>
                         </div>
                     </div>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">经验总结</h2>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('experience_summary') }}</h2>
                     <div class="lessons-card p-4 border rounded">
                         <ul class="list-unstyled">
-                            <li class="mb-3">
-                                <strong>问题导向的产品思维：</strong> 从实际工作痛点出发，开发真正解决问题的工具比追求技术炫酷更有价值。
-                            </li>
-                            <li class="mb-3">
-                                <strong>全栈开发的收获：</strong> 独立完成整个项目让我深刻理解了产品开发的全流程，提升了解决问题的综合能力。
-                            </li>
-                            <li class="mb-3">
-                                <strong>用户体验的重要性：</strong> 技术实现再完美，如果用户体验不佳，产品就失去了价值。
-                            </li>
+                            <li class="mb-3">{{ get_text('webscraper_lesson1') }}</li>
+                            <li class="mb-3">{{ get_text('webscraper_lesson2') }}</li>
+                            <li class="mb-3">{{ get_text('webscraper_lesson3') }}</li>
                         </ul>
                     </div>
                 </section>
@@ -184,18 +178,18 @@
             <div class="col-lg-4">
                 <div class="project-sidebar">
                     <div class="sidebar-card p-4 mb-4 bg-light rounded">
-                        <h5 class="fw-bold mb-3">项目详情</h5>
+                        <h5 class="fw-bold mb-3">{{ get_text('project_details') }}</h5>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><strong>项目性质：</strong> 实习期间自研工具</li>
-                            <li class="mb-2"><strong>团队规模：</strong> 1人（独立开发）</li>
-                            <li class="mb-2"><strong>我的角色：</strong> 全栈开发者</li>
-                            <li class="mb-2"><strong>技术栈：</strong> Python, FastAPI, React</li>
-                            <li class="mb-2"><strong>应用范围：</strong> 团队内部使用</li>
+                            <li class="mb-2"><strong>{{ get_text('project_nature') }}：</strong> {{ get_text('internship_self_tool') }}</li>
+                            <li class="mb-2"><strong>{{ get_text('team_size') }}：</strong> {{ get_text('one_person') }}</li>
+                            <li class="mb-2"><strong>{{ get_text('my_role') }}：</strong> {{ get_text('independent_developer') }}</li>
+                            <li class="mb-2"><strong>{{ get_text('tech_stack') }}：</strong> Python, FastAPI, React</li>
+                            <li class="mb-2"><strong>{{ get_text('application_scope') }}：</strong> {{ get_text('team_internal_use') }}</li>
                         </ul>
                     </div>
 
                     <div class="sidebar-card p-4 mb-4 bg-light rounded">
-                        <h5 class="fw-bold mb-3">核心技术</h5>
+                        <h5 class="fw-bold mb-3">{{ get_text('core_tech') }}</h5>
                         <div class="tech-tags">
                             <span class="badge bg-secondary me-1 mb-1">Python</span>
                             <span class="badge bg-secondary me-1 mb-1">FastAPI</span>
@@ -207,7 +201,7 @@
                     </div>
 
                     <div class="sidebar-card p-4 bg-light rounded">
-                        <h5 class="fw-bold mb-3">其他项目</h5>
+                        <h5 class="fw-bold mb-3">{{ get_text('other_projects') }}</h5>
                         <ul class="list-unstyled">
                             <li class="mb-2">
                                 <a href="{{ url_for('musiccreator_ai') }}" class="text-decoration-none">
@@ -234,11 +228,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="cta-section text-center p-5 bg-primary text-white rounded">
-                    <h3 class="mb-3">对我的全栈开发能力感兴趣？</h3>
-                    <p class="mb-4">让我们探讨如何从0到1构建解决实际问题的产品。</p>
+                    <h3 class="mb-3">{{ get_text('webscraper_cta_title') }}</h3>
+                    <p class="mb-4">{{ get_text('webscraper_cta_p') }}</p>
                     <div>
-                        <a href="{{ url_for('resume') }}" class="btn btn-light btn-lg me-3">查看我的简历</a>
-                        <a href="{{ url_for('ai_projects') }}" class="btn btn-outline-light btn-lg">查看更多项目</a>
+                        <a href="{{ url_for('resume') }}" class="btn btn-light btn-lg me-3">{{ get_text('view_resume') }}</a>
+                        <a href="{{ url_for('ai_projects') }}" class="btn btn-outline-light btn-lg">{{ get_text('view_more_projects_btn') }}</a>
                     </div>
                 </div>
             </div>

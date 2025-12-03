@@ -8,8 +8,8 @@
         <!-- 页面标题 -->
         <div class="row">
             <div class="col-12 text-center mb-5">
-                <h1 class="display-4 fw-bold mb-3">AI产品项目经验</h1>
-                <p class="lead text-muted">从功能调研到SEO优化，深度参与AI产品全链路运营</p>
+                <h1 class="display-4 fw-bold mb-3">{{ get_text('ai_projects_page_title') }}</h1>
+                <p class="lead text-muted">{{ get_text('ai_projects_page_subtitle') }}</p>
             </div>
         </div>
         
@@ -24,45 +24,45 @@
                                 <h3 class="fw-bold text-primary mb-2">
                                     <a href="{{ url_for('nanobanana_ai') }}" class="text-decoration-none">NanoBanana.art</a>
                                 </h3>
-                                <p class="text-muted mb-0">AI图像生成与编辑平台</p>
+                                <p class="text-muted mb-0">{{ get_text('nanobanana_subtitle') }}</p>
                             </div>
-                            <span class="badge bg-success px-3 py-2">运营中</span>
+                            <span class="badge bg-success px-3 py-2">{{ get_text('status_operating') }}</span>
                         </div>
-                        <p class="mb-3">与创业团队合作，负责功能调研、专题页策划、SEO/GEO优化等全链路产品运营工作。</p>
+                        <p class="mb-3">{{ get_text('nanobanana_description') }}</p>
                         <div class="row text-center mb-3">
                             <div class="col-md-3 col-6 mb-2">
                                 <div class="border rounded p-2">
                                     <h5 class="fw-bold text-primary mb-0">67K</h5>
-                                    <small class="text-muted">总流量</small>
+                                    <small class="text-muted">{{ get_text('total_traffic') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-3 col-6 mb-2">
                                 <div class="border rounded p-2">
                                     <h5 class="fw-bold text-primary mb-0">3K+</h5>
-                                    <small class="text-muted">日均流量</small>
+                                    <small class="text-muted">{{ get_text('daily_traffic') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-3 col-6 mb-2">
                                 <div class="border rounded p-2">
                                     <h5 class="fw-bold text-primary mb-0">#1</h5>
-                                    <small class="text-muted">Bing排名</small>
+                                    <small class="text-muted">{{ get_text('bing_ranking') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-3 col-6 mb-2">
                                 <div class="border rounded p-2">
-                                    <h5 class="fw-bold text-primary mb-0">4单</h5>
-                                    <small class="text-muted">3天转化</small>
+                                    <h5 class="fw-bold text-primary mb-0">{{ get_text('4_orders') }}</h5>
+                                    <small class="text-muted">{{ get_text('conversion_3days') }}</small>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-light text-dark">功能调研</span>
-                            <span class="badge bg-light text-dark">专题页策划</span>
-                            <span class="badge bg-light text-dark">SEO优化</span>
-                            <span class="badge bg-light text-dark">GEO优化</span>
-                            <span class="badge bg-light text-dark">Prompt工程</span>
+                            <span class="badge bg-light text-dark">{{ get_text('feature_research') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('badge_topic_page') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('badge_seo') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('seo_geo_optimization') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('prompt_engineering') }}</span>
                         </div>
-                        <a href="{{ url_for('nanobanana_ai') }}" class="btn btn-primary">查看详情 <i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="{{ url_for('nanobanana_ai') }}" class="btn btn-primary">{{ get_text('view_details') }} <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -76,31 +76,31 @@
                                 <h4 class="fw-bold text-primary mb-2">
                                     <a href="{{ url_for('musiccreator_ai') }}" class="text-decoration-none">MusicCreator AI</a>
                                 </h4>
-                                <p class="text-muted mb-0">AI音乐生成平台</p>
+                                <p class="text-muted mb-0">{{ get_text('musiccreator_subtitle') }}</p>
                             </div>
-                            <span class="badge bg-secondary px-3 py-2">实习项目</span>
+                            <span class="badge bg-secondary px-3 py-2">{{ get_text('status_internship') }}</span>
                         </div>
-                        <p class="mb-3">负责产品调研、Prompt工程及SEO优化，推动产品功能迭代与流量增长。</p>
+                        <p class="mb-3">{{ get_text('musiccreator_description') }}</p>
                         <div class="row text-center mb-3">
                             <div class="col-6">
                                 <div class="border rounded p-2">
                                     <h6 class="fw-bold text-primary mb-0">138K</h6>
-                                    <small class="text-muted">月访问量</small>
+                                    <small class="text-muted">{{ get_text('monthly_visits') }}</small>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="border rounded p-2">
                                     <h6 class="fw-bold text-primary mb-0">#1</h6>
-                                    <small class="text-muted">Bing MIDI Editor</small>
+                                    <small class="text-muted">{{ get_text('bing_midi_editor') }}</small>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-light text-dark">产品调研</span>
-                            <span class="badge bg-light text-dark">Prompt工程</span>
-                            <span class="badge bg-light text-dark">SEO优化</span>
+                            <span class="badge bg-light text-dark">{{ get_text('badge_product_research') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('prompt_engineering') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('badge_seo') }}</span>
                         </div>
-                        <a href="{{ url_for('musiccreator_ai') }}" class="btn btn-outline-primary">查看详情 <i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="{{ url_for('musiccreator_ai') }}" class="btn btn-outline-primary">{{ get_text('view_details') }} <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -114,31 +114,31 @@
                                 <h4 class="fw-bold text-primary mb-2">
                                     <a href="{{ url_for('coloringbook_ai') }}" class="text-decoration-none">Coloringbook AI</a>
                                 </h4>
-                                <p class="text-muted mb-0">AI填色页生成平台</p>
+                                <p class="text-muted mb-0">{{ get_text('coloringbook_subtitle') }}</p>
                             </div>
-                            <span class="badge bg-secondary px-3 py-2">实习项目</span>
+                            <span class="badge bg-secondary px-3 py-2">{{ get_text('status_internship') }}</span>
                         </div>
-                        <p class="mb-3">负责功能调研、Prompt工程及SEO优化，核心功能页Google搜索排名第一。</p>
+                        <p class="mb-3">{{ get_text('coloringbook_description') }}</p>
                         <div class="row text-center mb-3">
                             <div class="col-6">
                                 <div class="border rounded p-2">
                                     <h6 class="fw-bold text-primary mb-0">566K</h6>
-                                    <small class="text-muted">日流量</small>
+                                    <small class="text-muted">{{ get_text('daily_traffic') }}</small>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="border rounded p-2">
                                     <h6 class="fw-bold text-primary mb-0">#1</h6>
-                                    <small class="text-muted">Google排名</small>
+                                    <small class="text-muted">{{ get_text('google_ranking') }}</small>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-light text-dark">功能调研</span>
-                            <span class="badge bg-light text-dark">Prompt工程</span>
-                            <span class="badge bg-light text-dark">SEO优化</span>
+                            <span class="badge bg-light text-dark">{{ get_text('feature_research') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('prompt_engineering') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('badge_seo') }}</span>
                         </div>
-                        <a href="{{ url_for('coloringbook_ai') }}" class="btn btn-outline-primary">查看详情 <i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="{{ url_for('coloringbook_ai') }}" class="btn btn-outline-primary">{{ get_text('view_details') }} <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -152,17 +152,17 @@
                                 <h4 class="fw-bold text-primary mb-2">
                                     <a href="{{ url_for('inker_ai') }}" class="text-decoration-none">Inker.AI</a>
                                 </h4>
-                                <p class="text-muted mb-0">AI纹身设计生成平台</p>
+                                <p class="text-muted mb-0">{{ get_text('inker_subtitle') }}</p>
                             </div>
-                            <span class="badge bg-secondary px-3 py-2">实习项目</span>
+                            <span class="badge bg-secondary px-3 py-2">{{ get_text('status_internship') }}</span>
                         </div>
-                        <p class="mb-3">负责功能调研、Prompt工程及SEO优化，探索细分市场的AI应用场景。</p>
+                        <p class="mb-3">{{ get_text('inker_description') }}</p>
                         <div class="d-flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-light text-dark">功能调研</span>
-                            <span class="badge bg-light text-dark">Prompt工程</span>
-                            <span class="badge bg-light text-dark">SEO优化</span>
+                            <span class="badge bg-light text-dark">{{ get_text('feature_research') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('prompt_engineering') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('badge_seo') }}</span>
                         </div>
-                        <a href="{{ url_for('inker_ai') }}" class="btn btn-outline-primary">查看详情 <i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="{{ url_for('inker_ai') }}" class="btn btn-outline-primary">{{ get_text('view_details') }} <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -176,31 +176,31 @@
                                 <h4 class="fw-bold text-primary mb-2">
                                     <a href="{{ url_for('web_picture_scraper') }}" class="text-decoration-none">Web Picture Scraper</a>
                                 </h4>
-                                <p class="text-muted mb-0">图片批量下载工具</p>
+                                <p class="text-muted mb-0">{{ get_text('webscraper_subtitle') }}</p>
                             </div>
-                            <span class="badge bg-info text-white px-3 py-2">自研工具</span>
+                            <span class="badge bg-info text-white px-3 py-2">{{ get_text('status_self_developed') }}</span>
                         </div>
-                        <p class="mb-3">实习期间自主开发的工作流优化工具，实现图片批量下载自动化。</p>
+                        <p class="mb-3">{{ get_text('webscraper_description') }}</p>
                         <div class="row text-center mb-3">
                             <div class="col-6">
                                 <div class="border rounded p-2">
-                                    <h6 class="fw-bold text-primary mb-0">30分钟</h6>
-                                    <small class="text-muted">日节省工时</small>
+                                    <h6 class="fw-bold text-primary mb-0">{{ get_text('30_minutes') }}</h6>
+                                    <small class="text-muted">{{ get_text('time_saved_daily') }}</small>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="border rounded p-2">
                                     <h6 class="fw-bold text-primary mb-0">5+</h6>
-                                    <small class="text-muted">内部用户</small>
+                                    <small class="text-muted">{{ get_text('internal_users') }}</small>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-light text-dark">全栈开发</span>
-                            <span class="badge bg-light text-dark">流程优化</span>
-                            <span class="badge bg-light text-dark">工具开发</span>
+                            <span class="badge bg-light text-dark">{{ get_text('fullstack_development') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('badge_efficiency_tool') }}</span>
+                            <span class="badge bg-light text-dark">{{ get_text('tool_self_development') }}</span>
                         </div>
-                        <a href="{{ url_for('web_picture_scraper') }}" class="btn btn-outline-primary">查看详情 <i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="{{ url_for('web_picture_scraper') }}" class="btn btn-outline-primary">{{ get_text('view_details') }} <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -211,27 +211,27 @@
             <div class="col-12">
                 <div class="card bg-light border-0">
                     <div class="card-body p-4 text-center">
-                        <h4 class="fw-bold mb-4">核心能力</h4>
+                        <h4 class="fw-bold mb-4">{{ get_text('core_capabilities') }}</h4>
                         <div class="row">
                             <div class="col-md-3 col-6 mb-3">
                                 <i class="fas fa-search fa-2x text-primary mb-2"></i>
-                                <p class="fw-bold mb-1">功能调研</p>
-                                <small class="text-muted">市场需求分析</small>
+                                <p class="fw-bold mb-1">{{ get_text('feature_research') }}</p>
+                                <small class="text-muted">{{ get_text('market_research') }}</small>
                             </div>
                             <div class="col-md-3 col-6 mb-3">
                                 <i class="fas fa-lightbulb fa-2x text-primary mb-2"></i>
-                                <p class="fw-bold mb-1">Prompt工程</p>
-                                <small class="text-muted">AI输出优化</small>
+                                <p class="fw-bold mb-1">{{ get_text('prompt_engineering') }}</p>
+                                <small class="text-muted">{{ get_text('ai_output_optimization') }}</small>
                             </div>
                             <div class="col-md-3 col-6 mb-3">
                                 <i class="fas fa-chart-line fa-2x text-primary mb-2"></i>
-                                <p class="fw-bold mb-1">SEO/GEO优化</p>
-                                <small class="text-muted">流量增长策略</small>
+                                <p class="fw-bold mb-1">{{ get_text('seo_geo_optimization') }}</p>
+                                <small class="text-muted">{{ get_text('traffic_growth_strategy') }}</small>
                             </div>
                             <div class="col-md-3 col-6 mb-3">
                                 <i class="fas fa-code fa-2x text-primary mb-2"></i>
-                                <p class="fw-bold mb-1">全栈开发</p>
-                                <small class="text-muted">工具自主开发</small>
+                                <p class="fw-bold mb-1">{{ get_text('fullstack_development') }}</p>
+                                <small class="text-muted">{{ get_text('tool_self_development') }}</small>
                             </div>
                         </div>
                     </div>

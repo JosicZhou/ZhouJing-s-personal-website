@@ -18,19 +18,19 @@
                 
                 <div class="project-header mb-5">
                     <h1 class="display-4 fw-bold text-primary mb-3">NanoBanana AI</h1>
-                    <p class="lead text-muted mb-4">AI图像生成与编辑平台 - 负责功能调研、专题页策划与SEO/GEO优化</p>
+                    <p class="lead text-muted mb-4">{{ get_text('nanobanana_subtitle') }} - {{ get_text('feature_research') }}、{{ get_text('badge_topic_page') }}与{{ get_text('seo_geo_optimization') }}</p>
                     <div class="project-meta d-flex flex-wrap gap-3 mb-4">
-                        <span class="badge bg-primary fs-6">功能调研</span>
-                        <span class="badge bg-success fs-6">SEO/GEO优化</span>
-                        <span class="badge bg-warning fs-6">专题页撰写</span>
-                        <span class="badge bg-info fs-6">创业团队</span>
+                        <span class="badge bg-primary fs-6">{{ get_text('feature_research') }}</span>
+                        <span class="badge bg-success fs-6">{{ get_text('seo_geo_optimization') }}</span>
+                        <span class="badge bg-warning fs-6">{{ get_text('badge_topic_page') }}</span>
+                        <span class="badge bg-info fs-6">{{ get_text('status_operating') }}</span>
                     </div>
                     <div class="project-links">
                         <a href="https://nanobanana.art/" target="_blank" class="btn btn-primary me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>访问产品
+                            <i class="fas fa-external-link-alt me-2"></i>{{ get_text('visit_product') }}
                         </a>
                         <a href="{{ url_for('ai_projects') }}" class="btn btn-outline-primary">
-                            <i class="fas fa-arrow-left me-2"></i>返回项目列表
+                            <i class="fas fa-arrow-left me-2"></i>{{ get_text('back_to_projects') }}
                         </a>
                     </div>
                 </div>
@@ -41,13 +41,13 @@
         <div class="row mb-5">
             <div class="col-lg-8">
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">项目概述</h2>
-                    <p class="lead">NanoBanana AI 是一个我目前正在运营的创业项目。我作为核心成员，主要负责产品新功能的市场调研、功能专题页的策划与撰写，以及针对全球不同地区的SEO和GEO优化策略，旨在提升产品的搜索排名和用户转化。</p>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('project_overview') }}</h2>
+                    <p class="lead">{{ get_text('nanobanana_overview') }}</p>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">负责内容与功能页展示</h2>
-                    <p>我主导了以下核心功能页面的内容建设与优化：</p>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('responsible_content') }}</h2>
+                    <p>{{ get_text('responsible_pages_nanobanana') }}</p>
                     
                     <div class="list-group">
                         <a href="https://nanobanana.art/ai-image-effects/ai-image-combiner" target="_blank" class="list-group-item list-group-item-action p-4">
@@ -55,51 +55,51 @@
                                 <h5 class="mb-1 fw-bold text-primary">AI Image Combiner</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">智能图片融合工具。<strong>成果：该页面在Bing搜索结果中排名第一。</strong></p>
+                            <p class="mb-1">{{ get_text('ai_image_combiner_desc') }}<strong>{{ get_text('ai_image_combiner_result') }}</strong></p>
                         </a>
                         <a href="https://nanobanana.art/ai-image-effects/ai-floor-plan-generator" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">AI Floor Plan Generator</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">AI户型图生成工具。<strong>成果：功能上线仅3天即产生4单付费转化。</strong></p>
+                            <p class="mb-1">{{ get_text('floor_plan_desc') }}<strong>{{ get_text('floor_plan_result') }}</strong></p>
                         </a>
                         <a href="https://nanobanana.art/ai-image-effects/ai-cosplay-generator" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">AI Cosplay Generator</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">AI角色扮演生成器，专注于二次元与游戏角色的生成。</p>
+                            <p class="mb-1">{{ get_text('cosplay_generator_desc') }}</p>
                         </a>
                         <a href="https://nanobanana.art/ai-image-effects/ai-professional-photo-generator" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">AI Professional Photo Generator</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">AI职业形象照生成器，为用户提供专业的商务人像。</p>
+                            <p class="mb-1">{{ get_text('professional_photo_desc') }}</p>
                         </a>
                     </div>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">核心成果</h2>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('core_achievements') }}</h2>
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <div class="metric-card text-center p-4 bg-primary text-white rounded h-100">
                                 <h3 class="display-6 fw-bold">67K</h3>
-                                <p class="mb-0">产品总流量</p>
+                                <p class="mb-0">{{ get_text('total_traffic') }}</p>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="metric-card text-center p-4 bg-info text-white rounded h-100">
                                 <h3 class="display-6 fw-bold">3K+</h3>
-                                <p class="mb-0">日均流量</p>
+                                <p class="mb-0">{{ get_text('daily_traffic') }}</p>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="metric-card text-center p-4 bg-success text-white rounded h-100">
                                 <h3 class="display-6 fw-bold">#1</h3>
-                                <p class="mb-0">Bing搜索排名<br>(AI Image Combiner)</p>
+                                <p class="mb-0">{{ get_text('bing_ranking') }}<br>(AI Image Combiner)</p>
                             </div>
                         </div>
                     </div>
@@ -110,16 +110,16 @@
             <div class="col-lg-4">
                 <div class="project-sidebar">
                     <div class="sidebar-card p-4 mb-4 bg-light rounded">
-                        <h5 class="fw-bold mb-3">项目详情</h5>
+                        <h5 class="fw-bold mb-3">{{ get_text('project_details') }}</h5>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><strong>团队角色：</strong> 创业团队成员</li>
-                            <li class="mb-2"><strong>主要职责：</strong> 功能调研、SEO/GEO优化、内容撰写</li>
-                            <li class="mb-2"><strong>运营状态：</strong> 持续运营中</li>
+                            <li class="mb-2"><strong>{{ get_text('team_role') }}：</strong> {{ get_text('startup_member') }}</li>
+                            <li class="mb-2"><strong>{{ get_text('main_responsibilities') }}：</strong> {{ get_text('feature_research') }}、{{ get_text('seo_geo_optimization') }}、{{ get_text('badge_topic_page') }}</li>
+                            <li class="mb-2"><strong>{{ get_text('operating_status') }}：</strong> {{ get_text('status_operating') }}</li>
                         </ul>
                     </div>
 
                     <div class="sidebar-card p-4 bg-light rounded">
-                        <h5 class="fw-bold mb-3">其他项目</h5>
+                        <h5 class="fw-bold mb-3">{{ get_text('other_projects') }}</h5>
                         <ul class="list-unstyled">
                             <li class="mb-2">
                                 <a href="{{ url_for('musiccreator_ai') }}" class="text-decoration-none">

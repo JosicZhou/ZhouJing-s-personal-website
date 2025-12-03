@@ -18,18 +18,18 @@
                 
                 <div class="project-header mb-5">
                     <h1 class="display-4 fw-bold text-primary mb-3">Coloringbook AI</h1>
-                    <p class="lead text-muted mb-4">AI填色页生成平台 - 负责功能调研、Prompt工程及SEO优化（实习项目）</p>
+                    <p class="lead text-muted mb-4">{{ get_text('coloringbook_subtitle') }} - {{ get_text('feature_research') }}、{{ get_text('prompt_engineering') }}及{{ get_text('badge_seo') }}（{{ get_text('status_internship') }}）</p>
                     <div class="project-meta d-flex flex-wrap gap-3 mb-4">
-                        <span class="badge bg-primary fs-6">功能调研</span>
-                        <span class="badge bg-success fs-6">SEO优化</span>
-                        <span class="badge bg-warning fs-6">Prompt工程</span>
+                        <span class="badge bg-primary fs-6">{{ get_text('feature_research') }}</span>
+                        <span class="badge bg-success fs-6">{{ get_text('badge_seo') }}</span>
+                        <span class="badge bg-warning fs-6">{{ get_text('prompt_engineering') }}</span>
                     </div>
                     <div class="project-links">
                         <a href="https://www.coloringbook.ai/" target="_blank" class="btn btn-primary me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>访问产品
+                            <i class="fas fa-external-link-alt me-2"></i>{{ get_text('visit_product') }}
                         </a>
                         <a href="{{ url_for('ai_projects') }}" class="btn btn-outline-primary">
-                            <i class="fas fa-arrow-left me-2"></i>返回项目列表
+                            <i class="fas fa-arrow-left me-2"></i>{{ get_text('back_to_projects') }}
                         </a>
                     </div>
                 </div>
@@ -40,13 +40,13 @@
         <div class="row mb-5">
             <div class="col-lg-8">
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">项目概述</h2>
-                    <p class="lead">Coloringbook AI 是我在实习期间参与的一个AI填色页生成平台。我主要负责核心功能的市场调研、Prompt工程优化，以及相关功能页面的SEO内容建设，旨在提升产品的自然搜索流量。</p>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('project_overview') }}</h2>
+                    <p class="lead">{{ get_text('coloringbook_overview') }}</p>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">负责内容与功能页展示</h2>
-                    <p>我负责了以下核心功能页面的内容策划与优化：</p>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('responsible_content') }}</h2>
+                    <p>{{ get_text('responsible_pages') }}</p>
                     
                     <div class="list-group">
                         <a href="https://www.coloringbook.ai/ai-coloring-book" target="_blank" class="list-group-item list-group-item-action p-4">
@@ -54,31 +54,31 @@
                                 <h5 class="mb-1 fw-bold text-primary">Coloring Book Generator</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">AI填色书生成器。<strong>成果：该功能在Google搜索排名第一，是整个产品收益贡献最大的核心功能。</strong></p>
+                            <p class="mb-1">{{ get_text('coloring_book_desc') }}<strong>{{ get_text('coloring_book_result') }}</strong></p>
                         </a>
                         <a href="https://www.coloringbook.ai/name-coloring-page-generator" target="_blank" class="list-group-item list-group-item-action p-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 fw-bold text-primary">Name Coloring Page Generator</h5>
                                 <small><i class="fas fa-external-link-alt"></i></small>
                             </div>
-                            <p class="mb-1">名字填色页生成器，满足用户的个性化定制需求。</p>
+                            <p class="mb-1">{{ get_text('name_coloring_desc') }}</p>
                         </a>
                     </div>
                 </section>
 
                 <section class="project-section mb-5">
-                    <h2 class="h3 fw-bold mb-4">核心成果</h2>
+                    <h2 class="h3 fw-bold mb-4">{{ get_text('core_achievements') }}</h2>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="metric-card text-center p-4 bg-primary text-white rounded h-100">
                                 <h3 class="display-6 fw-bold">566.08K</h3>
-                                <p class="mb-0">日流量</p>
+                                <p class="mb-0">{{ get_text('daily_traffic') }}</p>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="metric-card text-center p-4 bg-success text-white rounded h-100">
                                 <h3 class="display-6 fw-bold">#1</h3>
-                                <p class="mb-0">Google搜索排名 (Coloring Book Generator)</p>
+                                <p class="mb-0">{{ get_text('google_ranking') }} (Coloring Book Generator)</p>
                             </div>
                         </div>
                     </div>
@@ -89,16 +89,16 @@
             <div class="col-lg-4">
                 <div class="project-sidebar">
                     <div class="sidebar-card p-4 mb-4 bg-light rounded">
-                        <h5 class="fw-bold mb-3">项目详情</h5>
+                        <h5 class="fw-bold mb-3">{{ get_text('project_details') }}</h5>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><strong>团队角色：</strong> 实习生</li>
-                            <li class="mb-2"><strong>主要职责：</strong> 功能调研、Prompt工程、SEO</li>
-                            <li class="mb-2"><strong>运营状态：</strong> 停止运营</li>
+                            <li class="mb-2"><strong>{{ get_text('team_role') }}：</strong> {{ get_text('internship_role') }}</li>
+                            <li class="mb-2"><strong>{{ get_text('main_responsibilities') }}：</strong> {{ get_text('feature_research') }}、{{ get_text('prompt_engineering') }}、{{ get_text('badge_seo') }}</li>
+                            <li class="mb-2"><strong>{{ get_text('operating_status') }}：</strong> {{ get_text('stopped_operations') }}</li>
                         </ul>
                     </div>
 
                     <div class="sidebar-card p-4 bg-light rounded">
-                        <h5 class="fw-bold mb-3">其他项目</h5>
+                        <h5 class="fw-bold mb-3">{{ get_text('other_projects') }}</h5>
                         <ul class="list-unstyled">
                             <li class="mb-2">
                                 <a href="{{ url_for('nanobanana_ai') }}" class="text-decoration-none">

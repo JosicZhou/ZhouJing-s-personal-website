@@ -204,15 +204,15 @@
                               <img src="{{ url_for('static', filename='images/logos/musiccreator-ai-logo.png') }}" 
                                    class="project-logo" alt="MusicCreator AI Logo">
                           </div>
-                          <div class="project-content">
-                              <h5 class="project-title" onclick="window.open('https://www.musiccreator.ai/', '_blank')">MusicCreator AI</h5>
-                              <p class="project-description">AI音乐生成器平台，通过产品调研、新增功能开发、prompt工程和SEO优化，打造直观的音乐创作体验。</p>
-                              <div class="project-tags">
-                                  <span class="badge bg-primary">产品调研</span>
-                                  <span class="badge bg-success">功能开发</span>
-                                  <span class="badge bg-warning">Prompt工程</span>
-                                  <span class="badge bg-info">SEO优化</span>
-                              </div>
+                        <div class="project-content">
+                            <h5 class="project-title" onclick="window.open('https://www.musiccreator.ai/', '_blank')">MusicCreator AI</h5>
+                            <p class="project-description">{{ get_text('project_musiccreator_desc') }}</p>
+                            <div class="project-tags">
+                                <span class="badge bg-primary">{{ get_text('badge_product_research') }}</span>
+                                <span class="badge bg-success">{{ get_text('badge_feature_development') }}</span>
+                                <span class="badge bg-warning">{{ get_text('prompt_engineering') }}</span>
+                                <span class="badge bg-info">{{ get_text('badge_seo') }}</span>
+                            </div>
                               <button class="project-detail-btn" onclick="window.location.href='{{ url_for('musiccreator_ai') }}'">
                                   <i class="fas fa-arrow-right"></i>
                               </button>
@@ -227,12 +227,12 @@
                         </div>
                         <div class="project-content">
                             <h5 class="project-title" onclick="window.open('https://www.coloringbook.ai/', '_blank')">Coloringbook AI</h5>
-                            <p class="project-description">AI填色页生成器，专注于用户体验设计，通过新增功能、prompt工程、SEO和bug修复，为所有年龄段用户提供创意表达平台。</p>
+                            <p class="project-description">{{ get_text('project_coloringbook_desc') }}</p>
                             <div class="project-tags">
-                                <span class="badge bg-primary">新增功能</span>
-                                <span class="badge bg-success">Prompt工程</span>
-                                <span class="badge bg-warning">SEO优化</span>
-                                <span class="badge bg-danger">Bug修复</span>
+                                <span class="badge bg-primary">{{ get_text('badge_new_features') }}</span>
+                                <span class="badge bg-success">{{ get_text('prompt_engineering') }}</span>
+                                <span class="badge bg-warning">{{ get_text('badge_seo') }}</span>
+                                <span class="badge bg-danger">{{ get_text('badge_bug_fix') }}</span>
                             </div>
                             <button class="project-detail-btn" onclick="window.location.href='{{ url_for('coloringbook_ai') }}'">
                                 <i class="fas fa-arrow-right"></i>
@@ -248,11 +248,11 @@
                         </div>
                         <div class="project-content">
                             <h5 class="project-title" onclick="window.open('https://www.inker.ai/', '_blank')">Inker.AI</h5>
-                            <p class="project-description">AI纹身设计生成器，负责新增功能开发、prompt工程优化和SEO策略，帮助用户创造个性化纹身设计。</p>
+                            <p class="project-description">{{ get_text('project_inker_desc') }}</p>
                             <div class="project-tags">
-                                <span class="badge bg-primary">新增功能</span>
-                                <span class="badge bg-success">Prompt工程</span>
-                                <span class="badge bg-warning">SEO优化</span>
+                                <span class="badge bg-primary">{{ get_text('badge_new_features') }}</span>
+                                <span class="badge bg-success">{{ get_text('prompt_engineering') }}</span>
+                                <span class="badge bg-warning">{{ get_text('badge_seo') }}</span>
                             </div>
                             <button class="project-detail-btn" onclick="window.location.href='{{ url_for('inker_ai') }}'">
                                 <i class="fas fa-arrow-right"></i>
@@ -268,12 +268,12 @@
                         </div>
                         <div class="project-content">
                             <h5 class="project-title" onclick="window.open('https://image-scraper-webapp.onrender.com/', '_blank')">Web Picture Scraper</h5>
-                            <p class="project-description">网页图片抓取工具，独立完成前端、后端、部署全栈开发，解决工作中图片收集效率低的痛点问题。</p>
+                            <p class="project-description">{{ get_text('project_webscraper_desc') }}</p>
                             <div class="project-tags">
-                                <span class="badge bg-danger">前端开发</span>
-                                <span class="badge bg-success">后端开发</span>
-                                <span class="badge bg-info">全栈部署</span>
-                                <span class="badge bg-warning">效率工具</span>
+                                <span class="badge bg-danger">{{ get_text('badge_frontend_dev') }}</span>
+                                <span class="badge bg-success">{{ get_text('badge_backend_dev') }}</span>
+                                <span class="badge bg-info">{{ get_text('badge_fullstack_deploy') }}</span>
+                                <span class="badge bg-warning">{{ get_text('badge_efficiency_tool') }}</span>
                             </div>
                             <button class="project-detail-btn" onclick="window.location.href='{{ url_for('web_picture_scraper') }}'">
                                 <i class="fas fa-arrow-right"></i>
@@ -289,12 +289,12 @@
                         </div>
                         <div class="project-content">
                             <h5 class="project-title" onclick="window.open('https://nanobanana.art/', '_blank')">NanoBanana AI</h5>
-                            <p class="project-description">AI图像生成器，在3人创业团队中主要负责功能调研、开发实现、prompt工程和SEO优化。</p>
+                            <p class="project-description">{{ get_text('project_nanobanana_desc') }}</p>
                             <div class="project-tags">
-                                <span class="badge bg-primary">功能调研</span>
-                                <span class="badge bg-success">开发实现</span>
-                                <span class="badge bg-warning">Prompt工程</span>
-                                <span class="badge bg-info">SEO优化</span>
+                                <span class="badge bg-primary">{{ get_text('feature_research') }}</span>
+                                <span class="badge bg-success">{{ get_text('badge_feature_development') }}</span>
+                                <span class="badge bg-warning">{{ get_text('prompt_engineering') }}</span>
+                                <span class="badge bg-info">{{ get_text('badge_seo') }}</span>
                             </div>
                             <button class="project-detail-btn" onclick="window.location.href='{{ url_for('nanobanana_ai') }}'">
                                 <i class="fas fa-arrow-right"></i>
@@ -315,7 +315,7 @@
         <!-- View More Button -->
         <div class="text-center mt-5">
             <a href="{{ url_for('ai_projects') }}" class="btn btn-primary btn-lg">
-                <i class="fas fa-rocket me-2"></i>查看更多AI项目
+                <i class="fas fa-rocket me-2"></i>{{ get_text('view_more_projects') }}
             </a>
         </div>
     </div>
