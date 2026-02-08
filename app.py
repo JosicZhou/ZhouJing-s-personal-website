@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 import requests
 from data import PERSONAL_MODE_PROMPT, translations
+from rag_engine import init_rag, search as rag_search, format_context
 
 # 加载本地环境变量（如果有 .env 文件）
 load_dotenv()
@@ -19,11 +20,16 @@ API_KEY = os.environ.get('API_KEY')
 # 对话轮次限制
 MAX_CONVERSATIONS = 5
 
-# 个人模式的详细prompt (moved to data.py)
+# 初始化 RAG 系统（启动时自动加载向量库，如不存在则自动构建）
+try:
+    init_rag()
+    RAG_ENABLED = True
+    print("[APP] RAG 系统已启用。")
+except Exception as e:
+    RAG_ENABLED = False
+    print(f"[APP] RAG 系统初始化失败，将使用纯 prompt 模式: {e}")
 
 # 多语言支持
-# translations data moved to data.py
-
 def get_language():
     return session.get('language', 'en')
 
@@ -75,44 +81,59 @@ def chat_api():
         return jsonify({'error': '消息不能为空'}), 400
     
     user_message = data['message']
-    mode = data.get('mode', 'personal')  # personal 或 general
+    mode = data.get('mode', 'personal')
     model = data.get('model', 'gpt-4o')
     
-    # 获取当前会话的对话历史
     conversation_key = f'conversation_{mode}'
     if conversation_key not in session:
         session[conversation_key] = []
     
     conversation_history = session[conversation_key]
     
-    # 检查对话轮次限制
-    if len(conversation_history) >= MAX_CONVERSATIONS * 2:  # 每轮包含用户和AI的消息
+    if len(conversation_history) >= MAX_CONVERSATIONS * 2:
         return jsonify({
             'error': f'对话已达到最大轮次限制（{MAX_CONVERSATIONS}轮），请刷新页面开始新对话',
             'max_reached': True
         }), 429
     
-    # 构建消息历史
     messages = []
     
-    # 添加系统prompt（仅个人模式）
     if mode == 'personal':
+        # RAG 检索：用用户问题搜索相关个人资料
+        rag_context = ""
+        if RAG_ENABLED:
+            try:
+                results = rag_search(user_message, top_k=5)
+                rag_context = format_context(results)
+                print(f"[RAG] 检索到 {len(results)} 条相关资料")
+            except Exception as e:
+                print(f"[RAG] 检索失败，回退到纯 prompt 模式: {e}")
+                rag_context = ""
+
+        # 构建 system prompt：基础人设 + RAG 检索到的上下文
+        if rag_context:
+            system_content = (
+                PERSONAL_MODE_PROMPT
+                + "\n\n"
+                + "以下是与用户问题相关的详细个人资料（RAG检索结果），请优先参考这些资料来回答：\n\n"
+                + rag_context
+            )
+        else:
+            system_content = PERSONAL_MODE_PROMPT
+
         messages.append({
             "role": "system",
-            "content": PERSONAL_MODE_PROMPT
+            "content": system_content
         })
     
-    # 添加对话历史
     for msg in conversation_history:
         messages.append(msg)
     
-    # 添加当前用户消息
     messages.append({
         "role": "user",
         "content": user_message
     })
     
-    # 调用API
     response = call_apicore_ai(messages, model)
     
     if not response:
@@ -123,7 +144,6 @@ def chat_api():
     
     ai_message = response['choices'][0]['message']['content']
     
-    # 保存到会话历史
     conversation_history.extend([
         {"role": "user", "content": user_message},
         {"role": "assistant", "content": ai_message}
@@ -165,6 +185,8 @@ def set_language(language):
         session['language'] = language
     return redirect(request.referrer or '/')
 
+# ============ 页面路由 ============
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -173,52 +195,45 @@ def home():
 def resume():
     return render_template('resume.html')
 
+# Projects 主页面（原 AI Projects）
+@app.route('/projects')
+def projects():
+    return render_template('projects.html')
+
+# AI Product 子页面
+@app.route('/projects/musiccreator-ai')
+def musiccreator_ai():
+    return render_template('projects/musiccreator_ai.html')
+
+@app.route('/projects/coloringbook-ai')
+def coloringbook_ai():
+    return render_template('projects/coloringbook_ai.html')
+
+@app.route('/projects/inker-ai')
+def inker_ai():
+    return render_template('projects/inker_ai.html')
+
+@app.route('/projects/nanobanana-ai')
+def nanobanana_ai():
+    return render_template('projects/nanobanana_ai.html')
+
+# Simple Tools 子页面
+@app.route('/projects/web-picture-scraper')
+def web_picture_scraper():
+    return render_template('projects/web_picture_scraper.html')
+
+# 兼容旧路由的重定向
 @app.route('/ai-projects')
-def ai_projects():
-    return render_template('ai_projects.html')
+def ai_projects_redirect():
+    return redirect('/projects', code=301)
+
+@app.route('/ai-projects/<path:subpath>')
+def ai_projects_sub_redirect(subpath):
+    return redirect(f'/projects/{subpath}', code=301)
 
 @app.route('/creative-works')
-def creative_works():
-    return render_template('creative_works.html')
-
-
-# AI Projects sub-pages
-@app.route('/ai-projects/musiccreator-ai')
-def musiccreator_ai():
-    return render_template('ai_projects/musiccreator_ai.html')
-
-@app.route('/ai-projects/coloringbook-ai')
-def coloringbook_ai():
-    return render_template('ai_projects/coloringbook_ai.html')
-
-@app.route('/ai-projects/inker-ai')
-def inker_ai():
-    return render_template('ai_projects/inker_ai.html')
-
-@app.route('/ai-projects/web-picture-scraper')
-def web_picture_scraper():
-    return render_template('ai_projects/web_picture_scraper.html')
-
-@app.route('/ai-projects/nanobanana-ai')
-def nanobanana_ai():
-    return render_template('ai_projects/nanobanana_ai.html')
-
-# Creative Works sub-pages
-@app.route('/creative-works/film-video')
-def film_video():
-    return render_template('creative_works/film_video.html')
-
-@app.route('/creative-works/digital-interactive')
-def digital_interactive():
-    return render_template('creative_works/digital_interactive.html')
-
-@app.route('/creative-works/photography')
-def photography():
-    return render_template('creative_works/photography.html')
-
-@app.route('/creative-works/graphic-design')
-def graphic_design():
-    return render_template('creative_works/graphic_design.html')
+def creative_works_redirect():
+    return redirect('/', code=301)
 
 # 页面导航API（用于AI助手推荐页面）
 @app.route('/api/pages')
@@ -231,14 +246,9 @@ def get_available_pages():
             'description': '完整的教育背景、工作经历、技能和荣誉信息'
         },
         {
-            'name': 'AI项目页面',
-            'url': '/ai-projects',
-            'description': 'AI音乐生成器、AI填色书、AI纹身设计师等项目详情'
-        },
-        {
-            'name': '创意作品页面',
-            'url': '/creative-works',
-            'description': '媒体制作、影视、摄影和设计作品展示'
+            'name': '项目页面',
+            'url': '/projects',
+            'description': 'AI产品和小工具项目详情，包含AI音乐生成器、AI填色书、AI纹身设计师等'
         }
     ]
     return jsonify({'pages': pages})

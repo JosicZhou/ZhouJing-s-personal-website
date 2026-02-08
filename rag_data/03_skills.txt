@@ -1,0 +1,16 @@
+# 周晶 - 专业技能
+
+## 产品设计与规划
+熟练使用Figma、Sketch进行高保真原型设计；精通Xmind绘制业务流程图；具备规范的PRD文档撰写能力。
+
+## AI技术与应用
+精通Prompt Engineering (Midjourney/SD/ChatGPT/Suno)；掌握Python (爬虫/数据清洗/NLP基础)；熟悉iOS Development (SwiftUI/Xcode) 及Supabase配置；了解SQL基础查询。
+
+## 数据分析与增长
+擅长Programmatic SEO策略与落地；熟练运用Google Analytics (GA4) 进行流量分析；掌握A/B Testing实验方法；熟练使用Excel (透视表)、Tableau、SPSS进行数据分析。
+
+## 通用工具
+熟练使用Notion、飞书多维表格进行项目管理；掌握Git/GitHub版本控制基础；具备PS、Pr、Ae音视频处理能力。
+
+## 核心能力标签
+用户研究与分析、产品策略与路线图、A/B测试与指标、敏捷/Scrum方法论、跨职能领导力、机器学习概念、Python编程、API集成、数据分析与可视化、视频制作、数字摄影、内容策略、SEO优化

@@ -1,0 +1,31 @@
+# 周晶 - 实习项目：AI产品线（皮皮电商期间）
+
+在广州皮皮电子商务科技有限公司实习期间，参与了多个AI产品的全链路运营。
+
+## MusicCreator AI（AI音乐生成平台）
+- 角色：实习生
+- 负责：产品调研、Prompt工程及SEO优化，推动产品功能迭代与流量增长
+- 核心功能页：
+  - MIDI Editor（在线MIDI编辑器）：Bing搜索排名第一，"midi"关键词带来1k月流量
+  - Audio to MIDI（音频转MIDI工具）："audio to midi"关键词带来940的精准月流量
+  - AI Mastering（AI母带处理）
+  - Text to Music（文本转音乐）
+  - AI Singing（AI歌声生成）
+  - AI Rap（AI说唱生成）
+  - Photo to Music（图片转音乐）
+  - Lofi Converter（Lofi音乐转换器）
+  - Birthday Song（生日歌生成器）
+  - Dubstep Maker（Dubstep制作器）
+
+## Coloringbook AI（AI填色页生成平台）
+- 角色：实习生
+- 负责：功能调研、Prompt工程及SEO优化
+- 核心功能页：
+  - Coloring Book Generator（AI填色书生成器）：Google搜索排名第一，是整个产品收益贡献最大的核心功能
+  - Name Coloring Page（名字填色页生成器）：满足用户的个性化定制需求
+
+## Inker.AI（AI纹身设计生成平台）
+- 角色：实习生
+- 负责：功能调研、Prompt工程及SEO优化，探索细分市场的AI应用场景
+- 核心功能页：
+  - Birth Flower Tattoo（生日花纹身生成器）：针对纹身细分市场，提供结合生日花语的个性化纹身设计服务

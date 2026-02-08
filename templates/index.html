@@ -1,443 +1,361 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- AI Hero Section - Modern Chat Interface -->
-<section class="ai-hero-section" style="padding-top: 100px;">
-    <div class="container hero-container">
-        <!-- Hero Introduction -->
-        <div class="hero-intro">
-            <!-- Hero Tag -->
-            <div class="hero-tag">
-                <span class="tag-highlight">AI Product Manager</span>
+<!-- Hero with Typing Animation -->
+<section class="hero-section">
+    <div class="container-apple">
+        <span class="hero-eyebrow reveal">AI Product Manager</span>
+        <h1 class="display-hero hero-title reveal reveal-delay-1">
+            <span id="typingTarget"></span><span class="typing-cursor">|</span>
+        </h1>
+        <p class="hero-subtitle reveal reveal-delay-2">{{ get_text('hero_description') }}</p>
+        
+        <div class="tags-flow reveal reveal-delay-3">
+            {% for tag in get_text('hero_tags_row1')[:8] %}
+            <span class="tag-capsule">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        
+        <div class="cta-group reveal reveal-delay-4">
+            <a href="{{ url_for('projects') }}" class="btn-apple btn-apple-primary">
+                {{ get_text('btn_view_projects') }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="{{ url_for('resume') }}" class="btn-apple btn-apple-secondary">{{ get_text('btn_view_resume') }}</a>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Key Highlights -->
+<section class="section">
+    <div class="container-apple">
+        <div class="section-header reveal">
+            <span class="caption">{{ get_text('highlights_title') }}</span>
+            <h2 class="display-section">{{ get_text('highlights_subtitle') }}</h2>
+        </div>
+        
+        <div class="highlights-grid">
+            <div class="highlight-item reveal reveal-delay-1">
+                <div class="highlight-number">QS 54</div>
+                <div class="highlight-label">{{ get_text('highlight_education') }}</div>
+                <div class="highlight-desc">{{ get_text('highlight_education_desc') }}</div>
             </div>
+            <div class="highlight-item reveal reveal-delay-2">
+                <div class="highlight-number">5+</div>
+                <div class="highlight-label">{{ get_text('highlight_ai_skills') }}</div>
+                <div class="highlight-desc">{{ get_text('highlight_ai_skills_desc') }}</div>
+            </div>
+            <div class="highlight-item reveal reveal-delay-3">
+                <div class="highlight-number">Top 1%</div>
+                <div class="highlight-label">{{ get_text('highlight_scholarship') }}</div>
+                <div class="highlight-desc">{{ get_text('highlight_scholarship_desc') }}</div>
+            </div>
+            <div class="highlight-item reveal reveal-delay-4">
+                <div class="highlight-number">20+</div>
+                <div class="highlight-label">{{ get_text('highlight_competitions') }}</div>
+                <div class="highlight-desc">{{ get_text('highlight_competitions_desc') }}</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Featured Projects -->
+<section class="section projects-section">
+    <div class="container-apple">
+        <div class="section-header reveal">
+            <span class="caption">{{ get_text('featured_projects_title') }}</span>
+            <h2 class="display-section">{{ get_text('featured_projects_subtitle') }}</h2>
+        </div>
+        
+        <div class="projects-grid">
+            <a href="{{ url_for('nanobanana_ai') }}" class="project-card featured reveal">
+                <div class="project-card-inner">
+                    <div>
+                        <div class="project-card-header">
+                            <div class="project-logo-wrap"><img src="{{ url_for('static', filename='images/logos/nanobanana-ai-logo.png') }}" alt="NanoBanana AI"></div>
+                            <span class="project-badge saas">{{ get_text('project_type_saas') }}</span>
+                        </div>
+                        <h3 class="project-card-name">NanoBanana AI</h3>
+                        <p class="project-card-subtitle">{{ get_text('nanobanana_subtitle') }}</p>
+                        <p class="project-card-desc">{{ get_text('project_nanobanana_desc') }}</p>
+                    </div>
+                    <div>
+                        <div class="project-card-tags">
+                            <span class="project-tag">{{ get_text('feature_research') }}</span>
+                            <span class="project-tag">{{ get_text('prompt_engineering') }}</span>
+                            <span class="project-tag">SEO/GEO</span>
+                        </div>
+                        <div class="project-card-metrics">
+                            <div class="metric"><span class="metric-value">67K</span><span class="metric-label">{{ get_text('total_traffic') }}</span></div>
+                            <div class="metric"><span class="metric-value">3K+</span><span class="metric-label">{{ get_text('daily_traffic') }}</span></div>
+                            <div class="metric"><span class="metric-value">#1</span><span class="metric-label">{{ get_text('bing_ranking') }}</span></div>
+                        </div>
+                        <div class="project-card-arrow">{{ get_text('view_details') }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                    </div>
+                </div>
+            </a>
             
-            <!-- Main Title -->
-            <h1 class="hero-title">{{ get_text('hero_title') }}</h1>
+            <a href="{{ url_for('musiccreator_ai') }}" class="project-card reveal reveal-delay-1">
+                <div class="project-card-inner">
+                    <div class="project-card-header">
+                        <div class="project-logo-wrap"><img src="{{ url_for('static', filename='images/logos/musiccreator-ai-logo.png') }}" alt="MusicCreator AI"></div>
+                        <span class="project-badge saas">{{ get_text('project_type_saas') }}</span>
+                    </div>
+                    <h3 class="project-card-name">MusicCreator AI</h3>
+                    <p class="project-card-subtitle">{{ get_text('musiccreator_subtitle') }}</p>
+                    <p class="project-card-desc">{{ get_text('project_musiccreator_desc') }}</p>
+                    <div class="project-card-metrics">
+                        <div class="metric"><span class="metric-value">138K</span><span class="metric-label">{{ get_text('monthly_visits') }}</span></div>
+                        <div class="metric"><span class="metric-value">#1</span><span class="metric-label">Bing</span></div>
+                    </div>
+                    <div class="project-card-arrow">{{ get_text('view_details') }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </a>
             
-            <!-- Description -->
-            <p class="hero-description">{{ get_text('hero_description') }}</p>
-            
-            <!-- Scrolling Tags Component -->
-            <div class="scrolling-tags-container">
-                <!-- First Row - Scroll Left -->
-                <div class="scrolling-tags-row scroll-left">
-                    <div class="tags-track">
-                        {% for tag in get_text('hero_tags_row1') %}
-                        <button class="tag-button">{{ tag }}</button>
-                        {% endfor %}
-                        <!-- Duplicate for seamless loop -->
-                        {% for tag in get_text('hero_tags_row1') %}
-                        <button class="tag-button">{{ tag }}</button>
-                        {% endfor %}
+            <a href="{{ url_for('coloringbook_ai') }}" class="project-card reveal reveal-delay-2">
+                <div class="project-card-inner">
+                    <div class="project-card-header">
+                        <div class="project-logo-wrap"><img src="{{ url_for('static', filename='images/logos/coloringbook-ai-logo.png') }}" alt="Coloringbook AI"></div>
+                        <span class="project-badge saas">{{ get_text('project_type_saas') }}</span>
                     </div>
-                </div>
-                
-                <!-- Second Row - Scroll Right -->
-                <div class="scrolling-tags-row scroll-right">
-                    <div class="tags-track">
-                        {% for tag in get_text('hero_tags_row2') %}
-                        <button class="tag-button">{{ tag }}</button>
-                        {% endfor %}
-                        <!-- Duplicate for seamless loop -->
-                        {% for tag in get_text('hero_tags_row2') %}
-                        <button class="tag-button">{{ tag }}</button>
-                        {% endfor %}
+                    <h3 class="project-card-name">Coloringbook AI</h3>
+                    <p class="project-card-subtitle">{{ get_text('coloringbook_subtitle') }}</p>
+                    <p class="project-card-desc">{{ get_text('project_coloringbook_desc') }}</p>
+                    <div class="project-card-metrics">
+                        <div class="metric"><span class="metric-value">566K</span><span class="metric-label">{{ get_text('daily_traffic') }}</span></div>
+                        <div class="metric"><span class="metric-value">#1</span><span class="metric-label">Google</span></div>
                     </div>
+                    <div class="project-card-arrow">{{ get_text('view_details') }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
                 </div>
-            </div>
+            </a>
         </div>
         
-        <!-- Hero Actions -->
-        <div class="hero-actions">
-            <a href="{{ url_for('ai_projects') }}" class="btn btn-primary btn-lg">
-                <i class="fas fa-rocket me-2"></i>{{ get_text('btn_view_projects') }}
-            </a>
-            <a href="{{ url_for('resume') }}" class="btn btn-outline-primary btn-lg">
-                <i class="fas fa-file-alt me-2"></i>{{ get_text('btn_view_resume') }}
+        <div style="text-align:center;margin-top:48px;" class="reveal">
+            <a href="{{ url_for('projects') }}" class="btn-apple btn-apple-secondary">
+                {{ get_text('view_more_projects') }}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
     </div>
 </section>
 
-<!-- AI Assistant Section -->
-<section class="ai-assistant-section section-modern animate-fade-up">
-    <div class="container">
-        <h2 class="section-title">{{ get_text('ai_section_title') }}</h2>
-        <p class="section-subtitle">{{ get_text('ai_section_subtitle') }}</p>
-        
-        <div class="row justify-content-center">
-            <div class="col-lg-8 animate-scale-up animate-delay-200">
-                <!-- AI Chat Interface -->
-                <div class="ai-chat-container">
-                    <!-- Chat Header -->
-                    <div class="chat-header">
-                        <div class="chat-header-content">
-                            <div class="chat-header-info">
-                                <div class="chat-avatar">
-                                    <i class="fas fa-robot"></i>
-                                </div>
-                                <div>
-                                    <h3 class="chat-title">{{ get_text('ai_chat_title') }}</h3>
-                                    <div class="chat-status">
-                                        <span class="status-dot"></span>
-                                        <span>{{ get_text('ai_status_online') if get_text('ai_status_online') else 'Online & Ready to Help' }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Mode and Model Selection -->
-                        <div class="chat-controls">
-                            <div class="mode-selector">
-                                <label class="mode-label">{{ get_text('chat_mode_label') }}</label>
-                                <select id="chatMode" class="form-select form-select-sm">
-                                    <option value="personal">{{ get_text('chat_mode_personal') }}</option>
-                                    <option value="general">{{ get_text('chat_mode_general') }}</option>
-                                </select>
-                            </div>
-                            <div class="model-selector">
-                                <label class="model-label">{{ get_text('chat_model_label') }}</label>
-                                <select id="aiModel" class="form-select form-select-sm">
-                                    <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
-                                    <option value="gpt-4">GPT-4</option>
-                                    <option value="gemini-pro">Gemini Pro</option>
-                                </select>
-                            </div>
-                            <button id="resetChat" class="reset-button" title="重置对话">
-                                <i class="fas fa-refresh"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Chat Messages -->
-                    <div class="chat-messages" id="chatMessages">
-                        <!-- Messages will be added dynamically -->
-                    </div>
-                    
-                    <!-- Chat Input -->
-                    <div class="chat-input-container">
-                        <div class="conversation-counter" id="conversationCounter">
-                            对话轮次: <span id="currentCount">0</span> / <span id="maxCount">5</span>
-                        </div>
-                        <div class="chat-input-wrapper">
-                            <input type="text" class="chat-input" id="chatInput" 
-                                   placeholder="{{ get_text('ai_chat_placeholder') }}">
-                            <button class="chat-send-button" id="sendMessage">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+<!-- Floating AI Chatbot (Gemini-style) -->
+<div class="chatbot-fab" id="chatbotFab" onclick="toggleChatbot()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="fab-label">{{ get_text('ai_section_title') }}</span>
+</div>
+
+<div class="chatbot-panel" id="chatbotPanel">
+    <div class="chatbot-panel-header">
+        <div class="chatbot-panel-title">
+            <div class="chatbot-avatar-glow">
+                <img src="/static/images/avatars/user-avatar.jpg" alt="Zhou Jing" onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
+                <i class="fas fa-sparkles"></i>
             </div>
+            <div>
+                <h3>{{ get_text('ai_chat_title') }}</h3>
+                <div class="chatbot-status"><span class="status-dot"></span> {{ get_text('ai_status_online') }}</div>
+            </div>
+        </div>
+        <div class="chatbot-panel-actions">
+            <select id="chatMode" class="chatbot-select">
+                <option value="personal">{{ get_text('chat_mode_personal') }}</option>
+                <option value="general">{{ get_text('chat_mode_general') }}</option>
+            </select>
+            <select id="aiModel" class="chatbot-select">
+                <option value="gpt-4o">GPT-4o</option>
+            </select>
+            <button id="resetChat" class="chatbot-icon-btn" title="Reset">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+            </button>
+            <button class="chatbot-icon-btn" onclick="toggleChatbot()" title="Close">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
         </div>
     </div>
-</section>
-
-<!-- Key Achievements Section -->
-<section class="highlights-section section-modern animate-slide-left">
-    <div class="container">
-        <h2 class="section-title">{{ get_text('highlights_title') }}</h2>
-        <p class="section-subtitle">{{ get_text('highlights_subtitle') }}</p>
-        
-        <div class="row g-4 mt-4">
-            <div class="col-md-6 col-lg-3 animate-scale-up animate-delay-100">
-                <div class="highlight-card text-center p-4 h-100">
-                    <div class="highlight-icon mb-3">
-                        <i class="fas fa-university fa-3x"></i>
-                    </div>
-                    <h5 class="mb-3 fw-bold">{{ get_text('highlight_education') }}</h5>
-                    <p class="text-muted mb-0">{{ get_text('highlight_education_desc') }}</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 animate-scale-up animate-delay-200">
-                <div class="highlight-card text-center p-4 h-100">
-                    <div class="highlight-icon mb-3">
-                        <i class="fas fa-robot fa-3x"></i>
-                    </div>
-                    <h5 class="mb-3 fw-bold">{{ get_text('highlight_ai_skills') }}</h5>
-                    <p class="text-muted mb-0">{{ get_text('highlight_ai_skills_desc') }}</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 animate-scale-up animate-delay-300">
-                <div class="highlight-card text-center p-4 h-100">
-                    <div class="highlight-icon mb-3">
-                        <i class="fas fa-trophy fa-3x"></i>
-                    </div>
-                    <h5 class="mb-3 fw-bold">{{ get_text('highlight_scholarship') }}</h5>
-                    <p class="text-muted mb-0">{{ get_text('highlight_scholarship_desc') }}</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 animate-scale-up animate-delay-400">
-                <div class="highlight-card text-center p-4 h-100">
-                    <div class="highlight-icon mb-3">
-                        <i class="fas fa-medal fa-3x"></i>
-                    </div>
-                    <h5 class="mb-3 fw-bold">{{ get_text('highlight_competitions') }}</h5>
-                    <p class="text-muted mb-0">{{ get_text('highlight_competitions_desc') }}</p>
-                </div>
-            </div>
+    
+    <div class="chatbot-messages" id="chatMessages"></div>
+    
+    <div class="chatbot-input-area">
+        <div class="chatbot-counter" id="conversationCounter">
+            <span id="currentCount">0</span>/<span id="maxCount">5</span>
         </div>
-        
-        <!-- View Resume Button -->
-        <div class="text-center mt-5">
-            <a href="{{ url_for('resume') }}" class="btn btn-primary btn-lg">
-                <i class="fas fa-file-alt me-2"></i>{{ get_text('btn_view_resume') }}
-            </a>
+        <div class="chatbot-input-row">
+            <input type="text" class="chatbot-input" id="chatInput" 
+                   placeholder="{{ get_text('ai_chat_placeholder') }}">
+            <button class="chatbot-send" id="sendMessage">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
         </div>
     </div>
-</section>
-
-
-<!-- Featured Projects Section -->
-<section class="featured-projects section-modern animate-slide-right">
-    <div class="container">
-        <h2 class="section-title">{{ get_text('featured_projects_title') }}</h2>
-        <p class="section-subtitle">{{ get_text('featured_projects_subtitle') }}</p>
-        
-        <!-- Scrollable Projects Container -->
-        <div class="projects-container mt-5">
-            <div class="projects-scroll-wrapper" id="projectsScrollWrapper">
-                <div class="projects-track" id="projectsTrack">
-                      <!-- Project 1: MusicCreator AI -->
-                      <div class="project-card-scroll">
-                          <div class="project-image">
-                              <img src="{{ url_for('static', filename='images/logos/musiccreator-ai-logo.png') }}" 
-                                   class="project-logo" alt="MusicCreator AI Logo">
-                          </div>
-                        <div class="project-content">
-                            <h5 class="project-title" onclick="window.open('https://www.musiccreator.ai/', '_blank')">MusicCreator AI</h5>
-                            <p class="project-description">{{ get_text('project_musiccreator_desc') }}</p>
-                            <div class="project-tags">
-                                <span class="badge bg-primary">{{ get_text('badge_product_research') }}</span>
-                                <span class="badge bg-success">{{ get_text('badge_feature_development') }}</span>
-                                <span class="badge bg-warning">{{ get_text('prompt_engineering') }}</span>
-                                <span class="badge bg-info">{{ get_text('badge_seo') }}</span>
-                            </div>
-                              <button class="project-detail-btn" onclick="window.location.href='{{ url_for('musiccreator_ai') }}'">
-                                  <i class="fas fa-arrow-right"></i>
-                              </button>
-                          </div>
-                      </div>
-
-                    <!-- Project 2: Coloringbook AI -->
-                    <div class="project-card-scroll">
-                        <div class="project-image">
-                            <img src="{{ url_for('static', filename='images/logos/coloringbook-ai-logo.png') }}" 
-                                 class="project-logo" alt="Coloringbook AI Logo">
-                        </div>
-                        <div class="project-content">
-                            <h5 class="project-title" onclick="window.open('https://www.coloringbook.ai/', '_blank')">Coloringbook AI</h5>
-                            <p class="project-description">{{ get_text('project_coloringbook_desc') }}</p>
-                            <div class="project-tags">
-                                <span class="badge bg-primary">{{ get_text('badge_new_features') }}</span>
-                                <span class="badge bg-success">{{ get_text('prompt_engineering') }}</span>
-                                <span class="badge bg-warning">{{ get_text('badge_seo') }}</span>
-                                <span class="badge bg-danger">{{ get_text('badge_bug_fix') }}</span>
-                            </div>
-                            <button class="project-detail-btn" onclick="window.location.href='{{ url_for('coloringbook_ai') }}'">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Project 3: Inker.AI -->
-                    <div class="project-card-scroll">
-                        <div class="project-image">
-                            <img src="{{ url_for('static', filename='images/logos/inker-ai-logo.svg') }}" 
-                                 class="project-logo" alt="Inker.AI Logo">
-                        </div>
-                        <div class="project-content">
-                            <h5 class="project-title" onclick="window.open('https://www.inker.ai/', '_blank')">Inker.AI</h5>
-                            <p class="project-description">{{ get_text('project_inker_desc') }}</p>
-                            <div class="project-tags">
-                                <span class="badge bg-primary">{{ get_text('badge_new_features') }}</span>
-                                <span class="badge bg-success">{{ get_text('prompt_engineering') }}</span>
-                                <span class="badge bg-warning">{{ get_text('badge_seo') }}</span>
-                            </div>
-                            <button class="project-detail-btn" onclick="window.location.href='{{ url_for('inker_ai') }}'">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Project 4: Web Picture Scraper -->
-                    <div class="project-card-scroll">
-                        <div class="project-image">
-                            <img src="{{ url_for('static', filename='images/logos/web-scraper-logo.svg') }}" 
-                                 class="project-logo" alt="Web Picture Scraper Logo">
-                        </div>
-                        <div class="project-content">
-                            <h5 class="project-title" onclick="window.open('https://image-scraper-webapp.onrender.com/', '_blank')">Web Picture Scraper</h5>
-                            <p class="project-description">{{ get_text('project_webscraper_desc') }}</p>
-                            <div class="project-tags">
-                                <span class="badge bg-danger">{{ get_text('badge_frontend_dev') }}</span>
-                                <span class="badge bg-success">{{ get_text('badge_backend_dev') }}</span>
-                                <span class="badge bg-info">{{ get_text('badge_fullstack_deploy') }}</span>
-                                <span class="badge bg-warning">{{ get_text('badge_efficiency_tool') }}</span>
-                            </div>
-                            <button class="project-detail-btn" onclick="window.location.href='{{ url_for('web_picture_scraper') }}'">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Project 5: NanoBanana AI -->
-                    <div class="project-card-scroll">
-                        <div class="project-image">
-                            <img src="{{ url_for('static', filename='images/logos/nanobanana-ai-logo.png') }}" 
-                                 class="project-logo" alt="NanoBanana AI Logo">
-                        </div>
-                        <div class="project-content">
-                            <h5 class="project-title" onclick="window.open('https://nanobanana.art/', '_blank')">NanoBanana AI</h5>
-                            <p class="project-description">{{ get_text('project_nanobanana_desc') }}</p>
-                            <div class="project-tags">
-                                <span class="badge bg-primary">{{ get_text('feature_research') }}</span>
-                                <span class="badge bg-success">{{ get_text('badge_feature_development') }}</span>
-                                <span class="badge bg-warning">{{ get_text('prompt_engineering') }}</span>
-                                <span class="badge bg-info">{{ get_text('badge_seo') }}</span>
-                            </div>
-                            <button class="project-detail-btn" onclick="window.location.href='{{ url_for('nanobanana_ai') }}'">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scroll Progress Bar -->
-            <div class="projects-progress-bar">
-                <div class="progress-track" id="progressTrack">
-                    <div class="progress-thumb" id="progressThumb"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- View More Button -->
-        <div class="text-center mt-5">
-            <a href="{{ url_for('ai_projects') }}" class="btn btn-primary btn-lg">
-                <i class="fas fa-rocket me-2"></i>{{ get_text('view_more_projects') }}
-            </a>
-        </div>
-    </div>
-</section>
-
+</div>
 {% endblock %}
 
 {% block extra_scripts %}
 <script>
-// Real AI Chat System with APICore.ai
 document.addEventListener('DOMContentLoaded', function() {
+    initRevealAnimations();
+    initTypingAnimation();
     initAIChat();
-    initScrollAnimations();
-    initProjectsScroll();
     loadAvailableModels();
 });
 
+// ====== Reveal on Scroll ======
+function initRevealAnimations() {
+    const els = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => observer.observe(el));
+}
+
+// ====== Typing Animation (Gemini-style) ======
+function initTypingAnimation() {
+    const target = document.getElementById('typingTarget');
+    if (!target) return;
+    
+    const phrases = [
+        "{{ get_text('hero_title') }}",
+        "{{ get_text('typing_phrase_2') }}",
+        "{{ get_text('typing_phrase_3') }}",
+        "{{ get_text('hero_title') }}"
+    ];
+    
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let isPaused = false;
+    
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
+        
+        if (isPaused) {
+            isPaused = false;
+            isDeleting = true;
+            setTimeout(type, 50);
+            return;
+        }
+        
+        if (!isDeleting) {
+            target.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            
+            if (charIndex === currentPhrase.length) {
+                if (phraseIndex === phrases.length - 1) {
+                    // Last phrase: stop and remove cursor
+                    document.querySelector('.typing-cursor').style.display = 'none';
+                    return;
+                }
+                isPaused = true;
+                setTimeout(type, 2000);
+                return;
+            }
+            setTimeout(type, 60 + Math.random() * 40);
+        } else {
+            target.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            
+            if (charIndex === 0) {
+                isDeleting = false;
+                phraseIndex++;
+                setTimeout(type, 400);
+                return;
+            }
+            setTimeout(type, 30);
+        }
+    }
+    
+    setTimeout(type, 800);
+}
+
+// ====== Floating Chatbot ======
+function toggleChatbot() {
+    const panel = document.getElementById('chatbotPanel');
+    const fab = document.getElementById('chatbotFab');
+    const isOpen = panel.classList.contains('open');
+    
+    if (isOpen) {
+        panel.classList.remove('open');
+        fab.classList.remove('hidden');
+    } else {
+        panel.classList.add('open');
+        fab.classList.add('hidden');
+    }
+}
+
+// ====== AI Chat ======
 let isWaitingForResponse = false;
 
 function initAIChat() {
     const sendBtn = document.getElementById('sendMessage');
     const input = document.getElementById('chatInput');
-    const chatContainer = document.getElementById('chatMessages');
     const resetBtn = document.getElementById('resetChat');
     const modeSelect = document.getElementById('chatMode');
     
-    if (!sendBtn || !input || !chatContainer) return;
+    if (!sendBtn || !input) return;
     
-    // Event listeners
     sendBtn.addEventListener('click', () => sendMessage());
     input.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            sendMessage();
-        }
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
     });
     
     resetBtn.addEventListener('click', () => resetConversation());
-    modeSelect.addEventListener('change', () => onModeChange());
+    modeSelect.addEventListener('change', () => resetConversation());
     
-    // Initialize conversation counter
     updateConversationCounter(0, 5);
-    
-    // Show initial mode-specific message
-    setTimeout(() => {
-        showInitialMessage();
-    }, 1000);
+    setTimeout(() => showInitialMessage(), 600);
 }
 
 function showInitialMessage() {
     const mode = document.getElementById('chatMode').value;
-    let message = '';
-    
-    if (mode === 'personal') {
-        message = "👋 你好！我是周晶，很高兴认识你！你可以问我关于我的项目经历、技能背景、学习心得或者职业规划等任何问题。";
-    } else {
-        message = "👋 你好！我是通用AI助手，你可以向我提任何问题。";
-    }
-    
-    addMessage(message, 'assistant');
+    const msg = mode === 'personal'
+        ? "{{ get_text('chat_init_personal') }}"
+        : "{{ get_text('chat_init_general') }}";
+    addMessage(msg, 'assistant');
 }
 
 async function sendMessage() {
     if (isWaitingForResponse) return;
-    
     const input = document.getElementById('chatInput');
     const message = input.value.trim();
-    
     if (!message) return;
     
     const mode = document.getElementById('chatMode').value;
     const model = document.getElementById('aiModel').value;
     
-    // Add user message
     addMessage(message, 'user');
     input.value = '';
-    
-    // Disable input during processing
     isWaitingForResponse = true;
     input.disabled = true;
     document.getElementById('sendMessage').disabled = true;
-    
-    // Show typing indicator
     showTypingIndicator();
     
     try {
         const response = await fetch('/api/chat', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                message: message,
-                mode: mode,
-                model: model
-            })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message, mode, model })
         });
-        
         const data = await response.json();
-        
         hideTypingIndicator();
         
         if (response.ok) {
             addMessage(data.response, 'assistant');
             updateConversationCounter(data.conversation_count, data.max_conversations);
-            
-            // Check if max conversations reached
-            if (data.conversation_count >= data.max_conversations) {
-                showMaxConversationsMessage();
-            }
+            if (data.conversation_count >= data.max_conversations) showMaxMessage();
         } else {
-            addMessage(`❌ 错误: ${data.error}`, 'assistant');
-            if (data.max_reached) {
-                showMaxConversationsMessage();
-            }
+            addMessage("{{ get_text('chat_error_prefix') }}" + data.error, 'assistant');
         }
     } catch (error) {
         hideTypingIndicator();
-        addMessage('❌ 网络错误，请检查连接后重试。', 'assistant');
-        console.error('Chat error:', error);
+        addMessage("{{ get_text('chat_network_error') }}", 'assistant');
     } finally {
-        // Re-enable input
         isWaitingForResponse = false;
         input.disabled = false;
         document.getElementById('sendMessage').disabled = false;
@@ -446,362 +364,72 @@ async function sendMessage() {
 }
 
 function addMessage(text, sender) {
-    const chatContainer = document.getElementById('chatMessages');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `chat-message ${sender}`;
+    const container = document.getElementById('chatMessages');
+    const div = document.createElement('div');
+    div.className = `chatbot-msg ${sender}`;
     
-    // Determine avatar based on sender and mode
     const mode = document.getElementById('chatMode').value;
     let avatar;
-    
     if (sender === 'user') {
         avatar = '<i class="fas fa-user"></i>';
+    } else if (mode === 'personal') {
+        avatar = `<img src="/static/images/avatars/user-avatar.jpg" alt="ZJ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><i class="fas fa-robot" style="display:none;"></i>`;
     } else {
-        // AI assistant avatar - use personal photo in personal mode, robot icon in general mode
-        if (mode === 'personal') {
-            avatar = `<img src="/static/images/avatars/user-avatar.jpg" alt="Zhou Jing" onerror="this.onerror=null; this.src='/static/images/avatars/user-avatar.png'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='flex';};">
-                     <i class="fas fa-robot" style="display:none;"></i>`;
-        } else {
-            avatar = '<i class="fas fa-robot"></i>';
-        }
+        avatar = '<i class="fas fa-robot"></i>';
     }
     
-    messageDiv.innerHTML = `
-        <div class="message-avatar ${sender}">
-            ${avatar}
-        </div>
-        <div class="message-content ${sender}">
-            ${text}
-        </div>
-    `;
-    
-    chatContainer.appendChild(messageDiv);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+    div.innerHTML = `<div class="chatbot-msg-avatar ${sender}">${avatar}</div><div class="chatbot-msg-bubble ${sender}">${text}</div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
 }
 
 function showTypingIndicator() {
-    const chatContainer = document.getElementById('chatMessages');
-    const typingDiv = document.createElement('div');
-    typingDiv.className = 'chat-message assistant typing-message';
-    typingDiv.id = 'typingIndicator';
-    
-    typingDiv.innerHTML = `
-        <div class="message-avatar assistant">
-            <i class="fas fa-robot"></i>
-        </div>
-        <div class="message-content assistant">
-            <div class="typing-indicator">
-                <div class="typing-dot"></div>
-                <div class="typing-dot"></div>
-                <div class="typing-dot"></div>
-            </div>
-        </div>
-    `;
-    
-    chatContainer.appendChild(typingDiv);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+    const container = document.getElementById('chatMessages');
+    const div = document.createElement('div');
+    div.className = 'chatbot-msg assistant';
+    div.id = 'typingIndicator';
+    div.innerHTML = `<div class="chatbot-msg-avatar assistant"><i class="fas fa-robot"></i></div><div class="chatbot-msg-bubble assistant"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
 }
 
-function hideTypingIndicator() {
-    const typingIndicator = document.getElementById('typingIndicator');
-    if (typingIndicator) {
-        typingIndicator.remove();
-    }
-}
+function hideTypingIndicator() { const el = document.getElementById('typingIndicator'); if (el) el.remove(); }
 
 function updateConversationCounter(current, max) {
     document.getElementById('currentCount').textContent = current;
     document.getElementById('maxCount').textContent = max;
-    
-    const counter = document.getElementById('conversationCounter');
-    if (current >= max) {
-        counter.style.color = '#dc3545';
-        counter.style.fontWeight = 'bold';
-    } else if (current >= max - 1) {
-        counter.style.color = '#fd7e14';
-        counter.style.fontWeight = 'bold';
-    } else {
-        counter.style.color = '#6c757d';
-        counter.style.fontWeight = 'normal';
-    }
 }
 
-function showMaxConversationsMessage() {
+function showMaxMessage() {
     const input = document.getElementById('chatInput');
-    const sendBtn = document.getElementById('sendMessage');
-    
     input.disabled = true;
-    sendBtn.disabled = true;
-    input.placeholder = '对话已达上限，请点击重置对话按钮开始新对话';
-    
-    addMessage('⚠️ 对话轮次已达上限，请点击"重置对话"按钮开始新的对话。', 'assistant');
+    document.getElementById('sendMessage').disabled = true;
+    input.placeholder = "{{ get_text('chat_limit_reached') }}";
 }
 
 async function resetConversation() {
     const mode = document.getElementById('chatMode').value;
-    
     try {
-        const response = await fetch(`/api/chat/reset/${mode}`);
-        const data = await response.json();
-        
-        if (response.ok) {
-            // Clear chat messages and show initial message
-            const chatContainer = document.getElementById('chatMessages');
-            chatContainer.innerHTML = '';
-            
-            // Reset UI
-            updateConversationCounter(0, 5);
-            const input = document.getElementById('chatInput');
-            const sendBtn = document.getElementById('sendMessage');
-            input.disabled = false;
-            sendBtn.disabled = false;
-            input.placeholder = "{{ get_text('ai_chat_placeholder') }}";
-            
-            // Show initial message based on mode
-            setTimeout(() => {
-                showInitialMessage();
-            }, 500);
-            
-        } else {
-            console.error('Reset failed:', data.error);
-        }
-    } catch (error) {
-        console.error('Reset error:', error);
-    }
-}
-
-function onModeChange() {
-    // Reset conversation when mode changes
-    resetConversation();
+        await fetch(`/api/chat/reset/${mode}`);
+        document.getElementById('chatMessages').innerHTML = '';
+        updateConversationCounter(0, 5);
+        document.getElementById('chatInput').disabled = false;
+        document.getElementById('sendMessage').disabled = false;
+        document.getElementById('chatInput').placeholder = "{{ get_text('ai_chat_placeholder') }}";
+        setTimeout(() => showInitialMessage(), 300);
+    } catch (e) { console.error(e); }
 }
 
 async function loadAvailableModels() {
     try {
-        const response = await fetch('/api/chat/models');
-        const data = await response.json();
-        
-        if (response.ok && data.models) {
-            const modelSelect = document.getElementById('aiModel');
-            modelSelect.innerHTML = '';
-            
-            data.models.forEach(model => {
-                const option = document.createElement('option');
-                option.value = model.id;
-                option.textContent = `${model.name} (${model.provider})`;
-                modelSelect.appendChild(option);
-            });
+        const r = await fetch('/api/chat/models');
+        const d = await r.json();
+        if (r.ok && d.models) {
+            const s = document.getElementById('aiModel');
+            s.innerHTML = '';
+            d.models.forEach(m => { const o = document.createElement('option'); o.value = m.id; o.textContent = m.name; s.appendChild(o); });
         }
-    } catch (error) {
-        console.error('Failed to load models:', error);
-    }
-}
-
-// Scroll Animation System
-function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.animate-fade-up, .animate-slide-left, .animate-slide-right, .animate-scale-up, .animate-rotate-in');
-    
-    // Create intersection observer
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-visible');
-                // Don't unobserve to allow repeat animations
-            } else {
-                // Remove animation class when element is out of view for repeat effect
-                entry.target.classList.remove('animate-visible');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    // Observe all animated elements
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
-}
-
-// Projects Auto Scroll System (Suno.com style)
-function initProjectsScroll() {
-    const track = document.getElementById('projectsTrack');
-    const wrapper = document.getElementById('projectsScrollWrapper');
-    const progressTrack = document.getElementById('progressTrack');
-    const progressThumb = document.getElementById('progressThumb');
-    
-    if (!track || !wrapper || !progressTrack || !progressThumb) return;
-    
-    const cards = track.querySelectorAll('.project-card-scroll');
-    let isAutoScrolling = true;
-    let isDragging = false;
-    let currentPosition = 0;
-    let animationId;
-    
-    // 计算总宽度
-    function calculateDimensions() {
-        const cardWidth = 350;
-        const gap = 32;
-        const totalWidth = cards.length * (cardWidth + gap);
-        const containerWidth = wrapper.offsetWidth;
-        return { totalWidth, containerWidth, cardWidth, gap };
-    }
-    
-    // 自动滚动动画
-    function autoScroll() {
-        if (!isAutoScrolling || isDragging) return;
-        
-        const { totalWidth, containerWidth } = calculateDimensions();
-        const maxScroll = totalWidth - containerWidth;
-        
-        // 确保有足够的内容可以滚动
-        if (maxScroll <= 0) {
-            // 如果内容不够滚动，就不执行滚动
-            animationId = requestAnimationFrame(autoScroll);
-            return;
-        }
-        
-        // 缓慢移动
-        currentPosition += 0.8; // 稍微加快滚动速度
-        
-        // 如果到达末尾，平滑重置到开始
-        if (currentPosition >= maxScroll) {
-            currentPosition = 0; // 直接重置到开始位置
-        }
-        
-        track.style.transform = `translateX(-${currentPosition}px)`;
-        updateProgressBar();
-        
-        animationId = requestAnimationFrame(autoScroll);
-    }
-    
-    // 更新进度条
-    function updateProgressBar() {
-        const { totalWidth, containerWidth } = calculateDimensions();
-        const maxScroll = totalWidth - containerWidth;
-        
-        if (maxScroll <= 0) {
-            progressThumb.style.transform = `translateX(0px)`;
-            return;
-        }
-        
-        const progress = Math.max(0, Math.min(currentPosition / maxScroll, 1));
-        const thumbWidth = 40; // thumb的宽度
-        const trackWidth = progressTrack.offsetWidth;
-        const thumbPosition = progress * (trackWidth - thumbWidth);
-        
-        progressThumb.style.transform = `translateX(${thumbPosition}px)`;
-    }
-    
-    // 手动拖拽控制
-    let startX = 0;
-    let startPosition = 0;
-    
-    function handleMouseDown(e) {
-        isDragging = true;
-        isAutoScrolling = false;
-        startX = e.clientX || e.touches[0].clientX;
-        startPosition = currentPosition;
-        track.style.cursor = 'grabbing';
-        if (animationId) cancelAnimationFrame(animationId);
-    }
-    
-    function handleMouseMove(e) {
-        if (!isDragging) return;
-        
-        const clientX = e.clientX || e.touches[0].clientX;
-        const deltaX = startX - clientX;
-        const { totalWidth, containerWidth } = calculateDimensions();
-        const maxScroll = totalWidth - containerWidth;
-        
-        if (maxScroll <= 0) return;
-        
-        currentPosition = Math.max(0, Math.min(startPosition + deltaX, maxScroll));
-        track.style.transform = `translateX(-${currentPosition}px)`;
-        updateProgressBar();
-    }
-    
-    function handleMouseUp() {
-        if (!isDragging) return;
-        
-        isDragging = false;
-        track.style.cursor = 'grab';
-        
-        // 延迟重启自动滚动
-        setTimeout(() => {
-            isAutoScrolling = true;
-            autoScroll();
-        }, 2000);
-    }
-    
-    // 进度条拖拽
-    function handleProgressDrag(e) {
-        const rect = progressTrack.getBoundingClientRect();
-        const clickX = (e.clientX || e.touches[0].clientX) - rect.left;
-        const progress = Math.max(0, Math.min(clickX / rect.width, 1));
-        
-        const { totalWidth, containerWidth } = calculateDimensions();
-        const maxScroll = totalWidth - containerWidth;
-        
-        if (maxScroll <= 0) return;
-        
-        currentPosition = progress * maxScroll;
-        track.style.transform = `translateX(-${currentPosition}px)`;
-        updateProgressBar();
-        
-        isAutoScrolling = false;
-        if (animationId) cancelAnimationFrame(animationId);
-        
-        setTimeout(() => {
-            isAutoScrolling = true;
-            autoScroll();
-        }, 2000);
-    }
-    
-    // 事件监听器
-    track.addEventListener('mousedown', handleMouseDown);
-    track.addEventListener('touchstart', handleMouseDown);
-    
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('touchmove', handleMouseMove);
-    
-    document.addEventListener('mouseup', handleMouseUp);
-    document.addEventListener('touchend', handleMouseUp);
-    
-    progressTrack.addEventListener('mousedown', handleProgressDrag);
-    progressTrack.addEventListener('touchstart', handleProgressDrag);
-    
-    // 鼠标悬停暂停
-    wrapper.addEventListener('mouseenter', () => {
-        isAutoScrolling = false;
-        if (animationId) cancelAnimationFrame(animationId);
-    });
-    
-    wrapper.addEventListener('mouseleave', () => {
-        isAutoScrolling = true;
-        autoScroll();
-    });
-    
-    // 窗口大小改变
-    window.addEventListener('resize', () => {
-        updateProgressBar();
-    });
-    
-    // 页面可见性检查 - 当页面不可见时暂停滚动
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            isAutoScrolling = false;
-            if (animationId) cancelAnimationFrame(animationId);
-        } else {
-            isAutoScrolling = true;
-            autoScroll();
-        }
-    });
-    
-    // 初始化 - 延迟启动确保DOM完全加载
-    setTimeout(() => {
-        updateProgressBar(); // 先更新进度条
-        autoScroll(); // 然后开始滚动
-    }, 100);
+    } catch (e) { console.error(e); }
 }
 </script>
 {% endblock %}

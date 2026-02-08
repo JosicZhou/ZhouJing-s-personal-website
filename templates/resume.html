@@ -3,261 +3,373 @@
 {% block title %}{{ get_text('resume_title') }} - Zhou Jing 周晶{% endblock %}
 
 {% block content %}
-<div class="resume-page" style="padding-top: 100px;">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <!-- Header -->
-                <header class="resume-header mb-5">
-                    <h1 class="display-5 fw-bold mb-2">{{ get_text('hero_title') }}</h1>
-                    <h2 class="h5 text-muted mb-3">{{ get_text('resume_current_role') }}</h2>
-                    
-                    <div class="contact-links">
-                        <a href="mailto:josic20020903@outlook.com" class="btn btn-outline-primary btn-sm me-2 mb-2">
-                            <i class="fas fa-envelope me-1"></i> Email
-                        </a>
-                        {% if current_language == 'zh' %}
-                        <a href="{{ url_for('static', filename='documents/周晶个人简历.pdf') }}" class="btn btn-outline-primary btn-sm me-2 mb-2" target="_blank">
-                            <i class="fas fa-file-pdf me-1"></i> 简历 (PDF)
-                        </a>
-                        {% else %}
-                        <a href="{{ url_for('static', filename='documents/Zhou Jing Resume en.pdf') }}" class="btn btn-outline-primary btn-sm me-2 mb-2" target="_blank">
-                            <i class="fas fa-file-pdf me-1"></i> CV (PDF)
-                        </a>
-                        {% endif %}
-                        <a href="https://github.com/JosicZhou" class="btn btn-outline-primary btn-sm me-2 mb-2" target="_blank">
-                            <i class="fab fa-github me-1"></i> GitHub
-                        </a>
-                        <a href="https://www.linkedin.com/in/jing-zhou-1a1446281/" class="btn btn-outline-primary btn-sm me-2 mb-2" target="_blank">
-                            <i class="fab fa-linkedin me-1"></i> LinkedIn
-                        </a>
-                    </div>
-                </header>
-
-                <!-- About Me (Removed) -->
-                <!--
-                <section class="resume-section mb-5">
-                    <h3 class="section-title mb-3">{{ get_text('resume_about_title') }}</h3>
-                    <p class="lead">{{ get_text('resume_about_text') }}</p>
-                </section>
-                -->
-
-                <!-- Experience -->
-                <section class="resume-section mb-5">
-                    <h3 class="section-title mb-4">{{ get_text('resume_experience_title') }}</h3>
-                    
-                    <!-- 1. Guangzhou Pipi E-Commerce -->
-                    <div class="experience-item mb-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <h4 class="h5 mb-1 fw-semibold">{{ get_text('intern_product') }}</h4>
-                                <p class="text-primary mb-0">{{ get_text('internship_pipi_company') }}</p>
-                            </div>
-                            <div class="text-end">
-                                <span class="badge bg-light text-dark d-block mb-1">2025.07 - 2025.09</span>
-                                <small class="text-muted">{{ get_text('internship_pipi_location') }}</small>
-                            </div>
-                        </div>
-                        <ul class="experience-details">
-                            <li>{{ get_text('exp_pipi_1') }}</li>
-                            <li>{{ get_text('exp_pipi_2') }}</li>
-                            <li>{{ get_text('exp_pipi_3') }}</li>
-                            <li>{{ get_text('exp_pipi_4') }}</li>
-                            <li>{{ get_text('exp_pipi_5') }}</li>
-                            <li>{{ get_text('exp_pipi_6') }}</li>
-                        </ul>
-                    </div>
-
-                    <!-- 2. Jiangmen Investment -->
-                    <div class="experience-item mb-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <h4 class="h5 mb-1 fw-semibold">{{ get_text('intern_marketing') }}</h4>
-                                <p class="text-primary mb-0">{{ get_text('company_jiangmen') }}</p>
-                            </div>
-                            <div class="text-end">
-                                <span class="badge bg-light text-dark d-block mb-1">2023.04 - 2024.06</span>
-                                <small class="text-muted">{{ get_text('location_beijing') }}</small>
-                            </div>
-                        </div>
-                        <div class="experience-details">
-                            <p class="mb-2"><strong>{{ get_text('exp_jiangmen_subtitle1') }}</strong> {{ get_text('exp_jiangmen_platforms') }}</p>
-                            <ul class="mb-3">
-                                <li>{{ get_text('exp_jiangmen_1') }}</li>
-                                <li>{{ get_text('exp_jiangmen_2') }}</li>
-                                <li>{{ get_text('exp_jiangmen_3') }}</li>
-                                <li>{{ get_text('exp_jiangmen_4') }}</li>
-                            </ul>
-                            <p class="mb-2"><strong>{{ get_text('exp_jiangmen_subtitle2') }}</strong> {{ get_text('exp_jiangmen_community') }}</p>
-                            <ul>
-                                <li>{{ get_text('exp_jiangmen_5') }}</li>
-                                <li>{{ get_text('exp_jiangmen_6') }}</li>
-                                <li>{{ get_text('exp_jiangmen_7') }}</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 3. NetEase Games -->
-                    <div class="experience-item mb-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <h4 class="h5 mb-1 fw-semibold">{{ get_text('intern_newmedia') }}</h4>
-                                <p class="text-primary mb-0">{{ get_text('company_netease') }}</p>
-                            </div>
-                            <div class="text-end">
-                                <span class="badge bg-light text-dark d-block mb-1">2022.05 - 2022.07</span>
-                                <small class="text-muted">{{ get_text('location_guangzhou') }}</small>
-                            </div>
-                        </div>
-                        <ul class="experience-details">
-                            <li>{{ get_text('exp_netease_1') }}</li>
-                            <li>{{ get_text('exp_netease_2') }}</li>
-                            <li>{{ get_text('exp_netease_3') }}</li>
-                        </ul>
-                    </div>
-
-                    <!-- 4. Zhongshan Daily -->
-                    <div class="experience-item mb-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <h4 class="h5 mb-1 fw-semibold">{{ get_text('intern_journalist') }}</h4>
-                                <p class="text-primary mb-0">{{ get_text('company_zhongshan') }}</p>
-                            </div>
-                            <div class="text-end">
-                                <span class="badge bg-light text-dark d-block mb-1">2021.01 - 2021.03</span>
-                                <small class="text-muted">{{ get_text('location_zhongshan') }}</small>
-                            </div>
-                        </div>
-                        <ul class="experience-details">
-                            <li>{{ get_text('exp_zhongshan_1') }}</li>
-                            <li>{{ get_text('exp_zhongshan_2') }}</li>
-                            <li>{{ get_text('exp_zhongshan_3') }}</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Education -->
-                <section class="resume-section mb-5">
-                    <h3 class="section-title mb-4">{{ get_text('resume_education_title') }}</h3>
-                    
-                    <div class="education-item mb-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <h4 class="h5 mb-1 fw-semibold">{{ get_text('edu_msc_title') }}</h4>
-                                <p class="text-primary mb-0">{{ get_text('edu_polyu') }}</p>
-                                <p class="text-muted small mb-0">{{ get_text('edu_polyu_desc') }}</p>
-                            </div>
-                            <span class="badge bg-light text-dark">2024-2025</span>
-                        </div>
-                        <p class="mb-0">{{ get_text('edu_msc_desc') }}</p>
-                    </div>
-
-                    <div class="education-item mb-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <h4 class="h5 mb-1 fw-semibold">{{ get_text('edu_exchange_title') }}</h4>
-                                <p class="text-primary mb-0">{{ get_text('edu_nus') }}</p>
-                                <p class="text-muted small mb-0">{{ get_text('edu_nus_desc') }}</p>
-                            </div>
-                            <span class="badge bg-light text-dark">2023</span>
-                        </div>
-                        <p class="mb-0">{{ get_text('edu_exchange_desc') }}</p>
-                    </div>
-
-                    <div class="education-item mb-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <h4 class="h5 mb-1 fw-semibold">{{ get_text('edu_bachelor_title') }}</h4>
-                                <p class="text-primary mb-0">{{ get_text('edu_tjufe') }}</p>
-                            </div>
-                            <span class="badge bg-light text-dark">2020-2024</span>
-                        </div>
-                        <p class="mb-0">{{ get_text('edu_bachelor_desc') }}</p>
-                    </div>
-                </section>
-
-                <!-- Honors & Awards -->
-                <section class="resume-section mb-5">
-                    <h3 class="section-title mb-4">{{ get_text('resume_honors_title') }}</h3>
-                    
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-award text-warning me-2"></i> {{ get_text('honor_graduate') }}</li>
-                                <li class="mb-2"><i class="fas fa-award text-warning me-2"></i> {{ get_text('honor_national_scholarship') }}</li>
-                                <li class="mb-2"><i class="fas fa-award text-warning me-2"></i> {{ get_text('honor_tianjin_student') }}</li>
-                                <li class="mb-2"><i class="fas fa-award text-warning me-2"></i> {{ get_text('honor_first_scholarship') }}</li>
-                                <li class="mb-2"><i class="fas fa-award text-warning me-2"></i> {{ get_text('honor_outstanding_student') }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Publications & Projects -->
-                <section class="resume-section mb-5">
-                    <h3 class="section-title mb-4">{{ get_text('resume_projects_title') }}</h3>
-                    
-                    <div class="project-links">
-                        <p class="mb-3">{{ get_text('projects_intro') }}</p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="{{ url_for('ai_projects') }}" class="btn btn-primary btn-sm">
-                                <i class="fas fa-robot me-1"></i> {{ get_text('projects_ai_portfolio') }}
-                            </a>
-                            <a href="{{ url_for('creative_works') }}" class="btn btn-outline-primary btn-sm">
-                                <i class="fas fa-palette me-1"></i> {{ get_text('projects_creative_portfolio') }}
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="featured-publications mt-4">
-                        <h5 class="h6 fw-semibold mb-3">{{ get_text('projects_selected') }}</h5>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">{{ get_text('project_ai_music') }}</li>
-                            <li class="mb-2">{{ get_text('project_ai_coloring') }}</li>
-                            <li class="mb-2">{{ get_text('project_python_tools') }}</li>
-                            <li class="mb-2">{{ get_text('project_interactive') }}</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Core Competencies -->
-                <section class="resume-section mb-5">
-                    <h3 class="section-title mb-4">{{ get_text('core_competencies_title') }}</h3>
-                    
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <h5 class="h6 fw-semibold text-primary mb-2">{{ get_text('product_management') }}</h5>
-                            <ul class="competency-list">
-                                <li>{{ get_text('competency_user_research') }}</li>
-                                <li>{{ get_text('competency_product_strategy') }}</li>
-                                <li>{{ get_text('competency_ab_testing') }}</li>
-                                <li>{{ get_text('competency_agile') }}</li>
-                                <li>{{ get_text('competency_leadership') }}</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <h5 class="h6 fw-semibold text-success mb-2">{{ get_text('ai_technology') }}</h5>
-                            <ul class="competency-list">
-                                <li>{{ get_text('prompt_engineering') }}</li>
-                                <li>{{ get_text('competency_ml') }}</li>
-                                <li>{{ get_text('competency_python') }}</li>
-                                <li>{{ get_text('competency_api') }}</li>
-                                <li>{{ get_text('competency_data_analysis') }}</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <h5 class="h6 fw-semibold text-warning mb-2">{{ get_text('design_media') }}</h5>
-                            <ul class="competency-list">
-                                <li>{{ get_text('competency_video') }}</li>
-                                <li>{{ get_text('competency_photography') }}</li>
-                                <li>{{ get_text('competency_content') }}</li>
-                                <li>{{ get_text('competency_seo') }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+<div class="resume-page">
+    <div class="resume-container">
+        
+        <!-- Header -->
+        <header class="resume-hero">
+            <div class="resume-hero-content">
+                <h1 class="resume-name">{{ get_text('hero_title') }}</h1>
+                <p class="resume-role">{{ get_text('resume_current_role') }}</p>
+                <p class="resume-summary">{{ get_text('resume_about_text') }}</p>
+                <div class="resume-contact-row">
+                    <a href="mailto:josic20020903@outlook.com" class="resume-contact-chip">
+                        <i class="fas fa-envelope"></i> Josic20020903@outlook.com
+                    </a>
+                    <a href="tel:+8613528231660" class="resume-contact-chip">
+                        <i class="fas fa-phone"></i> (+86) 13528231660
+                    </a>
+                    <a href="https://www.linkedin.com/in/jing-zhou-1a1446281/" target="_blank" class="resume-contact-chip">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    {% if current_language == 'zh' %}
+                    <a href="{{ url_for('static', filename='documents/周晶个人简历.pdf') }}" target="_blank" class="resume-contact-chip resume-contact-chip--accent">
+                        <i class="fas fa-file-pdf"></i> 下载简历 PDF
+                    </a>
+                    {% else %}
+                    <a href="{{ url_for('static', filename='documents/Zhou Jing Resume en.pdf') }}" target="_blank" class="resume-contact-chip resume-contact-chip--accent">
+                        <i class="fas fa-file-pdf"></i> Download CV (PDF)
+                    </a>
+                    {% endif %}
+                </div>
             </div>
-        </div>
+        </header>
+
+        <!-- Education -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">
+                <span class="resume-section-icon"><i class="fas fa-graduation-cap"></i></span>
+                {{ get_text('resume_education_title') }}
+            </h2>
+            <div class="resume-cards">
+                <div class="resume-edu-card">
+                    <div class="resume-edu-header">
+                        <div class="resume-edu-info">
+                            <h3 class="resume-edu-school">{{ get_text('edu_polyu') }}</h3>
+                            <p class="resume-edu-degree">{{ get_text('edu_msc_title') }}</p>
+                            <span class="resume-edu-badge">{{ get_text('edu_polyu_desc') }}</span>
+                        </div>
+                        <span class="resume-date">{{ get_text('edu_msc_date') }}</span>
+                    </div>
+                    <p class="resume-edu-detail">{{ get_text('edu_msc_desc') }}</p>
+                </div>
+                <div class="resume-edu-card">
+                    <div class="resume-edu-header">
+                        <div class="resume-edu-info">
+                            <h3 class="resume-edu-school">{{ get_text('edu_nus') }}</h3>
+                            <p class="resume-edu-degree">{{ get_text('edu_exchange_title') }}</p>
+                            <span class="resume-edu-badge">{{ get_text('edu_nus_desc') }}</span>
+                        </div>
+                        <span class="resume-date">{{ get_text('edu_nus_date') }}</span>
+                    </div>
+                    <p class="resume-edu-detail">{{ get_text('edu_exchange_desc') }}</p>
+                </div>
+                <div class="resume-edu-card">
+                    <div class="resume-edu-header">
+                        <div class="resume-edu-info">
+                            <h3 class="resume-edu-school">{{ get_text('edu_tjufe') }}</h3>
+                            <p class="resume-edu-degree">{{ get_text('edu_bachelor_title') }}</p>
+                        </div>
+                        <span class="resume-date">{{ get_text('edu_tjufe_date') }}</span>
+                    </div>
+                    <p class="resume-edu-detail">{{ get_text('edu_bachelor_desc') }}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">
+                <span class="resume-section-icon"><i class="fas fa-briefcase"></i></span>
+                {{ get_text('resume_experience_title') }}
+            </h2>
+            <div class="resume-timeline">
+                <div class="resume-timeline-item">
+                    <div class="resume-timeline-header">
+                        <div>
+                            <h3 class="resume-job-title">{{ get_text('internship_pipi_title') }}</h3>
+                            <p class="resume-company">{{ get_text('internship_pipi_company') }}</p>
+                        </div>
+                        <div class="resume-meta">
+                            <span class="resume-date">2025.07 - 2025.09</span>
+                            <span class="resume-location">{{ get_text('internship_pipi_location') }}</span>
+                        </div>
+                    </div>
+                    <ul class="resume-list">
+                        <li>{{ get_text('exp_pipi_1') }}</li>
+                        <li>{{ get_text('exp_pipi_2') }}</li>
+                        <li>{{ get_text('exp_pipi_3') }}</li>
+                        <li>{{ get_text('exp_pipi_4') }}</li>
+                        <li>{{ get_text('exp_pipi_5') }}</li>
+                        <li>{{ get_text('exp_pipi_6') }}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Experience -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">
+                <span class="resume-section-icon"><i class="fas fa-rocket"></i></span>
+                {{ get_text('resume_projects_title') }}
+            </h2>
+            <div class="resume-timeline">
+                <!-- Momenta -->
+                <div class="resume-timeline-item">
+                    <div class="resume-timeline-header">
+                        <div>
+                            <h3 class="resume-job-title">{{ get_text('project_momenta_title') }} — {{ get_text('project_momenta_subtitle') }}</h3>
+                            <p class="resume-company">{{ get_text('project_momenta_role') }}
+                                <span class="resume-tag resume-tag--accent">{{ get_text('project_momenta_badge') }}</span>
+                            </p>
+                        </div>
+                        <div class="resume-meta">
+                            <span class="resume-date">{{ get_text('project_momenta_date') }}</span>
+                            <span class="resume-location">{{ get_text('project_momenta_location') }}</span>
+                        </div>
+                    </div>
+                    <ul class="resume-list">
+                        <li>{{ get_text('project_momenta_1') }}</li>
+                        <li>{{ get_text('project_momenta_2') }}</li>
+                        <li>{{ get_text('project_momenta_3') }}</li>
+                        <li>{{ get_text('project_momenta_4') }}</li>
+                        <li>{{ get_text('project_momenta_5') }}</li>
+                    </ul>
+                </div>
+
+                <!-- Nano Banana AI -->
+                <div class="resume-timeline-item">
+                    <div class="resume-timeline-header">
+                        <div>
+                            <h3 class="resume-job-title">Nano Banana AI — {{ get_text('nanobanana_subtitle') }}</h3>
+                            <p class="resume-company">{{ get_text('project_nanobanana_role') }}
+                                <span class="resume-tag">{{ get_text('status_operating') }}</span>
+                            </p>
+                        </div>
+                        <div class="resume-meta">
+                            <span class="resume-date">{{ get_text('project_nanobanana_date') }}</span>
+                        </div>
+                    </div>
+                    <ul class="resume-list">
+                        <li>{{ get_text('project_nanobanana_1') }}</li>
+                        <li>{{ get_text('project_nanobanana_2') }}</li>
+                        <li>{{ get_text('project_nanobanana_3') }}</li>
+                        <li>{{ get_text('project_nanobanana_4') }}</li>
+                        <li>{{ get_text('project_nanobanana_5') }}</li>
+                    </ul>
+                </div>
+
+                <!-- L'Oreal Brandstorm -->
+                <div class="resume-timeline-item">
+                    <div class="resume-timeline-header">
+                        <div>
+                            <h3 class="resume-job-title">{{ get_text('project_loreal_title') }} — {{ get_text('project_loreal_subtitle') }}</h3>
+                            <p class="resume-company">{{ get_text('project_loreal_role') }}</p>
+                        </div>
+                        <div class="resume-meta">
+                            <span class="resume-date">{{ get_text('project_loreal_date') }}</span>
+                        </div>
+                    </div>
+                    <ul class="resume-list">
+                        <li>{{ get_text('project_loreal_1') }}</li>
+                        <li>{{ get_text('project_loreal_2') }}</li>
+                        <li>{{ get_text('project_loreal_3') }}</li>
+                    </ul>
+                </div>
+
+                <!-- Mooncake Project -->
+                <div class="resume-timeline-item">
+                    <div class="resume-timeline-header">
+                        <div>
+                            <h3 class="resume-job-title">{{ get_text('project_mooncake_title') }}</h3>
+                            <p class="resume-company">{{ get_text('project_mooncake_role') }}</p>
+                        </div>
+                        <div class="resume-meta">
+                            <span class="resume-date">{{ get_text('project_mooncake_date') }}</span>
+                        </div>
+                    </div>
+                    <ul class="resume-list">
+                        <li>{{ get_text('project_mooncake_1') }}</li>
+                        <li>{{ get_text('project_mooncake_2') }}</li>
+                        <li>{{ get_text('project_mooncake_3') }}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Skills -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">
+                <span class="resume-section-icon"><i class="fas fa-tools"></i></span>
+                {{ get_text('resume_skills_title') }}
+            </h2>
+            <div class="resume-skills-grid">
+                <div class="resume-skill-card">
+                    <div class="resume-skill-icon" style="background: rgba(0, 113, 227, 0.08); color: #0071e3;">
+                        <i class="fas fa-pen-ruler"></i>
+                    </div>
+                    <h4 class="resume-skill-name">{{ get_text('skill_product_design') }}</h4>
+                    <p class="resume-skill-desc">{{ get_text('skill_product_design_desc') }}</p>
+                </div>
+                <div class="resume-skill-card">
+                    <div class="resume-skill-icon" style="background: rgba(175, 82, 222, 0.08); color: #af52de;">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4 class="resume-skill-name">{{ get_text('skill_ai_tech') }}</h4>
+                    <p class="resume-skill-desc">{{ get_text('skill_ai_tech_desc') }}</p>
+                </div>
+                <div class="resume-skill-card">
+                    <div class="resume-skill-icon" style="background: rgba(48, 209, 88, 0.08); color: #30d158;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="resume-skill-name">{{ get_text('skill_data_growth') }}</h4>
+                    <p class="resume-skill-desc">{{ get_text('skill_data_growth_desc') }}</p>
+                </div>
+                <div class="resume-skill-card">
+                    <div class="resume-skill-icon" style="background: rgba(255, 159, 10, 0.08); color: #ff9f0a;">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h4 class="resume-skill-name">{{ get_text('skill_tools') }}</h4>
+                    <p class="resume-skill-desc">{{ get_text('skill_tools_desc') }}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honors & Awards -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">
+                <span class="resume-section-icon"><i class="fas fa-trophy"></i></span>
+                {{ get_text('resume_honors_title') }}
+            </h2>
+            <div class="resume-honors">
+                <!-- National -->
+                <div class="resume-honor-group">
+                    <h4 class="resume-honor-level resume-honor-level--national">{{ get_text('honor_level_national') }}</h4>
+                    <div class="resume-honor-list">
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_national_scholarship') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_national_scholarship_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_microfilm_national') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_microfilm_national_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_meihao_national') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_meihao_national_date') }}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Provincial -->
+                <div class="resume-honor-group">
+                    <h4 class="resume-honor-level resume-honor-level--provincial">{{ get_text('honor_level_provincial') }}</h4>
+                    <div class="resume-honor-list">
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_ad_national') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_ad_national_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_tianjin_student') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_tianjin_student_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_microfilm_provincial_1st') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_microfilm_provincial_1st_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_microfilm_provincial_3rd') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_microfilm_provincial_3rd_date') }}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- University -->
+                <div class="resume-honor-group">
+                    <h4 class="resume-honor-level resume-honor-level--university">{{ get_text('honor_level_university') }}</h4>
+                    <div class="resume-honor-list">
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_graduate') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_graduate_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_nus_exchange') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_nus_exchange_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_first_scholarship') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_first_scholarship_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_outstanding_student') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_outstanding_student_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_outstanding_league') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_outstanding_league_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_innovation_training') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_innovation_training_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_srt') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_srt_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_internet_plus_3rd_2022') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_internet_plus_3rd_2022_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_creative_challenge_1st') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_creative_challenge_1st_date') }}</span>
+                        </div>
+                        <div class="resume-honor-item">
+                            <span class="resume-honor-name">{{ get_text('honor_internet_plus_3rd_2021') }}</span>
+                            <span class="resume-honor-date">{{ get_text('honor_internet_plus_3rd_2021_date') }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campus Experience -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">
+                <span class="resume-section-icon"><i class="fas fa-university"></i></span>
+                {{ get_text('resume_campus_title') }}
+            </h2>
+            <div class="resume-timeline">
+                <div class="resume-timeline-item">
+                    <div class="resume-timeline-header">
+                        <div>
+                            <h3 class="resume-job-title">{{ get_text('campus_arts_title') }}</h3>
+                            <p class="resume-company">{{ get_text('campus_arts_org') }}</p>
+                        </div>
+                        <div class="resume-meta">
+                            <span class="resume-date">{{ get_text('campus_arts_date') }}</span>
+                        </div>
+                    </div>
+                    <ul class="resume-list">
+                        <li>{{ get_text('campus_arts_1') }}</li>
+                        <li>{{ get_text('campus_arts_2') }}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Info -->
+        <section class="resume-section resume-section--compact">
+            <div class="resume-other-grid">
+                <div class="resume-other-item">
+                    <span class="resume-other-label">{{ get_text('other_language') }}</span>
+                    <span class="resume-other-value">{{ get_text('other_language_desc') }}</span>
+                </div>
+                <div class="resume-other-item">
+                    <span class="resume-other-label">{{ get_text('other_hobbies') }}</span>
+                    <span class="resume-other-value">{{ get_text('other_hobbies_desc') }}</span>
+                </div>
+            </div>
+        </section>
+
     </div>
 </div>
 {% endblock %}

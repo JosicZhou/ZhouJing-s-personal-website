@@ -3,83 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Zhou Jing 周晶 - AI Product Manager{% endblock %}</title>
-    <meta name="description" content="Zhou Jing - AI Product Manager bridging Generative AI with User-Centric Narratives">
+    <title>{% block title %}Zhou Jing 周晶 — AI Product Manager{% endblock %}</title>
+    <meta name="description" content="Zhou Jing — AI Product Manager bridging Generative AI with User-Centric Narratives">
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/projects-scroll.css') }}">
     
     {% block extra_head %}{% endblock %}
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">Zhou Jing</a>
+    <nav class="nav-apple">
+        <div class="nav-inner">
+            <a class="nav-brand" href="{{ url_for('home') }}">Zhou Jing</a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}" class="{{ 'active' if request.path == '/' }}">{{ get_text('nav_home') }}</a></li>
+                <li><a href="{{ url_for('projects') }}" class="{{ 'active' if '/projects' in request.path }}">{{ get_text('nav_projects') }}</a></li>
+                <li><a href="{{ url_for('resume') }}" class="{{ 'active' if request.path == '/resume' }}">{{ get_text('nav_resume') }}</a></li>
+            </ul>
             
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('home') }}">{{ get_text('nav_home') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('resume') }}">{{ get_text('nav_resume') }}</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ get_text('nav_ai_projects') }}
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ url_for('ai_projects') }}">{{ get_text('dropdown_all_projects') }}</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ url_for('nanobanana_ai') }}">{{ get_text('dropdown_nanobanana_ai') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('musiccreator_ai') }}">{{ get_text('dropdown_musiccreator_ai') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('web_picture_scraper') }}">{{ get_text('dropdown_web_picture_scraper') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('coloringbook_ai') }}">{{ get_text('dropdown_coloringbook_ai') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('inker_ai') }}">{{ get_text('dropdown_inker_ai') }}</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ get_text('nav_creative_works') }}
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ url_for('creative_works') }}">{{ get_text('dropdown_all_creative') }}</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ url_for('film_video') }}">{{ get_text('dropdown_film_video') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('digital_interactive') }}">{{ get_text('dropdown_digital') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('photography') }}">{{ get_text('dropdown_photography') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('graphic_design') }}">{{ get_text('dropdown_graphic') }}</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <div style="display:flex;align-items:center;gap:12px;">
+                {% if current_language == 'en' %}
+                <a class="nav-lang-toggle desktop-only" href="{{ url_for('set_language', language='zh') }}">中文</a>
+                {% else %}
+                <a class="nav-lang-toggle desktop-only" href="{{ url_for('set_language', language='en') }}">EN</a>
+                {% endif %}
                 
-                <!-- Language Toggle -->
-                <div class="navbar-nav">
-                    <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            {{ 'EN' if current_language == 'en' else '中' }}
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='en') }}">English</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='zh') }}">中文</a></li>
-                        </ul>
-                    </div>
-                </div>
+                <button class="nav-mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <svg id="menuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="nav-mobile-menu" id="mobileMenu">
+        <a href="{{ url_for('home') }}" onclick="closeMobileMenu()">{{ get_text('nav_home') }}</a>
+        <a href="{{ url_for('projects') }}" onclick="closeMobileMenu()">{{ get_text('nav_projects') }}</a>
+        <a href="{{ url_for('resume') }}" onclick="closeMobileMenu()">{{ get_text('nav_resume') }}</a>
+        {% if current_language == 'en' %}
+        <a href="{{ url_for('set_language', language='zh') }}">中文</a>
+        {% else %}
+        <a href="{{ url_for('set_language', language='en') }}">English</a>
+        {% endif %}
+    </div>
 
     <!-- Main Content -->
     <main>
@@ -87,31 +64,22 @@
     </main>
 
     <!-- Footer -->
-    <footer class="text-light py-5 mt-5" style="background-color: #2E5239;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5 class="mb-3" style="font-weight: bold;">{{ get_text('footer_contact') }}</h5>
-                    <p class="mb-3 d-flex align-items-center">
-                        <i class="fas fa-envelope me-2"></i>
-                        <a href="mailto:josic20020903@outlook.com" class="text-light text-decoration-none">josic20020903@outlook.com</a>
-                    </p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/jing-zhou-1a1446281/" class="text-light me-3" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-                        <a href="https://github.com/JosicZhou" class="text-light me-3" target="_blank"><i class="fab fa-github fa-2x"></i></a>
-                    </div>
+    <footer class="footer-apple">
+        <div class="container-apple footer-inner">
+            <div class="footer-left">
+                <span class="footer-copyright">{{ get_text('footer_copyright') }}</span>
+                <div class="footer-links">
+                    <a href="mailto:josic20020903@outlook.com">{{ get_text('footer_contact') }}</a>
                 </div>
-                <div class="col-md-6 text-md-end d-flex align-items-end justify-content-md-end mt-3 mt-md-0">
-                    <p class="mb-0">{{ get_text('footer_copyright') }}</p>
-                </div>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/jing-zhou-1a1446281/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/JosicZhou" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    
     {% block extra_scripts %}{% endblock %}
 </body>
 </html>

@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block title %}Web Picture Scraper — Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="detail-page">
+    <div class="container-apple">
+        <a href="{{ url_for('projects') }}" class="detail-back reveal">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            {{ get_text('back_to_projects') }}
+        </a>
+        
+        <div class="detail-header reveal">
+            <div class="detail-logo" style="background: linear-gradient(135deg, #30d158 0%, #34c759 100%);">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <h1 class="detail-title">Web Picture Scraper</h1>
+            <p class="detail-subtitle">{{ get_text('webscraper_page_subtitle') }}</p>
+            <div class="detail-badges">
+                <span class="detail-badge accent">{{ get_text('status_self_developed') }}</span>
+                <span class="detail-badge">Python</span>
+                <span class="detail-badge">FastAPI</span>
+                <span class="detail-badge">React</span>
+                <span class="detail-badge">{{ get_text('fullstack_development') }}</span>
+            </div>
+            <div class="detail-actions">
+                <a href="https://image-scraper-webapp.onrender.com/" target="_blank" class="btn-apple btn-apple-primary btn-apple-sm">
+                    {{ get_text('visit_product') }}
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="metrics-strip reveal">
+            <div class="metric-block">
+                <div class="metric-block-value">30min</div>
+                <div class="metric-block-label">{{ get_text('time_saved_daily') }}</div>
+            </div>
+            <div class="metric-block">
+                <div class="metric-block-value">5+</div>
+                <div class="metric-block-label">{{ get_text('internal_users') }}</div>
+            </div>
+            <div class="metric-block">
+                <div class="metric-block-value">100%</div>
+                <div class="metric-block-label">{{ get_text('automation_download') }}</div>
+            </div>
+        </div>
+        
+        <div class="detail-grid" style="margin-top:48px;">
+            <div>
+                <div class="detail-section reveal">
+                    <h2 class="detail-section-title">{{ get_text('project_overview') }}</h2>
+                    <p class="detail-text">{{ get_text('webscraper_overview_p1') }}</p>
+                    <p class="detail-text" style="margin-top:12px;">{{ get_text('webscraper_overview_p2') }}</p>
+                </div>
+                
+                <div class="detail-section reveal">
+                    <h2 class="detail-section-title">{{ get_text('project_background') }}</h2>
+                    <div style="background:#f5f5f7;border-radius:var(--radius-md);padding:20px;">
+                        <p class="detail-text" style="margin-bottom:12px;">{{ get_text('webscraper_bg_p') }}</p>
+                        <ul style="margin:0;padding-left:20px;color:var(--color-text-secondary);font-size:15px;line-height:1.7;">
+                            <li>{{ get_text('webscraper_bg_li1') }}</li>
+                            <li>{{ get_text('webscraper_bg_li2') }}</li>
+                            <li>{{ get_text('webscraper_bg_li3') }}</li>
+                            <li>{{ get_text('webscraper_bg_li4') }}</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="detail-section reveal">
+                    <h2 class="detail-section-title">{{ get_text('tech_highlights') }}</h2>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item" style="cursor:default;">
+                            <div class="feature-item-header"><span class="feature-item-name">{{ get_text('webscraper_tech_frontend') }}</span></div>
+                            <p class="feature-item-desc">{{ get_text('webscraper_tech_frontend_p') }}</p>
+                        </div>
+                        <div class="feature-item" style="cursor:default;">
+                            <div class="feature-item-header"><span class="feature-item-name">{{ get_text('webscraper_tech_backend') }}</span></div>
+                            <p class="feature-item-desc">{{ get_text('webscraper_tech_backend_p') }}</p>
+                        </div>
+                        <div class="feature-item" style="cursor:default;">
+                            <div class="feature-item-header"><span class="feature-item-name">{{ get_text('webscraper_tech_deploy') }}</span></div>
+                            <p class="feature-item-desc">{{ get_text('webscraper_tech_deploy_p') }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-section reveal">
+                    <h2 class="detail-section-title">{{ get_text('tech_challenges') }}</h2>
+                    <div class="feature-list">
+                        <div class="feature-item" style="cursor:default;">
+                            <div class="feature-item-header"><span class="feature-item-name">{{ get_text('webscraper_challenge_title') }}</span></div>
+                            <p class="feature-item-desc">{{ get_text('webscraper_challenge_p') }}</p>
+                            <p class="feature-item-result">{{ get_text('webscraper_solution') }} {{ get_text('webscraper_solution_1') }}</p>
+                        </div>
+                        <div class="feature-item" style="cursor:default;">
+                            <div class="feature-item-header"><span class="feature-item-name">{{ get_text('webscraper_challenge2_title') }}</span></div>
+                            <p class="feature-item-desc">{{ get_text('webscraper_challenge2_p') }}</p>
+                            <p class="feature-item-result">{{ get_text('webscraper_solution') }} {{ get_text('webscraper_solution_2') }}</p>
+                        </div>
+                        <div class="feature-item" style="cursor:default;">
+                            <div class="feature-item-header"><span class="feature-item-name">{{ get_text('webscraper_challenge3_title') }}</span></div>
+                            <p class="feature-item-desc">{{ get_text('webscraper_challenge3_p') }}</p>
+                            <p class="feature-item-result">{{ get_text('webscraper_solution') }} {{ get_text('webscraper_solution_3') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div class="detail-sidebar-card reveal">
+                    <h4>{{ get_text('project_details') }}</h4>
+                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('project_nature') }}</span><span class="sidebar-info-value">{{ get_text('internship_self_tool') }}</span></div>
+                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('my_role') }}</span><span class="sidebar-info-value">{{ get_text('independent_developer') }}</span></div>
+                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('tech_stack') }}</span><span class="sidebar-info-value">Python, FastAPI, React</span></div>
+                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('application_scope') }}</span><span class="sidebar-info-value">{{ get_text('team_internal_use') }}</span></div>
+                </div>
+                
+                <div class="detail-sidebar-card reveal">
+                    <h4>{{ get_text('core_tech') }}</h4>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                        <span class="detail-badge">Python</span>
+                        <span class="detail-badge">FastAPI</span>
+                        <span class="detail-badge">React</span>
+                        <span class="detail-badge">BeautifulSoup</span>
+                        <span class="detail-badge">Requests</span>
+                        <span class="detail-badge">Render</span>
+                    </div>
+                </div>
+                
+                <div class="detail-sidebar-card reveal">
+                    <h4>{{ get_text('other_projects') }}</h4>
+                    <a href="{{ url_for('nanobanana_ai') }}" class="other-project-link">NanoBanana AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="{{ url_for('musiccreator_ai') }}" class="other-project-link">MusicCreator AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="{{ url_for('coloringbook_ai') }}" class="other-project-link">Coloringbook AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="{{ url_for('inker_ai') }}" class="other-project-link">Inker.AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.reveal').forEach(el => {
+        new IntersectionObserver(([e]) => { if (e.isIntersecting) e.target.classList.add('visible'); }, { threshold: 0.1 }).observe(el);
+    });
+});
+</script>
+{% endblock %}

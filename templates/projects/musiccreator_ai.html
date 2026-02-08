@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}MusicCreator AI — Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="detail-page">
+    <div class="container-apple">
+        <a href="{{ url_for('projects') }}" class="detail-back reveal">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            {{ get_text('back_to_projects') }}
+        </a>
+        
+        <div class="detail-header reveal">
+            <div class="detail-logo">
+                <img src="{{ url_for('static', filename='images/logos/musiccreator-ai-logo.png') }}" alt="MusicCreator AI">
+            </div>
+            <h1 class="detail-title">MusicCreator AI</h1>
+            <p class="detail-subtitle">{{ get_text('musiccreator_subtitle') }}</p>
+            <div class="detail-badges">
+                <span class="detail-badge">{{ get_text('status_internship') }}</span>
+                <span class="detail-badge">{{ get_text('badge_product_research') }}</span>
+                <span class="detail-badge">{{ get_text('prompt_engineering') }}</span>
+                <span class="detail-badge">{{ get_text('badge_seo') }}</span>
+            </div>
+            <div class="detail-actions">
+                <a href="https://www.musiccreator.ai/" target="_blank" class="btn-apple btn-apple-primary btn-apple-sm">
+                    {{ get_text('visit_product') }}
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Metrics -->
+        <div class="metrics-strip reveal">
+            <div class="metric-block">
+                <div class="metric-block-value">138K</div>
+                <div class="metric-block-label">{{ get_text('monthly_visits') }}</div>
+            </div>
+            <div class="metric-block">
+                <div class="metric-block-value">#1</div>
+                <div class="metric-block-label">{{ get_text('bing_ranking') }} (MIDI Editor)</div>
+            </div>
+        </div>
+        
+        <div class="detail-grid" style="margin-top:48px;">
+            <div>
+                <div class="detail-section reveal">
+                    <h2 class="detail-section-title">{{ get_text('project_overview') }}</h2>
+                    <p class="detail-text">{{ get_text('musiccreator_overview') }}</p>
+                </div>
+                
+                <div class="detail-section reveal">
+                    <h2 class="detail-section-title">{{ get_text('responsible_content') }}</h2>
+                    <p class="detail-text" style="margin-bottom:16px;">{{ get_text('responsible_pages') }}</p>
+                    
+                    <div class="feature-list">
+                        <a href="https://www.musiccreator.ai/midi-editor" target="_blank" class="feature-item">
+                            <div class="feature-item-header"><span class="feature-item-name">MIDI Editor</span><span class="feature-item-link">↗</span></div>
+                            <p class="feature-item-desc">{{ get_text('midi_editor_desc') }}</p>
+                            <p class="feature-item-result">{{ get_text('midi_editor_result') }}</p>
+                        </a>
+                        <a href="https://www.musiccreator.ai/audio-to-midi-converter" target="_blank" class="feature-item">
+                            <div class="feature-item-header"><span class="feature-item-name">Audio to MIDI</span><span class="feature-item-link">↗</span></div>
+                            <p class="feature-item-desc">{{ get_text('audio_to_midi_desc') }}</p>
+                            <p class="feature-item-result">{{ get_text('audio_to_midi_result') }}</p>
+                        </a>
+                        <a href="https://www.musiccreator.ai/ai-mastering" target="_blank" class="feature-item">
+                            <div class="feature-item-header"><span class="feature-item-name">AI Mastering</span><span class="feature-item-link">↗</span></div>
+                            <p class="feature-item-desc">{{ get_text('ai_mastering_desc') }}</p>
+                        </a>
+                        <a href="https://www.musiccreator.ai/ai-text-to-music" target="_blank" class="feature-item">
+                            <div class="feature-item-header"><span class="feature-item-name">Text to Music AI</span><span class="feature-item-link">↗</span></div>
+                            <p class="feature-item-desc">{{ get_text('text_to_music_desc') }}</p>
+                        </a>
+                        <a href="https://www.musiccreator.ai/ai-singing-voice-generator" target="_blank" class="feature-item">
+                            <div class="feature-item-header"><span class="feature-item-name">AI Singing Voice Generator</span><span class="feature-item-link">↗</span></div>
+                            <p class="feature-item-desc">{{ get_text('ai_singing_desc') }}</p>
+                        </a>
+                        <a href="https://www.musiccreator.ai/ai-rap-generator" target="_blank" class="feature-item">
+                            <div class="feature-item-header"><span class="feature-item-name">AI Rap Generator</span><span class="feature-item-link">↗</span></div>
+                            <p class="feature-item-desc">{{ get_text('ai_rap_desc') }}</p>
+                        </a>
+                        <a href="https://www.musiccreator.ai/photo-to-music" target="_blank" class="feature-item">
+                            <div class="feature-item-header"><span class="feature-item-name">Photo To Music</span><span class="feature-item-link">↗</span></div>
+                            <p class="feature-item-desc">{{ get_text('photo_to_music_desc') }}</p>
+                        </a>
+                        <a href="https://www.musiccreator.ai/lofi-converter" target="_blank" class="feature-item">
+                            <div class="feature-item-header"><span class="feature-item-name">Lofi Converter</span><span class="feature-item-link">↗</span></div>
+                            <p class="feature-item-desc">{{ get_text('lofi_converter_desc') }}</p>
+                        </a>
+                        <a href="https://www.musiccreator.ai/happy-birthday-song-generator" target="_blank" class="feature-item">
+                            <div class="feature-item-header"><span class="feature-item-name">Happy Birthday Song Generator</span><span class="feature-item-link">↗</span></div>
+                            <p class="feature-item-desc">{{ get_text('birthday_song_desc') }}</p>
+                        </a>
+                        <a href="https://www.musiccreator.ai/dubstep-maker" target="_blank" class="feature-item">
+                            <div class="feature-item-header"><span class="feature-item-name">Dubstep Maker</span><span class="feature-item-link">↗</span></div>
+                            <p class="feature-item-desc">{{ get_text('dubstep_maker_desc') }}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div class="detail-sidebar-card reveal">
+                    <h4>{{ get_text('project_details') }}</h4>
+                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('team_role') }}</span><span class="sidebar-info-value">{{ get_text('internship_role') }}</span></div>
+                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('operating_status') }}</span><span class="sidebar-info-value">{{ get_text('stopped_operations') }}</span></div>
+                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('main_responsibilities') }}</span><span class="sidebar-info-value">{{ get_text('badge_product_research') }}, SEO</span></div>
+                </div>
+                
+                <div class="detail-sidebar-card reveal">
+                    <h4>{{ get_text('other_projects') }}</h4>
+                    <a href="{{ url_for('nanobanana_ai') }}" class="other-project-link">NanoBanana AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="{{ url_for('coloringbook_ai') }}" class="other-project-link">Coloringbook AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="{{ url_for('inker_ai') }}" class="other-project-link">Inker.AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="{{ url_for('web_picture_scraper') }}" class="other-project-link">Web Picture Scraper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.reveal').forEach(el => {
+        new IntersectionObserver(([e]) => { if (e.isIntersecting) e.target.classList.add('visible'); }, { threshold: 0.1 }).observe(el);
+    });
+});
+</script>
+{% endblock %}

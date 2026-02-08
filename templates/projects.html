@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_text('nav_projects') }} — Zhou Jing 周晶{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container-apple">
+        <h1 class="reveal">{{ get_text('projects_page_title') }}</h1>
+        <p class="reveal reveal-delay-1">{{ get_text('projects_page_subtitle') }}</p>
+    </div>
+</div>
+
+<section class="section" style="padding-top:0;">
+    <div class="container-apple">
+        <!-- Category Tabs -->
+        <div class="category-tabs reveal reveal-delay-2">
+            <button class="category-tab active" data-category="all">{{ get_text('category_all') }}</button>
+            <button class="category-tab" data-category="ai">{{ get_text('category_ai_products') }}</button>
+            <button class="category-tab" data-category="tools">{{ get_text('category_simple_tools') }}</button>
+        </div>
+        
+        <div class="projects-grid" id="projectsGrid">
+            <!-- NanoBanana AI (Featured / AI Product / SaaS) -->
+            <a href="{{ url_for('nanobanana_ai') }}" class="project-card featured reveal" data-category="ai">
+                <div class="project-card-inner">
+                    <div>
+                        <div class="project-card-header">
+                            <div class="project-logo-wrap">
+                                <img src="{{ url_for('static', filename='images/logos/nanobanana-ai-logo.png') }}" alt="NanoBanana AI">
+                            </div>
+                            <span class="project-badge saas">{{ get_text('project_type_saas') }}</span>
+                        </div>
+                        <h3 class="project-card-name">NanoBanana AI</h3>
+                        <p class="project-card-subtitle">{{ get_text('nanobanana_subtitle') }}</p>
+                        <p class="project-card-desc">{{ get_text('nanobanana_description') }}</p>
+                    </div>
+                    <div>
+                        <div class="project-card-tags">
+                            <span class="project-tag">{{ get_text('feature_research') }}</span>
+                            <span class="project-tag">{{ get_text('badge_topic_page') }}</span>
+                            <span class="project-tag">SEO/GEO</span>
+                            <span class="project-tag">{{ get_text('prompt_engineering') }}</span>
+                        </div>
+                        <div class="project-card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">67K</span>
+                                <span class="metric-label">{{ get_text('total_traffic') }}</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">3K+</span>
+                                <span class="metric-label">{{ get_text('daily_traffic') }}</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">#1</span>
+                                <span class="metric-label">{{ get_text('bing_ranking') }}</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">{{ get_text('4_orders') }}</span>
+                                <span class="metric-label">{{ get_text('conversion_3days') }}</span>
+                            </div>
+                        </div>
+                        <div class="project-card-arrow">
+                            {{ get_text('view_details') }}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- MusicCreator AI (AI Product / SaaS) -->
+            <a href="{{ url_for('musiccreator_ai') }}" class="project-card reveal" data-category="ai">
+                <div class="project-card-inner">
+                    <div class="project-card-header">
+                        <div class="project-logo-wrap">
+                            <img src="{{ url_for('static', filename='images/logos/musiccreator-ai-logo.png') }}" alt="MusicCreator AI">
+                        </div>
+                        <span class="project-badge saas">{{ get_text('project_type_saas') }}</span>
+                    </div>
+                    <h3 class="project-card-name">MusicCreator AI</h3>
+                    <p class="project-card-subtitle">{{ get_text('musiccreator_subtitle') }}</p>
+                    <p class="project-card-desc">{{ get_text('musiccreator_description') }}</p>
+                    <div class="project-card-tags">
+                        <span class="project-tag">{{ get_text('badge_product_research') }}</span>
+                        <span class="project-tag">{{ get_text('prompt_engineering') }}</span>
+                        <span class="project-tag">SEO</span>
+                    </div>
+                    <div class="project-card-metrics">
+                        <div class="metric">
+                            <span class="metric-value">138K</span>
+                            <span class="metric-label">{{ get_text('monthly_visits') }}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">#1</span>
+                            <span class="metric-label">{{ get_text('bing_midi_editor') }}</span>
+                        </div>
+                    </div>
+                    <div class="project-card-arrow">
+                        {{ get_text('view_details') }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Coloringbook AI (AI Product / SaaS) -->
+            <a href="{{ url_for('coloringbook_ai') }}" class="project-card reveal" data-category="ai">
+                <div class="project-card-inner">
+                    <div class="project-card-header">
+                        <div class="project-logo-wrap">
+                            <img src="{{ url_for('static', filename='images/logos/coloringbook-ai-logo.png') }}" alt="Coloringbook AI">
+                        </div>
+                        <span class="project-badge saas">{{ get_text('project_type_saas') }}</span>
+                    </div>
+                    <h3 class="project-card-name">Coloringbook AI</h3>
+                    <p class="project-card-subtitle">{{ get_text('coloringbook_subtitle') }}</p>
+                    <p class="project-card-desc">{{ get_text('coloringbook_description') }}</p>
+                    <div class="project-card-tags">
+                        <span class="project-tag">{{ get_text('feature_research') }}</span>
+                        <span class="project-tag">{{ get_text('prompt_engineering') }}</span>
+                        <span class="project-tag">SEO</span>
+                    </div>
+                    <div class="project-card-metrics">
+                        <div class="metric">
+                            <span class="metric-value">566K</span>
+                            <span class="metric-label">{{ get_text('daily_traffic') }}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">#1</span>
+                            <span class="metric-label">{{ get_text('google_ranking') }}</span>
+                        </div>
+                    </div>
+                    <div class="project-card-arrow">
+                        {{ get_text('view_details') }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Inker.AI (AI Product / SaaS) -->
+            <a href="{{ url_for('inker_ai') }}" class="project-card reveal" data-category="ai">
+                <div class="project-card-inner">
+                    <div class="project-card-header">
+                        <div class="project-logo-wrap">
+                            <img src="{{ url_for('static', filename='images/logos/inker-ai-logo.svg') }}" alt="Inker.AI">
+                        </div>
+                        <span class="project-badge saas">{{ get_text('project_type_saas') }}</span>
+                    </div>
+                    <h3 class="project-card-name">Inker.AI</h3>
+                    <p class="project-card-subtitle">{{ get_text('inker_subtitle') }}</p>
+                    <p class="project-card-desc">{{ get_text('inker_description') }}</p>
+                    <div class="project-card-tags">
+                        <span class="project-tag">{{ get_text('feature_research') }}</span>
+                        <span class="project-tag">{{ get_text('prompt_engineering') }}</span>
+                        <span class="project-tag">SEO</span>
+                    </div>
+                    <div class="project-card-arrow">
+                        {{ get_text('view_details') }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Web Picture Scraper (Simple Tool) -->
+            <a href="{{ url_for('web_picture_scraper') }}" class="project-card reveal" data-category="tools">
+                <div class="project-card-inner">
+                    <div class="project-card-header">
+                        <div class="project-logo-wrap">
+                            <img src="{{ url_for('static', filename='images/logos/web-scraper-logo.svg') }}" alt="Web Picture Scraper">
+                        </div>
+                        <span class="project-badge tool">{{ get_text('project_type_tool') }}</span>
+                    </div>
+                    <h3 class="project-card-name">Web Picture Scraper</h3>
+                    <p class="project-card-subtitle">{{ get_text('webscraper_subtitle') }}</p>
+                    <p class="project-card-desc">{{ get_text('webscraper_description') }}</p>
+                    <div class="project-card-tags">
+                        <span class="project-tag">{{ get_text('fullstack_development') }}</span>
+                        <span class="project-tag">{{ get_text('badge_efficiency_tool') }}</span>
+                    </div>
+                    <div class="project-card-metrics">
+                        <div class="metric">
+                            <span class="metric-value">{{ get_text('30_minutes') }}</span>
+                            <span class="metric-label">{{ get_text('time_saved_daily') }}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">5+</span>
+                            <span class="metric-label">{{ get_text('internal_users') }}</span>
+                        </div>
+                    </div>
+                    <div class="project-card-arrow">
+                        {{ get_text('view_details') }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    initRevealAnimations();
+    initCategoryFilter();
+});
+
+function initRevealAnimations() {
+    const els = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => observer.observe(el));
+}
+
+function initCategoryFilter() {
+    const tabs = document.querySelectorAll('.category-tab');
+    const cards = document.querySelectorAll('.project-card');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            const category = tab.dataset.category;
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = '';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    requestAnimationFrame(() => {
+                        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    });
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+</script>
+{% endblock %}
