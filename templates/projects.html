@@ -20,49 +20,67 @@
         </div>
         
         <div class="projects-grid" id="projectsGrid">
-            <!-- NanoBanana AI (Featured / AI Product / SaaS) -->
-            <a href="{{ url_for('nanobanana_ai') }}" class="project-card featured reveal" data-category="ai">
+            <!-- Momenta (Featured / AI Product / iOS) -->
+            <a href="{{ url_for('momenta') }}" class="project-card featured reveal" data-category="ai">
                 <div class="project-card-inner">
                     <div>
                         <div class="project-card-header">
-                            <div class="project-logo-wrap">
-                                <img src="{{ url_for('static', filename='images/logos/nanobanana-ai-logo.png') }}" alt="NanoBanana AI">
-                            </div>
-                            <span class="project-badge saas">{{ get_text('project_type_saas') }}</span>
+                            <span class="project-badge" style="background:var(--color-accent);color:white;">{{ get_text('project_type_ios') }}</span>
+                            <span class="project-badge" style="background:#f59e0b;color:white;">{{ get_text('project_type_coming_soon') }}</span>
                         </div>
-                        <h3 class="project-card-name">NanoBanana AI</h3>
-                        <p class="project-card-subtitle">{{ get_text('nanobanana_subtitle') }}</p>
-                        <p class="project-card-desc">{{ get_text('nanobanana_description') }}</p>
+                        <h3 class="project-card-name">{{ get_text('project_momenta_title') }}</h3>
+                        <p class="project-card-subtitle">{{ get_text('project_momenta_subtitle') }}</p>
+                        <p class="project-card-desc">{{ get_text('project_momenta_desc') }}</p>
                     </div>
                     <div>
                         <div class="project-card-tags">
-                            <span class="project-tag">{{ get_text('feature_research') }}</span>
-                            <span class="project-tag">{{ get_text('badge_topic_page') }}</span>
-                            <span class="project-tag">SEO/GEO</span>
-                            <span class="project-tag">{{ get_text('prompt_engineering') }}</span>
-                        </div>
-                        <div class="project-card-metrics">
-                            <div class="metric">
-                                <span class="metric-value">67K</span>
-                                <span class="metric-label">{{ get_text('total_traffic') }}</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">3K+</span>
-                                <span class="metric-label">{{ get_text('daily_traffic') }}</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">#1</span>
-                                <span class="metric-label">{{ get_text('bing_ranking') }}</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">{{ get_text('4_orders') }}</span>
-                                <span class="metric-label">{{ get_text('conversion_3days') }}</span>
-                            </div>
+                            <span class="project-tag">SwiftUI</span>
+                            <span class="project-tag">OpenAI API</span>
+                            <span class="project-tag">Supabase</span>
+                            <span class="project-tag">Suno AI</span>
                         </div>
                         <div class="project-card-arrow">
                             {{ get_text('view_details') }}
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- NanoBanana AI (AI Product / SaaS) -->
+            <a href="{{ url_for('nanobanana_ai') }}" class="project-card reveal" data-category="ai">
+                <div class="project-card-inner">
+                    <div class="project-card-header">
+                        <div class="project-logo-wrap">
+                            <img src="{{ url_for('static', filename='images/logos/nanobanana-ai-logo.png') }}" alt="NanoBanana AI">
+                        </div>
+                        <span class="project-badge saas">{{ get_text('project_type_saas') }}</span>
+                    </div>
+                    <h3 class="project-card-name">NanoBanana AI</h3>
+                    <p class="project-card-subtitle">{{ get_text('nanobanana_subtitle') }}</p>
+                    <p class="project-card-desc">{{ get_text('project_nanobanana_desc') }}</p>
+                    <div class="project-card-tags">
+                        <span class="project-tag">{{ get_text('feature_research') }}</span>
+                        <span class="project-tag">{{ get_text('prompt_engineering') }}</span>
+                        <span class="project-tag">SEO/GEO</span>
+                    </div>
+                    <div class="project-card-metrics">
+                        <div class="metric">
+                            <span class="metric-value">800K</span>
+                            <span class="metric-label">{{ get_text('total_traffic') }}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">~¥10K</span>
+                            <span class="metric-label">{{ get_text('nanobanana_monthly_revenue') }}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">#1</span>
+                            <span class="metric-label">{{ get_text('bing_ranking') }}</span>
+                        </div>
+                    </div>
+                    <div class="project-card-arrow">
+                        {{ get_text('view_details') }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
             </a>
@@ -151,6 +169,78 @@
                         <span class="project-tag">{{ get_text('feature_research') }}</span>
                         <span class="project-tag">{{ get_text('prompt_engineering') }}</span>
                         <span class="project-tag">SEO</span>
+                    </div>
+                    <div class="project-card-arrow">
+                        {{ get_text('view_details') }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Veo3 Video Generator (Simple Tool) -->
+            <a href="{{ url_for('veo3_generator') }}" class="project-card reveal" data-category="tools">
+                <div class="project-card-inner">
+                    <div class="project-card-header">
+                        <div class="project-logo-wrap" style="background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); display:flex; align-items:center; justify-content:center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                        </div>
+                        <span class="project-badge tool">{{ get_text('self_built_tool') }}</span>
+                    </div>
+                    <h3 class="project-card-name">{{ get_text('veo3_title') }}</h3>
+                    <p class="project-card-subtitle">{{ get_text('veo3_subtitle') }}</p>
+                    <p class="project-card-desc">{{ get_text('project_veo3_desc') }}</p>
+                    <div class="project-card-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Streamlit</span>
+                        <span class="project-tag">Veo3 API</span>
+                    </div>
+                    <div class="project-card-arrow">
+                        {{ get_text('view_details') }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Link2QRCode (Simple Tool) -->
+            <a href="{{ url_for('link2qrcode') }}" class="project-card reveal" data-category="tools">
+                <div class="project-card-inner">
+                    <div class="project-card-header">
+                        <div class="project-logo-wrap" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); display:flex; align-items:center; justify-content:center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/></svg>
+                        </div>
+                        <span class="project-badge tool">{{ get_text('self_built_tool') }}</span>
+                    </div>
+                    <h3 class="project-card-name">{{ get_text('qrcode_title') }}</h3>
+                    <p class="project-card-subtitle">{{ get_text('qrcode_subtitle') }}</p>
+                    <p class="project-card-desc">{{ get_text('project_qrcode_desc') }}</p>
+                    <div class="project-card-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">QRCode.js</span>
+                    </div>
+                    <div class="project-card-arrow">
+                        {{ get_text('view_details') }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Code2HTML (Simple Tool) -->
+            <a href="{{ url_for('code2html') }}" class="project-card reveal" data-category="tools">
+                <div class="project-card-inner">
+                    <div class="project-card-header">
+                        <div class="project-logo-wrap" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); display:flex; align-items:center; justify-content:center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <span class="project-badge tool">{{ get_text('self_built_tool') }}</span>
+                    </div>
+                    <h3 class="project-card-name">{{ get_text('code2html_title') }}</h3>
+                    <p class="project-card-subtitle">{{ get_text('code2html_subtitle') }}</p>
+                    <p class="project-card-desc">{{ get_text('project_code2html_desc') }}</p>
+                    <div class="project-card-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">Highlight.js</span>
                     </div>
                     <div class="project-card-arrow">
                         {{ get_text('view_details') }}

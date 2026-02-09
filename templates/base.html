@@ -24,6 +24,10 @@
             
             <ul class="nav-links">
                 <li><a href="{{ url_for('home') }}" class="{{ 'active' if request.path == '/' }}">{{ get_text('nav_home') }}</a></li>
+                <li><a href="javascript:void(0)" class="nav-ask-ai" onclick="if(typeof toggleChatbot==='function')toggleChatbot();else window.location='/';">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    {{ get_text('nav_ask_ai') }}
+                </a></li>
                 <li><a href="{{ url_for('projects') }}" class="{{ 'active' if '/projects' in request.path }}">{{ get_text('nav_projects') }}</a></li>
                 <li><a href="{{ url_for('resume') }}" class="{{ 'active' if request.path == '/resume' }}">{{ get_text('nav_resume') }}</a></li>
             </ul>
@@ -49,6 +53,10 @@
     <!-- Mobile Menu -->
     <div class="nav-mobile-menu" id="mobileMenu">
         <a href="{{ url_for('home') }}" onclick="closeMobileMenu()">{{ get_text('nav_home') }}</a>
+        <a href="javascript:void(0)" onclick="closeMobileMenu();if(typeof toggleChatbot==='function')toggleChatbot();else window.location='/';">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            {{ get_text('nav_ask_ai') }}
+        </a>
         <a href="{{ url_for('projects') }}" onclick="closeMobileMenu()">{{ get_text('nav_projects') }}</a>
         <a href="{{ url_for('resume') }}" onclick="closeMobileMenu()">{{ get_text('nav_resume') }}</a>
         {% if current_language == 'en' %}

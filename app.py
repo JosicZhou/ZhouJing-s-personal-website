@@ -217,10 +217,27 @@ def inker_ai():
 def nanobanana_ai():
     return render_template('projects/nanobanana_ai.html')
 
+# Momenta
+@app.route('/projects/momenta')
+def momenta():
+    return render_template('projects/momenta.html')
+
 # Simple Tools 子页面
 @app.route('/projects/web-picture-scraper')
 def web_picture_scraper():
     return render_template('projects/web_picture_scraper.html')
+
+@app.route('/projects/veo3-video-generator')
+def veo3_generator():
+    return render_template('projects/veo3_generator.html')
+
+@app.route('/projects/link2qrcode')
+def link2qrcode():
+    return render_template('projects/link2qrcode.html')
+
+@app.route('/projects/code2html')
+def code2html():
+    return render_template('projects/code2html.html')
 
 # 兼容旧路由的重定向
 @app.route('/ai-projects')

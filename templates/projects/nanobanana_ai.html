@@ -33,20 +33,20 @@
         <!-- Metrics -->
         <div class="metrics-strip reveal">
             <div class="metric-block">
-                <div class="metric-block-value">67K</div>
+                <div class="metric-block-value">800K</div>
                 <div class="metric-block-label">{{ get_text('total_traffic') }}</div>
             </div>
             <div class="metric-block">
-                <div class="metric-block-value">3K+</div>
-                <div class="metric-block-label">{{ get_text('daily_traffic') }}</div>
+                <div class="metric-block-value">~¥10K</div>
+                <div class="metric-block-label">{{ get_text('nanobanana_monthly_revenue') }}</div>
             </div>
             <div class="metric-block">
                 <div class="metric-block-value">#1</div>
                 <div class="metric-block-label">{{ get_text('bing_ranking') }}</div>
             </div>
             <div class="metric-block">
-                <div class="metric-block-value">{{ get_text('4_orders') }}</div>
-                <div class="metric-block-label">{{ get_text('conversion_3days') }}</div>
+                <div class="metric-block-value">Top 3</div>
+                <div class="metric-block-label">Google</div>
             </div>
         </div>
         
@@ -58,10 +58,26 @@
                     <p class="detail-text">{{ get_text('nanobanana_overview') }}</p>
                 </div>
                 
-                <!-- Features -->
+                <!-- My Responsibilities -->
                 <div class="detail-section reveal">
-                    <h2 class="detail-section-title">{{ get_text('responsible_content') }}</h2>
-                    <p class="detail-text" style="margin-bottom:16px;">{{ get_text('responsible_pages_nanobanana') }}</p>
+                    <h2 class="detail-section-title">{{ get_text('work_responsibilities') }}</h2>
+                    <ul class="detail-list">
+                        <li>{{ get_text('nanobanana_responsibility_1') }}</li>
+                        <li>{{ get_text('nanobanana_responsibility_2') }}</li>
+                        <li>{{ get_text('nanobanana_responsibility_3') }}</li>
+                        <li>{{ get_text('nanobanana_responsibility_4') }}</li>
+                    </ul>
+                </div>
+                
+                <!-- What I Did (detailed) -->
+                <div class="detail-section reveal">
+                    <h2 class="detail-section-title">{{ get_text('responsible_content_detail') }}</h2>
+                    <p class="detail-text">{{ get_text('nanobanana_work_detail') }}</p>
+                </div>
+                
+                <!-- Feature Pages -->
+                <div class="detail-section reveal">
+                    <h2 class="detail-section-title">{{ get_text('feature_pages_list') }}</h2>
                     
                     <div class="feature-list">
                         <a href="https://nanobanana.art/ai-image-effects/ai-image-combiner" target="_blank" class="feature-item">
@@ -70,7 +86,6 @@
                                 <span class="feature-item-link">↗</span>
                             </div>
                             <p class="feature-item-desc">{{ get_text('ai_image_combiner_desc') }}</p>
-                            <p class="feature-item-result">{{ get_text('ai_image_combiner_result') }}</p>
                         </a>
                         <a href="https://nanobanana.art/ai-image-effects/ai-floor-plan-generator" target="_blank" class="feature-item">
                             <div class="feature-item-header">
@@ -78,7 +93,6 @@
                                 <span class="feature-item-link">↗</span>
                             </div>
                             <p class="feature-item-desc">{{ get_text('floor_plan_desc') }}</p>
-                            <p class="feature-item-result">{{ get_text('floor_plan_result') }}</p>
                         </a>
                         <a href="https://nanobanana.art/ai-image-effects/ai-cosplay-generator" target="_blank" class="feature-item">
                             <div class="feature-item-header">
@@ -94,6 +108,32 @@
                             </div>
                             <p class="feature-item-desc">{{ get_text('professional_photo_desc') }}</p>
                         </a>
+                        <a href="https://nanobanana.art/ai-image-effects/zootopia-selfie" target="_blank" class="feature-item">
+                            <div class="feature-item-header">
+                                <span class="feature-item-name">Zootopia Judy & Nick Selfie</span>
+                                <span class="feature-item-link">↗</span>
+                            </div>
+                            <p class="feature-item-desc">{{ get_text('zootopia_selfie_desc') }}</p>
+                        </a>
+                        <a href="https://nanobanana.art/ai-image-effects/ai-manga-translator" target="_blank" class="feature-item">
+                            <div class="feature-item-header">
+                                <span class="feature-item-name">AI Manga Translator</span>
+                                <span class="feature-item-link">↗</span>
+                            </div>
+                            <p class="feature-item-desc">{{ get_text('manga_translator_desc') }}</p>
+                        </a>
+                        <a href="https://nanobanana.art/ai-image-effects/ai-hairstyle-changer" target="_blank" class="feature-item">
+                            <div class="feature-item-header">
+                                <span class="feature-item-name">AI Hairstyle Changer</span>
+                                <span class="feature-item-link">↗</span>
+                            </div>
+                            <p class="feature-item-desc">{{ get_text('hairstyle_changer_desc') }}</p>
+                        </a>
+                    </div>
+                    
+                    <div class="feature-updating-hint reveal">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        {{ get_text('feature_pages_updating') }}
                     </div>
                 </div>
             </div>
@@ -102,13 +142,14 @@
             <div>
                 <div class="detail-sidebar-card reveal">
                     <h4>{{ get_text('project_details') }}</h4>
-                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('team_role') }}</span><span class="sidebar-info-value">{{ get_text('startup_member') }}</span></div>
+                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('team_role') }}</span><span class="sidebar-info-value">{{ get_text('project_nanobanana_role') }}</span></div>
                     <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('operating_status') }}</span><span class="sidebar-info-value">{{ get_text('status_operating') }}</span></div>
-                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('main_responsibilities') }}</span><span class="sidebar-info-value">{{ get_text('feature_research') }}, SEO/GEO</span></div>
+                    <div class="sidebar-info-row"><span class="sidebar-info-label">{{ get_text('main_responsibilities') }}</span><span class="sidebar-info-value">{{ get_text('feature_research') }}, SEO/GEO, Prompt Engineering</span></div>
                 </div>
                 
                 <div class="detail-sidebar-card reveal">
                     <h4>{{ get_text('other_projects') }}</h4>
+                    <a href="{{ url_for('momenta') }}" class="other-project-link">Momenta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     <a href="{{ url_for('musiccreator_ai') }}" class="other-project-link">MusicCreator AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     <a href="{{ url_for('coloringbook_ai') }}" class="other-project-link">Coloringbook AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     <a href="{{ url_for('inker_ai') }}" class="other-project-link">Inker.AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>

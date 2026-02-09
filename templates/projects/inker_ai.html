@@ -31,14 +31,32 @@
         
         <div class="detail-grid" style="margin-top:48px;">
             <div>
+                <!-- Overview -->
                 <div class="detail-section reveal">
                     <h2 class="detail-section-title">{{ get_text('project_overview') }}</h2>
                     <p class="detail-text">{{ get_text('inker_overview') }}</p>
                 </div>
                 
+                <!-- My Responsibilities -->
                 <div class="detail-section reveal">
-                    <h2 class="detail-section-title">{{ get_text('responsible_content') }}</h2>
-                    <p class="detail-text" style="margin-bottom:16px;">{{ get_text('responsible_pages') }}</p>
+                    <h2 class="detail-section-title">{{ get_text('work_responsibilities') }}</h2>
+                    <ul class="detail-list">
+                        <li>{{ get_text('internship_resp_1') }}</li>
+                        <li>{{ get_text('internship_resp_2') }}</li>
+                        <li>{{ get_text('internship_resp_3') }}</li>
+                        <li>{{ get_text('internship_resp_4') }}</li>
+                    </ul>
+                </div>
+                
+                <!-- What I Did -->
+                <div class="detail-section reveal">
+                    <h2 class="detail-section-title">{{ get_text('responsible_content_detail') }}</h2>
+                    <p class="detail-text">{{ get_text('internship_work_detail') }}</p>
+                </div>
+                
+                <!-- Feature Pages -->
+                <div class="detail-section reveal">
+                    <h2 class="detail-section-title">{{ get_text('feature_pages_list') }}</h2>
                     
                     <div class="feature-list">
                         <a href="https://www.inker.ai/birth-flower-tattoo-generator" target="_blank" class="feature-item">
@@ -49,6 +67,7 @@
                 </div>
             </div>
             
+            <!-- Sidebar -->
             <div>
                 <div class="detail-sidebar-card reveal">
                     <h4>{{ get_text('project_details') }}</h4>
@@ -59,6 +78,7 @@
                 
                 <div class="detail-sidebar-card reveal">
                     <h4>{{ get_text('other_projects') }}</h4>
+                    <a href="{{ url_for('momenta') }}" class="other-project-link">Momenta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     <a href="{{ url_for('nanobanana_ai') }}" class="other-project-link">NanoBanana AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     <a href="{{ url_for('musiccreator_ai') }}" class="other-project-link">MusicCreator AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     <a href="{{ url_for('coloringbook_ai') }}" class="other-project-link">Coloringbook AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>

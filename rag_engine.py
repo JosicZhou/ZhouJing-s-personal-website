@@ -1,43 +1,31 @@
 """
-RAG Engine - 检索增强生成引擎
-功能：读取 rag_data/ 下的文本文件，分块、embedding、存入 FAISS 向量库，提供检索接口。
+RAG Engine - 检索增强生成引擎（轻量版）
+功能：读取 rag_data/ 下的文本文件，分块、用 TF-IDF 建索引，提供检索接口。
 
 工作原理：
 1. 读取 rag_data/ 下所有 .txt 文件
 2. 按段落分块（每块约 300-500 字，有少量重叠）
-3. 用 sentence-transformers 的多语言模型把每块变成向量
-4. 存入 FAISS 向量库（持久化到 rag_index/ 目录）
-5. 查询时：用户问题 → 向量 → FAISS 搜索 top-k → 返回最相关的文本块
+3. 用 sklearn 的 TfidfVectorizer 将每块转为 TF-IDF 向量（无需深度学习，内存约 100MB 内）
+4. 持久化到 rag_index/ 目录
+5. 查询时：用户问题 → TF-IDF 向量 → 余弦相似度 top-k → 返回最相关的文本块
+
+适用于 Render 等 512MB 内存的免费环境。
 """
 
 import os
-import json
 import pickle
-import numpy as np
 
 # ============ 配置 ============
 RAG_DATA_DIR = os.path.join(os.path.dirname(__file__), 'rag_data')
 RAG_INDEX_DIR = os.path.join(os.path.dirname(__file__), 'rag_index')
 CHUNK_SIZE = 400        # 每块大约的字符数
 CHUNK_OVERLAP = 80      # 相邻块之间的重叠字符数
-TOP_K = 5               # 检索返回的最相关块数
-EMBEDDING_MODEL = 'paraphrase-multilingual-MiniLM-L12-v2'  # 支持中英文的轻量模型
+TOP_K = 5                # 检索返回的最相关块数
 
 # ============ 全局变量（延迟加载）============
-_model = None
-_index = None
+_vectorizer = None
+_matrix = None   # scipy.sparse 矩阵
 _chunks = None
-
-
-def _get_model():
-    """延迟加载 embedding 模型（首次调用时才加载，避免启动变慢）"""
-    global _model
-    if _model is None:
-        from sentence_transformers import SentenceTransformer
-        print(f"[RAG] 正在加载 embedding 模型: {EMBEDDING_MODEL} ...")
-        _model = SentenceTransformer(EMBEDDING_MODEL)
-        print("[RAG] 模型加载完成。")
-    return _model
 
 
 # ============ 1. 读取数据 ============
@@ -118,66 +106,79 @@ def split_into_chunks(documents):
     return all_chunks
 
 
-# ============ 3. 建立向量索引 ============
+# ============ 3. 建立 TF-IDF 索引 ============
 def build_index(chunks):
     """
-    把所有文本块编码成向量，存入 FAISS 索引。
-    同时把 chunks 元数据（文本、来源）保存到磁盘。
+    用 TF-IDF 为所有文本块建索引并持久化。
+    使用字符级 n-gram，兼顾中英文，无需额外分词依赖。
     """
-    import faiss
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    import scipy.sparse
 
-    model = _get_model()
+    global _vectorizer, _matrix, _chunks
 
-    # 提取所有文本
     texts = [chunk['text'] for chunk in chunks]
 
-    # 编码成向量
-    print("[RAG] 正在计算向量（embedding）...")
-    embeddings = model.encode(texts, show_progress_bar=True, normalize_embeddings=True)
-    embeddings = np.array(embeddings, dtype='float32')
+    # 字符级 n-gram，适合中英文混合；max_features 控制内存
+    vectorizer = TfidfVectorizer(
+        analyzer='char',
+        ngram_range=(2, 4),
+        max_features=50000,
+        sublinear_tf=True,
+    )
+    matrix = vectorizer.fit_transform(texts)
 
-    # 创建 FAISS 索引（使用内积，因为向量已归一化，等效余弦相似度）
-    dimension = embeddings.shape[1]
-    index = faiss.IndexFlatIP(dimension)
-    index.add(embeddings)
-
-    print(f"[RAG] FAISS 索引建立完成，共 {index.ntotal} 个向量，维度 {dimension}。")
-
-    # 持久化到磁盘
     os.makedirs(RAG_INDEX_DIR, exist_ok=True)
-    faiss.write_index(index, os.path.join(RAG_INDEX_DIR, 'faiss.index'))
-    with open(os.path.join(RAG_INDEX_DIR, 'chunks.pkl'), 'wb') as f:
+    vectorizer_path = os.path.join(RAG_INDEX_DIR, 'vectorizer.pkl')
+    matrix_path = os.path.join(RAG_INDEX_DIR, 'tfidf_matrix.npz')
+    chunks_path = os.path.join(RAG_INDEX_DIR, 'chunks.pkl')
+
+    with open(vectorizer_path, 'wb') as f:
+        pickle.dump(vectorizer, f)
+    scipy.sparse.save_npz(matrix_path, matrix)
+    with open(chunks_path, 'wb') as f:
         pickle.dump(chunks, f)
 
+    _vectorizer = vectorizer
+    _matrix = matrix
+    _chunks = chunks
+
+    print(f"[RAG] TF-IDF 索引建立完成，共 {len(chunks)} 个文本块。")
     print(f"[RAG] 索引已保存到: {RAG_INDEX_DIR}")
-    return index, chunks
+
+    # 返回兼容 build_rag.py 的 (index_like, chunks)
+    class _IndexLike:
+        ntotal = len(chunks)
+    return (_IndexLike(), chunks)
 
 
 # ============ 4. 加载已有索引 ============
 def load_index():
-    """从磁盘加载已建好的 FAISS 索引和文本块"""
-    global _index, _chunks
-    import faiss
+    """从磁盘加载已建好的 TF-IDF 索引和文本块"""
+    global _vectorizer, _matrix, _chunks
+    import scipy.sparse
 
-    index_path = os.path.join(RAG_INDEX_DIR, 'faiss.index')
+    vectorizer_path = os.path.join(RAG_INDEX_DIR, 'vectorizer.pkl')
+    matrix_path = os.path.join(RAG_INDEX_DIR, 'tfidf_matrix.npz')
     chunks_path = os.path.join(RAG_INDEX_DIR, 'chunks.pkl')
 
-    if not os.path.exists(index_path) or not os.path.exists(chunks_path):
+    if not os.path.exists(vectorizer_path) or not os.path.exists(matrix_path) or not os.path.exists(chunks_path):
         print("[RAG] 未找到已有索引，将重新构建...")
         documents = load_documents()
         if not documents:
             print("[RAG] 没有数据文件，跳过索引构建。")
             return None, None
         chunks = split_into_chunks(documents)
-        _index, _chunks = build_index(chunks)
-        return _index, _chunks
+        return build_index(chunks)
 
-    _index = faiss.read_index(index_path)
+    with open(vectorizer_path, 'rb') as f:
+        _vectorizer = pickle.load(f)
+    _matrix = scipy.sparse.load_npz(matrix_path)
     with open(chunks_path, 'rb') as f:
         _chunks = pickle.load(f)
 
-    print(f"[RAG] 已加载索引：{_index.ntotal} 个向量，{len(_chunks)} 个文本块。")
-    return _index, _chunks
+    print(f"[RAG] 已加载索引：{_matrix.shape[0]} 个文本块。")
+    return _vectorizer, _chunks
 
 
 # ============ 5. 检索 ============
@@ -191,33 +192,32 @@ def search(query, top_k=TOP_K):
         ...
     ]
     """
-    global _index, _chunks
+    global _vectorizer, _matrix, _chunks
 
-    # 确保索引已加载
-    if _index is None or _chunks is None:
+    if _vectorizer is None or _matrix is None or _chunks is None:
         load_index()
 
-    if _index is None or _chunks is None:
+    if _vectorizer is None or _chunks is None:
         print("[RAG] 索引未就绪，无法检索。")
         return []
 
-    model = _get_model()
+    from sklearn.metrics.pairwise import cosine_similarity
 
-    # 用户问题 → 向量
-    query_embedding = model.encode([query], normalize_embeddings=True)
-    query_embedding = np.array(query_embedding, dtype='float32')
+    query_vec = _vectorizer.transform([query])
+    scores = cosine_similarity(query_vec, _matrix).ravel()
 
-    # FAISS 搜索
-    scores, indices = _index.search(query_embedding, top_k)
+    # top_k 下标（从大到小）
+    top_indices = scores.argsort()[::-1][:top_k]
 
     results = []
-    for i, idx in enumerate(indices[0]):
+    for idx in top_indices:
         if idx < 0 or idx >= len(_chunks):
             continue
+        score = float(scores[idx])
         results.append({
             'text': _chunks[idx]['text'],
             'source': _chunks[idx]['source'],
-            'score': float(scores[0][i])
+            'score': score
         })
 
     return results
@@ -243,6 +243,6 @@ def init_rag():
     初始化 RAG 系统：加载索引（如不存在则自动构建）。
     建议在 Flask app 启动时调用一次。
     """
-    print("[RAG] 初始化 RAG 系统...")
+    print("[RAG] 初始化 RAG 系统（轻量 TF-IDF 版）...")
     load_index()
     print("[RAG] RAG 系统就绪。")
