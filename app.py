@@ -29,16 +29,6 @@ except Exception as e:
     RAG_ENABLED = False
     print(f"[APP] RAG 系统初始化失败，将使用纯 prompt 模式: {e}")
 
-# Render 重定向到 CloudBase（仅在 Render 环境生效）
-CLOUDBASE_URL = "https://personal-website-233349-7-1312753510.sh.run.tcloudbase.com"
-RENDER_HOST = "zhoujing-s-personal-website.onrender.com"
-
-@app.before_request
-def redirect_to_cloudbase():
-    """如果是从 Render 访问，重定向到 CloudBase"""
-    if request.host == RENDER_HOST:
-        return redirect(CLOUDBASE_URL + request.full_path, code=301)
-
 # 多语言支持
 def get_language():
     return session.get('language', 'en')
