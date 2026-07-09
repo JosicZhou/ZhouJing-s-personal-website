@@ -390,10 +390,8 @@ function addMessage(text, sender) {
     let avatar;
     if (sender === 'user') {
         avatar = '<i class="fas fa-user"></i>';
-    } else if (mode === 'personal') {
-        avatar = `<img src="/static/images/avatars/user-avatar.jpg" alt="ZJ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><i class="fas fa-robot" style="display:none;"></i>`;
     } else {
-        avatar = '<i class="fas fa-robot"></i>';
+        avatar = `<img src="/static/images/avatars/user-avatar.jpg" alt="ZJ" onerror="this.style.display='none';">`;
     }
     
     div.innerHTML = `<div class="chatbot-msg-avatar ${sender}">${avatar}</div><div class="chatbot-msg-bubble ${sender}">${text}</div>`;
@@ -406,7 +404,7 @@ function showTypingIndicator() {
     const div = document.createElement('div');
     div.className = 'chatbot-msg assistant';
     div.id = 'typingIndicator';
-    div.innerHTML = `<div class="chatbot-msg-avatar assistant"><i class="fas fa-robot"></i></div><div class="chatbot-msg-bubble assistant"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+    div.innerHTML = `<div class="chatbot-msg-avatar assistant"><img src="/static/images/avatars/user-avatar.jpg" alt="ZJ" onerror="this.style.display='none';"></div><div class="chatbot-msg-bubble assistant"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
     container.appendChild(div);
     container.scrollTop = container.scrollHeight;
 }

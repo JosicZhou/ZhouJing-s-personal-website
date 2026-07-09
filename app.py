@@ -12,8 +12,8 @@ app = Flask(__name__)
 # 从环境变量获取 SECRET_KEY，如果没有则使用默认值（生产环境必须设置环境变量）
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key-change-me')
 
-# APICore.ai 配置
-API_BASE_URL = "https://api.apicore.ai"
+# kie.ai 配置
+API_BASE_URL = "https://api.kie.ai"
 # 从环境变量获取 API_KEY
 API_KEY = os.environ.get('API_KEY')
 
@@ -41,24 +41,30 @@ def get_text(key):
 def inject_translations():
     return dict(get_text=get_text, current_language=get_language())
 
-def call_apicore_ai(messages, model="gpt-4o"):
-    """调用APICore.ai API"""
+def call_apicore_ai(messages, model="gemini-2.5-flash"):
+    """调用 kie.ai API"""
     headers = {
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json"
     }
-    
+
+    # kie.ai 要求 content 为数组格式，且 model 嵌在 URL 中
+    formatted_messages = []
+    for msg in messages:
+        content = msg["content"]
+        if isinstance(content, str):
+            content = [{"type": "text", "text": content}]
+        formatted_messages.append({"role": msg["role"], "content": content})
+
     data = {
-        "model": model,
-        "messages": messages,
-        "max_tokens": 1000,
-        "temperature": 0.7
+        "messages": formatted_messages,
+        "stream": False,
     }
-    
+
     try:
-        print(f"正在调用API，模型: {data['model']}")
+        print(f"正在调用API，模型: {model}")
         response = requests.post(
-            f"{API_BASE_URL}/v1/chat/completions",
+            f"{API_BASE_URL}/{model}/v1/chat/completions",
             headers=headers,
             json=data,
             timeout=30
@@ -82,7 +88,7 @@ def chat_api():
     
     user_message = data['message']
     mode = data.get('mode', 'personal')
-    model = data.get('model', 'gpt-4o')
+    model = data.get('model', 'gemini-2.5-flash')
     
     conversation_key = f'conversation_{mode}'
     if conversation_key not in session:
@@ -171,11 +177,8 @@ def reset_chat(mode):
 def get_available_models():
     """获取可用的AI模型列表"""
     models = [
-        {'id': 'gpt-4o', 'name': 'GPT-4o', 'provider': 'OpenAI'},
-        {'id': 'gpt-4o-mini', 'name': 'GPT-4o Mini', 'provider': 'OpenAI'},
-        {'id': 'claude-3-5-sonnet-20241022', 'name': 'Claude 3.5 Sonnet', 'provider': 'Anthropic'},
-        {'id': 'gemini-2.0-flash', 'name': 'Gemini 2.0 Flash', 'provider': 'Google'},
-        {'id': 'o1-mini', 'name': 'OpenAI o1-mini', 'provider': 'OpenAI'}
+        {'id': 'gemini-2.5-flash', 'name': 'Gemini 2.5 Flash', 'provider': 'Google'},
+        {'id': 'gemini-2.5-pro', 'name': 'Gemini 2.5 Pro', 'provider': 'Google'}
     ]
     return jsonify({'models': models})
 
